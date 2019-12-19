@@ -64,7 +64,7 @@ uninstall就是直接删，rm -fr <https://docs.anaconda.com/anaconda/install/un
 1. 取翻译结果 https://automatetheboringstuff.com/chapter11/
 2. [Bashing the Bash — Replacing Shell Scripts with Python](https://medium.com/capital-one-tech/bashing-the-bash-replacing-shell-scripts-with-python-d8d201bc0989)
 
-
+[What Can I Do With Python?](https://realpython.com/what-can-i-do-with-python/)
 
 #### python & pip 版本问题
 
@@ -325,7 +325,7 @@ pip 19.2.3 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
 
 #### with & lamda
 
-1. with & lambda 用法 
+1. with & lambda 用法 (“匿名函数？”) 
 2. map, filter lamda
 
 
@@ -641,6 +641,8 @@ CLT headers: 10.3.0.0.1.1562985497
 
 OO Python ？？
 
+https://docs.python-guide.org/writing/structure/#object-oriented-programming 
+
 
 
 ### 10.25 更新
@@ -686,7 +688,7 @@ generator 什么概念？
 1. [Running shell command and capturing the output](https://stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output)
 2. 但使用 subprocess.run 问题是必须等到执行shell命令执行结束才输出，对于执行时间长的命令很不友好，所以查看了这个 Q&A  [Constantly print Subprocess output while process is running](https://stackoverflow.com/questions/4417546/constantly-print-subprocess-output-while-process-is-running) 但是它的答复太多，简单试了几个好像不生效。
 3. [Read streaming input from subprocess.communicate()](https://stackoverflow.com/questions/2715847/read-streaming-input-from-subprocess-communicate) 终于找到能生效方法，但难道是必须用Popen？
-4. [What is the difference between subprocess.popen and subprocess.run](https://stackoverflow.com/questions/39187886/what-is-the-difference-between-subprocess-popen-and-subprocess-run) 必须Popen
+4. [What is the difference between subprocess.popen and subprocess.run](https://stackoverflow.com/questions/39187886/what-is-the-difference-between-subprocess-popen-and-subprocess-run) 如果要看到命令执行过程输出，必须Popen
 5. [What is the difference between using universal_newlines=True (with bufsize=1) and using default arguments with Popen](https://stackoverflow.com/questions/38181494/what-is-the-difference-between-using-universal-newlines-true-with-bufsize-1-an) 进一步解释 这两个参数作用
 
 #### argparse
@@ -697,7 +699,111 @@ generator 什么概念？
 
 
 
+### 11.25
+
+#### Pexpect
+
+https://pexpect.readthedocs.io/en/stable/index.html
 
 
 
+### 11.29 
+
+argparse 对照 cookbook 文章接着做修改。
+
+Dictionary https://realpython.com/iterate-through-dictionary-python/
+
+[How to Run Your Python Scripts](https://realpython.com/run-python-scripts/)
+
+argparse 这个包其实和 npm包 yargs 作用相同，用nodejs写脚本可以参见[阮一峰这篇](http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html) 
+
+
+
+### 12.1
+
+#### [An Effective Python Environment: Making Yourself at Home](https://realpython.com/effective-python-environment/)
+
+
+
+### 12.3
+
+[null object in Python?](https://stackoverflow.com/questions/3289601/null-object-in-python)
+
+[Ternary Operators](https://book.pythontips.com/en/latest/ternary_operators.html)
+
+
+
+### 12.13
+
+in operator, [不只是list](https://data-flair.training/blogs/python-operator/) string，tuple 也可以。
+
+check_output
+
+#### 暂停一段 python学习，学习 vue
+
+vue  plugin vs mixin, plugin用来增加全局变量
+
+[plugin 一个很简单例子](https://dev.to/nkoik/writing-a-very-simple-plugin-in-vuejs---example-8g8) 
+
+[Understanding Mixins in Vue JS](https://blog.bitsrc.io/understanding-mixins-in-vue-js-bdcf9e02a7c1)
+
+[Directives](https://vuejs.org/v2/guide/syntax.html#Directives) `v-bind = : , v-on = @ , v-if`  注意 directive是用来修改 dom元素
+
+[v-for 遍历 数组或object](https://vuejs.org/v2/guide/list.html)
+
+[mixin, directive, filter用在一起的一个简单例子](https://blog.logrocket.com/mixins-and-custom-functions-to-enhance-your-vue-applications-693caa7ae76a/)
+
+
+
+### 12.17
+
+用 pipenv 定位 3.5.2的问题
+
+首先使用 pyenv 安装不同版本python:
+
+1. 10.22做过 [Why you should use pyenv + Pipenv for your Python projects](https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c)
+2. https://realpython.com/intro-to-pyenv/
+3. https://weknowinc.com/blog/running-multiple-python-versions-mac-osx
+
+
+
+发现我的脚本 iph.py在3.5.2运行错误原因是 正则匹配组的时候，3.5.2必须要再调用 group()才能得到匹配的组
+
+[具体参见](https://github.com/YumaInaura/YumaInaura/issues/1281)
+
+安装 3.5.2 时候编译出错，因为
+
+```shell
+zlib is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+For compilers to find zlib you may need to set:
+  export LDFLAGS="-L/usr/local/opt/zlib/lib"
+  export CPPFLAGS="-I/usr/local/opt/zlib/include"
+```
+
+
+
+编译完还是没法改变版本，[在SO问](https://stackoverflow.com/questions/59377288/my-pyenv-can-not-switch-python-version-what-did-i-do-wrong) 无果，[给他开问题单](https://github.com/pyenv/pyenv/issues/1492) 很不客气的关了，说你就是没有设置 `eval "$(pyenv init -)"`  一开始我确实没有，但后来设置了。所以我才奇怪。但是经他这么一说，我突然想起来最新的macOS 15.2 已经把缺省shell从bash改成zsh，一试，果然是这个原因！
+
+注意：安装一个python版本, pyenv会从下载源代码开始，然后编译，还是很耗时间，编译过程可能碰到的问题参见[这里](https://github.com/pyenv/pyenv/wiki/Common-build-problems)
+
+pyenv是根据每个目录设置python版本，
+
+```shell
+learning_python ➤ ./re_test.py 
+Traceback (most recent call last):
+  File "./re_test.py", line 5, in <module>
+    image_id = group[1]
+TypeError: '_sre.SRE_Match' object is not subscriptable
+learning_python ➤ re35/re_test.py /*两个文件完全一样*/
+qiulang
+
+learning_python ➤ pyenv version
+3.5.3 (set by /Users/qiulang/Dev/learning_python/.python-version)
+learning_python ➤ cd re35
+re35 ➤ pyenv version
+system (set by /Users/qiulang/Dev/learning_python/re35/.python-version)
+```
 
