@@ -705,9 +705,13 @@ generator 什么概念？
 
 https://pexpect.readthedocs.io/en/stable/index.html
 
+但没机会尝试！
+
 
 
 ### 11.29 
+
+#### argparse 总结
 
 argparse 对照 cookbook 文章接着做修改。
 
@@ -721,11 +725,15 @@ argparse 这个包其实和 npm包 yargs 作用相同，用nodejs写脚本可以
 
 ### 12.1
 
-#### [An Effective Python Environment: Making Yourself at Home](https://realpython.com/effective-python-environment/)
+#### 各种环境管理的总结
+
+[An Effective Python Environment: Making Yourself at Home](https://realpython.com/effective-python-environment/) 各种环境管理的总结
 
 
 
 ### 12.3
+
+#### null vs None
 
 [null object in Python?](https://stackoverflow.com/questions/3289601/null-object-in-python)
 
@@ -756,6 +764,8 @@ vue  plugin vs mixin, plugin用来增加全局变量
 
 
 ### 12.17
+
+#### pyenv
 
 用 pipenv 定位 3.5.2的问题
 
@@ -807,3 +817,36 @@ re35 ➤ pyenv version
 system (set by /Users/qiulang/Dev/learning_python/re35/.python-version)
 ```
 
+
+
+### 12.24 
+
+#### **
+
+[What does ** (double star/asterisk) and * (star/asterisk) do for parameters?](https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters)
+
+[Python : How to check if a key exists in dictionary ?](https://thispointer.com/python-how-to-check-if-a-key-exists-in-dictionary/)  `dict.get(key[, default])` 
+
+[How do I let preinstalled python 2.7 access pip installed modules?](https://apple.stackexchange.com/questions/378272/how-do-i-let-preinstalled-python-2-7-access-pip-installed-modules)
+
+
+
+### 12.25
+
+#### 写处理 mysql脚本:
+
+1. 参照 [Python Select from MySQL Table](https://pynative.com/python-mysql-select-query-to-fetch-data/) . 注意一点, google 搜索第一位的 [w3school 文章](https://www.w3schools.com/python/python_mysql_getstarted.asp) 使用的驱动 [mysql-connector](https://pypi.org/project/mysql-connector/) 已经Deprecated
+
+2. 关于参数化查询，使用tuple的注意事项 [tuple](https://www.tutorialspoint.com/python/python_tuples.htm) :  To write a tuple containing a single value you have to include a comma, even though there is only one value `tup1 = (50,);` 
+
+3. finally 一定会被掉用，即便有exit https://docs.python.org/2.5/whatsnew/pep-341.html
+
+
+
+因为使用 python2 把 Popen 和 run,call区别又看了一遍，同时也熟悉 python2 下 如何实时读取子进程输出。
+
+1. [What's the difference between subprocess Popen and call (how can I use them)?](https://stackoverflow.com/questions/7681715/whats-the-difference-between-subprocess-popen-and-call-how-can-i-use-them)
+
+2. [What's the difference between Python's subprocess.call and subprocess.run](https://stackoverflow.com/questions/40697583/whats-the-difference-between-pythons-subprocess-call-and-subprocess-run)
+
+3. [Realtime output from a shell command in Python](https://zaiste.net/realtime_output_from_shell_command_in_python/) : `process.communicate()` that blocks till given command is completed.
