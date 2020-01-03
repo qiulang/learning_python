@@ -761,6 +761,8 @@ vue  plugin vs mixin, plugin用来增加全局变量
 
 [mixin, directive, filter用在一起的一个简单例子](https://blog.logrocket.com/mixins-and-custom-functions-to-enhance-your-vue-applications-693caa7ae76a/)
 
+css framework 重新评估后还是暂时选 [bulma](https://bulma.io/) , 这个比较可以看下 [Evaluating CSS Frameworks — Bootstrap vs Bulma vs Foundation vs Milligram vs Pure vs Semantic vs UIKit](https://codeburst.io/evaluating-css-frameworks-bulma-vs-foundation-vs-milligram-vs-pure-vs-semantic-vs-uikit-503883bd25a3) 
+
 
 
 ### 12.17
@@ -850,3 +852,39 @@ system (set by /Users/qiulang/Dev/learning_python/re35/.python-version)
 2. [What's the difference between Python's subprocess.call and subprocess.run](https://stackoverflow.com/questions/40697583/whats-the-difference-between-pythons-subprocess-call-and-subprocess-run)
 
 3. [Realtime output from a shell command in Python](https://zaiste.net/realtime_output_from_shell_command_in_python/) : `process.communicate()` that blocks till given command is completed.
+
+
+
+### 12.27
+
+
+
+#### OO
+
+OO ？ [A real life examples of object-oriented Python script? 这个问题始终是个困惑](https://softwareengineering.stackexchange.com/questions/403001/a-real-life-examples-of-object-oriented-python-script) 不幸真的被删，不过还是得到一个回答还，我觉得还可以
+
+> A single script that is written to replace a bash script often does not require OO modeling, so this kind of scripts is often not a good example. Most of these scripts are designed to perform a single task in a mostly linear run, so a couple of loops and task specific logic is sufficient.
+>
+> OO design has its strengths when data has complex structure and lifetime, and when generalizations and specializations of classes are needed in a problem domain. For example, a script that should be able to deal with various media file formats might benefit from a hierarchy of file type handlers.
+>
+> The libraries used by scripts are the main places where objects happen, so you might have a look at the source code of packages from a domain that you're familiar with.
+>
+> Applications with a GUI or web interface might also be suitable examples, although probably less so than the library packages.
+
+
+
+### 1.3
+
+#### OOP again
+
+第一次在reddit 提问 [A real life examples of object-oriented Python script?](https://www.reddit.com/r/learnpython/comments/ej9eh4/a_real_life_examples_of_objectoriented_python/)
+
+一些 OOP 的文章
+
+1. [Improve Your Python: Python Classes and Object Oriented Programming](https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/)
+
+2. [Object-Oriented Programming in Python vs Java](https://realpython.com/oop-in-python-vs-java/)
+
+3. [Object-Oriented Programming in Python](https://python-textbok.readthedocs.io/en/1.0/#object-oriented-programming-in-python)
+
+   
