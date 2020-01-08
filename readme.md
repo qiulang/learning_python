@@ -888,3 +888,27 @@ OO ？ [A real life examples of object-oriented Python script? 这个问题始�
 3. [Object-Oriented Programming in Python](https://python-textbok.readthedocs.io/en/1.0/#object-oriented-programming-in-python)
 
    
+
+### 1.8
+
+#### self
+
+[What is the purpose of the word 'self', in Python?](https://stackoverflow.com/questions/2709821/what-is-the-purpose-of-the-word-self-in-python) 有几个答案值得看
+
+1. https://stackoverflow.com/a/2725996/301513 基本复述了 ["Why explicit self has to stay" by Guido van Rossum](https://neopythonic.blogspot.com/2008/10/why-explicit-self-has-to-stay.html) 给类添加一个方法，复用一个def
+2. https://stackoverflow.com/a/6433556/301513 模拟没用 class的实现
+3. https://stackoverflow.com/a/2709857/301513 调用基类
+
+
+
+[Adding Support for User-defined Classes](https://python-history.blogspot.com/2009/02/adding-support-for-user-defined-classes.html) 关于历史，有点长，没看完。
+
+
+
+#### 结巴分词分析
+
+1. https://blog.csdn.net/daniel_ustc/article/details/48195287
+
+2. 结巴的模型数据来源 https://github.com/fxsjy/jieba/issues/7
+
+   
