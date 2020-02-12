@@ -655,6 +655,8 @@ https://pythontips.com/2013/08/01/packaging-and-distributing-your-python-librari
 
 https://timothybramlett.com/How_to_create_a_Python_Package_with___init__py.html
 
+> It allows you to treat a directory as if it was a python module
+
 
 
 ### 10.27 更新
@@ -912,3 +914,137 @@ OO ？ [A real life examples of object-oriented Python script? 这个问题始�
 2. 结巴的模型数据来源 https://github.com/fxsjy/jieba/issues/7
 
    
+  
+### 1.9
+
+#### setup.py
+
+https://stackoverflow.com/questions/1471994/what-is-setup-py
+
+
+
+### 1.17
+
+#### generator & yield
+
+[How to Use Generators and yield in Python](https://realpython.com/introduction-to-python-generators/)
+
+[What does the “yield” keyword do?](https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do)
+
+和 JavaScript应该一样的东西
+
+
+
+#### relative import
+
+1. [What does a . in an import statement in Python mean?](https://stackoverflow.com/questions/7279810/what-does-a-in-an-import-statement-in-python-mean)
+2. https://www.python.org/dev/peps/pep-0328/#guido-s-decision
+
+
+
+#### _compat.py
+
+1. [Best Practices for Compatible Python 2 and 3 Code](https://pybit.es/python-porting.html)
+
+2. https://chromium.googlesource.com/external/github.com/giampaolo/psutil/+/master/psutil/_compat.py
+
+3. [Porting to Python 3 Redux](https://lucumr.pocoo.org/2013/5/21/porting-to-python-3-redux/) 长，没看
+
+4. [The key differences between Python 2.7.x and Python 3.x with examples](http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html#the-__future__-module)
+
+   
+
+#### `__init__`
+
+1. [What’s __init__ for me?](https://towardsdatascience.com/whats-init-for-me-d70a312da583)
+2. ...
+
+
+
+### 2.6
+
+#### `__main__`
+
+[Defining Main Functions in Python](https://realpython.com/python-main-function/)
+
+#### `setup.py`
+[A Practical Guide to Using Setup.py](https://blog.godatadriven.com/setup-py)
+
+如何能执行 jieba 的test 代码？
+
+[How to run tests without installing package?](https://stackoverflow.com/questions/23984973/how-to-run-tests-without-installing-package)
+
+
+
+### 2.9
+
+####执行 jieba 的test 代码
+
+测试目录和代码目录同级. `pip3 install pytest` 但 `collected 0 items`  因为它没用pytest
+
+看了下测试代码都有，所以其实直接进到test目录执行就行
+
+```python
+import sys
+sys.path.append('../')
+```
+
+
+
+[Good Integration Practices](https://docs.pytest.org/en/latest/goodpractices.html#tests-outside-application-code)
+
+### Tests outside application code
+
+> Putting tests into an extra directory outside your actual application code might be useful if you have many functional tests or for other reasons want to keep tests separate from actual application code (often a good idea):
+
+```python
+setup.py
+mypkg/
+    __init__.py
+    app.py
+    view.py
+tests/
+    test_app.py
+    test_view.py
+    ...
+```
+
+[Python | end parameter in print()](https://www.geeksforgeeks.org/gfact-50-python-end-parameter-in-print/) 为了不换行
+
+
+
+### 2.12
+
+#### vscode format on save
+
+发现一个[bug](https://github.com/microsoft/vscode-python/issues/10069)，vscode会修改import语句顺序，所以结巴的test代码一保存就出错了。
+
+关于import 语句顺序， [pep8](https://www.python.org/dev/peps/pep-0008/)
+
+> Imports should be grouped in the following order:
+>
+> 1. Standard library imports.
+> 2. Related third party imports.
+> 3. Local application/library specific imports.
+>
+> You should put a blank line between each group of imports.
+>
+
+两个SO 讨论
+
+1. [Python Import Order](https://softwareengineering.stackexchange.com/questions/341001/python-import-order)
+2. [What's the correct way to sort Python `import x` and `from x import y` statements?](https://stackoverflow.com/questions/20762662/whats-the-correct-way-to-sort-python-import-x-and-from-x-import-y-statement)
+
+
+
+#### 召回率与精确率
+
+[如何解释召回率与精确率？](https://www.zhihu.com/question/19645541)
+
+`recall = TP/All P `   & `precision = TP / All count` (分母是我的理解)
+
+正确写法
+
+`recall = TP/TP+FN`  & `precision = TP/TP+FP` 
+
+[Beyond Accuracy: Precision and Recall](https://towardsdatascience.com/beyond-accuracy-precision-and-recall-3da06bea9f6c) 长，只看了前一小段，但是对于 [Imbalanced Classification Problems in machine learning](https://www.analyticsvidhya.com/blog/2017/03/imbalanced-classification-problem/) 怎么破？ 100人里有 5个坏人，坏人 recall 和 precision 容易理解，但是如果是计算好人，我把100人全归为好人，这时的 recall 和 precision 怎么理解 ？这是不是现实中 innocent unless proove otherwise ? 
