@@ -903,7 +903,7 @@ OO ？ [A real life examples of object-oriented Python script? 这个问题始�
 
 
 
-[Adding Support for User-defined Classes](https://python-history.blogspot.com/2009/02/adding-support-for-user-defined-classes.html) 关于历史，有点长，没看完。
+[Adding Support for User-defined Classes](https://python-history.blogspot.com/2009/02/adding-support-for-user-defined-classes.html) 关于历史，有点长，说明了为啥要self
 
 
 
@@ -1048,3 +1048,71 @@ tests/
 `recall = TP/TP+FN`  & `precision = TP/TP+FP` 
 
 [Beyond Accuracy: Precision and Recall](https://towardsdatascience.com/beyond-accuracy-precision-and-recall-3da06bea9f6c) 长，只看了前一小段，但是对于 [Imbalanced Classification Problems in machine learning](https://www.analyticsvidhya.com/blog/2017/03/imbalanced-classification-problem/) 怎么破？ 100人里有 5个坏人，坏人 recall 和 precision 容易理解，但是如果是计算好人，我把100人全归为好人，这时的 recall 和 precision 怎么理解 ？这是不是现实中 innocent unless proove otherwise ? 
+
+
+
+#### jieba分析文章
+
+[jieba分词学习笔记 一](https://segmentfault.com/a/1190000004061791)  Prefix Set是怎么要学习下
+[jieba分词学习笔记 二](https://segmentfault.com/a/1190000004065927?utm_source=tag-newest) DAG要学习下
+[jieba分词学习笔记 三](https://segmentfault.com/a/1190000004085949?utm_source=tag-newest) 讲解DAG
+
+
+
+另外一组分析结巴的文章
+
+https://blog.csdn.net/daniel_ustc/article/details/48195287 
+
+https://github.com/howl-anderson/MicroTokenizer
+
+
+
+### 2.13
+
+#### autopep8 
+
+关于 [format on save的bug](https://github.com/microsoft/vscode-python/issues/10069) 对不需要格式化的行加 `# NOQA`
+
+
+
+### 2.20
+
+函数定义放在哪好 [Declare function at end of file in Python](https://stackoverflow.com/questions/3754240/declare-function-at-end-of-file-in-python) 对照2.6号关于main的文章
+
+> The Pythonic way to write code is to divide your program into modules that define classes and functions, and a single "main module" that imports all the others and runs.
+>
+> For simple throw-away scripts get used to placing the "executable portion" at the end, or better yet, learn to use an interactive Python shell.
+
+长串多行显示，而且没有多余字符 [Pythonic way to create a long multi-line string](https://stackoverflow.com/questions/10660435/pythonic-way-to-create-a-long-multi-line-string)
+
+
+
+timeit 没法测试带输入参数的函数[how to pass parameters of a function when using timeit.Timer()](https://stackoverflow.com/questions/5086430/how-to-pass-parameters-of-a-function-when-using-timeit-timer)
+
+> The code snippets must be self-contained - they cannot make external references. You must define your values in the statement-string or setup-string
+
+
+
+[Python: variables scope and profile.run](https://stackoverflow.com/questions/8682716/python-variables-scope-and-profile-run)
+
+> Instead of using `run()` use `runctx()` which allows you to supply locals and globals. 
+
+
+
+还是简单用时间差吧 https://stackoverflow.com/questions/5478351/python-time-measure-function
+
+[fstring 的各种格式](http://zetcode.com/python/fstring/) 
+
+
+
+如何并行执行函数？
+
+1.  [Running same function for multiple files in parallel in python](https://stackoverflow.com/questions/25889268/running-same-function-for-multiple-files-in-parallel-in-python)
+2.  https://stackoverflow.com/questions/7207309/python-how-can-i-run-python-functions-in-parallel
+
+
+
+找时间读 [Setting Up Python for Machine Learning on Windows](https://realpython.com/python-windows-machine-learning-setup/)
+
+
+
