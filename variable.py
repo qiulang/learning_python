@@ -1,4 +1,7 @@
 #! /usr/bin/env python3
+import os
+
+
 def foo(param1, *param2):
     print(param1)
     print(param2)
@@ -29,6 +32,8 @@ def func(required_arg, *args, **kwargs):
     if kwargs:  # If kwargs is not empty.
         print(kwargs)
 
+
+print(os.environ['PORT'])
 
 print(foo(1, 2, 3, 4, 5))
 print("\n")

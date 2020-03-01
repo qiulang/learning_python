@@ -671,7 +671,9 @@ redis nodejs 客户端我们用ioredis,  https://github.com/NodeRedis/node_redis
 
 ### 10.28 更新
 
-generator 什么概念？
+#### generator 什么概念？
+
+[What does the “yield” keyword do?](https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do)
 
 [pubsub 使用](https://pypi.org/project/redis/) "There are three different strategies for reading messages." ... "If your application doesn’t need to do anything else but receive and act on messages received from redis, listen() is an easy way to get up an running."
 
@@ -1069,13 +1071,17 @@ https://github.com/howl-anderson/MicroTokenizer
 
 ### 2.13
 
-#### autopep8 
+#### vscode format on save 
+
+autopep8 
 
 关于 [format on save的bug](https://github.com/microsoft/vscode-python/issues/10069) 对不需要格式化的行加 `# NOQA`
 
 
 
 ### 2.20
+
+#### REST API test script
 
 函数定义放在哪好 [Declare function at end of file in Python](https://stackoverflow.com/questions/3754240/declare-function-at-end-of-file-in-python) 对照2.6号关于main的文章
 
@@ -1115,4 +1121,20 @@ timeit 没法测试带输入参数的函数[how to pass parameters of a function
 找时间读 [Setting Up Python for Machine Learning on Windows](https://realpython.com/python-windows-machine-learning-setup/)
 
 
+
+### 3.1
+
+#### SO pyton 问题排名
+
+[SO python 问题排名](https://stackoverflow.com/questions/tagged/python?tab=votes&page=1&pagesize=50)
+
+比如访问环境变量 `os.environ`  [How to access environment variable values?](https://stackoverflow.com/questions/4906977/how-to-access-environment-variable-values)
+
+[How do I check if a variable exists?](https://stackoverflow.com/questions/843277/how-do-i-check-if-a-variable-exists) `in locals()` & `in globals()`
+
+`in`操作符 可以检查 字符串是否包含某个子字符串，可以检查list 是否含某个元素
+
+[How to use glob() to find files recursively?](https://stackoverflow.com/questions/2186525/how-to-use-glob-to-find-files-recursively) 才用上
+
+[Calling a function of a module by using its name (a string)](https://stackoverflow.com/questions/3061/calling-a-function-of-a-module-by-using-its-name-a-string) 我用map
 
