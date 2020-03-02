@@ -1114,12 +1114,28 @@ timeit 没法测试带输入参数的函数[how to pass parameters of a function
 如何并行执行函数？
 
 1.  [Running same function for multiple files in parallel in python](https://stackoverflow.com/questions/25889268/running-same-function-for-multiple-files-in-parallel-in-python)
-2.  https://stackoverflow.com/questions/7207309/python-how-can-i-run-python-functions-in-parallel
+2.  [Python: How can I run python functions in parallel?](https://stackoverflow.com/questions/7207309/python-how-can-i-run-python-functions-in-parallel)
 
 
 
 找时间读 [Setting Up Python for Machine Learning on Windows](https://realpython.com/python-windows-machine-learning-setup/)
 
+
+### 2.21
+
+[What is the syntax rule for having trailing commas in tuple definitions?](https://stackoverflow.com/questions/7992559/what-is-the-syntax-rule-for-having-trailing-commas-in-tuple-definitions)
+
+python 函数调用不可以给多的参数，这和[javascript 不一样](https://stackoverflow.com/questions/12694031/what-happens-if-i-call-a-js-method-with-more-parameters-than-it-is-defined-to-ac)
+
+
+
+### 2.24
+
+#### timeit
+
+[Python Timeit Module (With Examples)](https://www.pylenin.com/blogs/python-timeit-module/)
+
+有时间看他的[blog](https://www.pylenin.com/blogs/)
 
 
 ### 3.1
@@ -1137,4 +1153,5 @@ timeit 没法测试带输入参数的函数[how to pass parameters of a function
 [How to use glob() to find files recursively?](https://stackoverflow.com/questions/2186525/how-to-use-glob-to-find-files-recursively) 才用上
 
 [Calling a function of a module by using its name (a string)](https://stackoverflow.com/questions/3061/calling-a-function-of-a-module-by-using-its-name-a-string) 我用map
+
 
