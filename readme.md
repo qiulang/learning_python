@@ -328,6 +328,15 @@ pip 19.2.3 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
 1. with & lambda 用法 (“匿名函数？”) 
 2. map, filter lamda
 
+lambda *arguments* : *expression*
+
+```
+x = lambda a : a + 10
+x = lambda a, b : a * b
+```
+
+
+
 
 
 ### 10.14 更新
@@ -1055,15 +1064,19 @@ tests/
 
 #### jieba分析文章
 
-[jieba分词学习笔记 一](https://segmentfault.com/a/1190000004061791)  Prefix Set是怎么要学习下
+[jieba分词学习笔记 一](https://segmentfault.com/a/1190000004061791)  Prefix Set是怎么要学习下 https://github.com/fxsjy/jieba/pull/187
 [jieba分词学习笔记 二](https://segmentfault.com/a/1190000004065927?utm_source=tag-newest) DAG要学习下
 [jieba分词学习笔记 三](https://segmentfault.com/a/1190000004085949?utm_source=tag-newest) 讲解DAG
+
+一篇旧闻 [一篇文章总结语言处理中的分词问题](https://www.infoq.cn/article/nlp-word-segmentation/)
 
 
 
 另外一组分析结巴的文章
 
 https://blog.csdn.net/daniel_ustc/article/details/48195287 
+
+https://blog.csdn.net/John_xyz/article/details/54645527
 
 https://github.com/howl-anderson/MicroTokenizer
 
@@ -1138,6 +1151,7 @@ python 函数调用不可以给多的参数，这和[javascript 不一样](https
 有时间看他的[blog](https://www.pylenin.com/blogs/)
 
 
+
 ### 3.1
 
 #### SO pyton 问题排名
@@ -1154,4 +1168,75 @@ python 函数调用不可以给多的参数，这和[javascript 不一样](https
 
 [Calling a function of a module by using its name (a string)](https://stackoverflow.com/questions/3061/calling-a-function-of-a-module-by-using-its-name-a-string) 我用map
 
+
+
+### 3.13
+
+#### trie
+
+https://www.hackerearth.com/zh/practice/data-structures/advanced-data-structures/trie-keyword-tree/tutorial/ 
+
+https://brilliant.org/wiki/tries/
+
+[Applications Of Trie Data Structure](http://blog.xebia.in/index.php/2015/09/28/applications-of-trie-data-structure/)
+
+以上三篇大致看了，了解trie一些使用场景
+
+[How Do I Choose Between a Hash Table and a Trie (Prefix Tree)?](https://stackoverflow.com/questions/245878/how-do-i-choose-between-a-hash-table-and-a-trie-prefix-tree)
+
+[How to create a trie in Python](https://stackoverflow.com/questions/11015320/how-to-create-a-trie-in-python)
+
+这两个SO没看，要动手完成一个实际问题
+
+
+
+#### autocomplete 
+
+[Auto-complete feature using Trie](https://www.geeksforgeeks.org/auto-complete-feature-using-trie/)  练习
+
+> For example if the Trie store {“abc”, “abcd”, “aa”, “abbbaba”} and the User types in “ab” then he must be shown {“abc”, “abcd”, “abbbaba”}.
+
+
+
+[Trie autocomplete](https://medium.com/@daetam/trie-autocomplete-8dd23ddd3846) 更实际一点例子
+
+[Implementing a Trie to support autocomplete in Python](https://stackoverflow.com/questions/46038694/implementing-a-trie-to-support-autocomplete-in-python)  SO 例子
+
+```python
+from collections import defaultdict
+_trie = lambda: defaultdict(_trie)
+trie = _trie()
+for s in ["cat", "bat", "rat", "cam"]:
+    curr = trie
+    for c in s:
+        curr = curr[c]
+    curr.setdefault("_end")
+    ...
+```
+
+以及 [Implementing a Trie in Python (in less than 100 lines of code)](https://towardsdatascience.com/implementing-a-trie-data-structure-in-python-in-less-than-100-lines-of-code-a877ea23c1a1)
+
+
+
+[How does collections.defaultdict work?](https://stackoverflow.com/questions/5900578/how-does-collections-defaultdict-work)
+
+```python
+from collections import defaultdict
+
+s = 'mississippi'
+d = defaultdict(int)
+for k in s:
+    d[k] += 1
+
+d.items()
+[('i', 4), ('p', 2), ('s', 4), ('m', 1)]
+
+s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+d = defaultdict(list)
+for k, v in s:
+    d[k].append(v)
+
+d.items()
+[('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
+```
 
