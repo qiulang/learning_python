@@ -1028,7 +1028,7 @@ tests/
 
 #### vscode format on save
 
-发现一个[bug](https://github.com/microsoft/vscode-python/issues/10069)，vscode会修改import语句顺序，所以结巴的test代码一保存就出错了。
+发现一个[bug](https://github.com/microsoft/vscode-python/issues/10069)，vscode会修改import语句顺序，所以结巴的test代码一保存就出错了。注：见2.13 结果
 
 关于import 语句顺序， [pep8](https://www.python.org/dev/peps/pep-0008/)
 
@@ -1217,6 +1217,8 @@ for s in ["cat", "bat", "rat", "cam"]:
 以及 [Implementing a Trie in Python (in less than 100 lines of code)](https://towardsdatascience.com/implementing-a-trie-data-structure-in-python-in-less-than-100-lines-of-code-a877ea23c1a1)
 
 
+
+#### defaultdict
 
 [How does collections.defaultdict work?](https://stackoverflow.com/questions/5900578/how-does-collections-defaultdict-work)
 
