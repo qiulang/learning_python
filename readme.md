@@ -1260,3 +1260,21 @@ https://github.com/howl-anderson/MicroTokenizer
 
 [Python recursion with list returns None [duplicate]](https://stackoverflow.com/questions/2599149/python-recursion-with-list-returns-none)
 
+
+
+#### class first attemp
+
+用类方法实现tries
+
+
+
+### 3.17 
+
+这个答案 3.16那两个更好结束为什么递归处理不当会得到None https://stackoverflow.com/questions/11356168/return-in-recursive-function
+
+
+
+同级目录引入用 relative import 反而报错，没空研究；同一目录下不用relative import,[Creating and Importing Modules in Python](https://stackabuse.com/creating-and-importing-modules-in-python/)
+
+
+
