@@ -59,26 +59,35 @@ def suggestion(trie, prefix):
     # print('final check for remaining leaf')
     if _end in curr:
         return ''
-    dfirst(curr, prefix)
+    result = dfirst(curr, prefix)
+    print("recursive function is always a headache")
+    print(result)
 
 
-def dfirst(start, word):
-    if (_end in start):
-        # print(word)
-        return word
-    print(start.keys())
+def dfirst(start, prefix):
     for key in start:
         next = start[key]
-        prefix = word+key
-        w = dfirst(next, prefix)
-        if (w == None):
-            print(f"why,{prefix} : {key}")
+        if next == _end:
+            print(prefix)
         else:
-            print(w)
-    return w
+            word = prefix + key
+            dfirst(next, word)
+    return prefix  # 可以没有
+
+# 对比
 
 
-root = make_trie("abc", "abcd", "aa", "abbbaba")
+def dfirst2(start, prefix):
+    for key in start:
+        next = start[key]
+        if next != _end:
+            word = prefix + key
+            dfirst2(next, word)
+    print(prefix)
+    return prefix
+
+
+root = make_trie("abc", "abcd", "aa", "abbbaba", "abk")
 print(root)
 print(f'store "abc", "abcd", "aa", "abbbaba" and find prefix "ab"')
 suggestion(root, "ab")
