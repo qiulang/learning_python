@@ -30,8 +30,33 @@ def in_trie(trie, word):
     return _end in curr
 
 
-print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'baz'))
-print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'barz'))
-print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'barzz'))
-print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'bart'))
-print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'ba'))
+def suggestion(trie, prefix):
+    curr = trie
+    for letter in prefix:
+        if letter not in curr:
+            return ''
+        curr = curr[letter]
+    print('final check for remaining leaf')
+    if _end in curr:
+        return ''
+    dfirst(curr, prefix)
+
+
+def dfirst(start, word):
+    if (_end in start):
+        return word
+    for key in start:
+        next = start[key]
+        prefix = word+key
+        w = dfirst(next, prefix)
+        print(w)
+
+
+# print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'baz'))
+# print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'barz'))
+# print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'barzz'))
+# print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'bart'))
+# print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'ba'))
+
+root = make_trie(("abc", "abcd", "aa", "abbbaba",))
+suggestion(root, "ab")

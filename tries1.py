@@ -19,21 +19,25 @@ _end = '_end_'
 
 
 def make_trie(*words):
-    # root = {}
-    root = defaultdict(dict)
+    root = {}
+    # root = defaultdict(dict)
     for word in words:
         current_dict = root
         for letter in word:
-            # current_dict = current_dict.setdefault(letter, {})
-            # current_dict[letter] = defaultdict(dict)
-            current_dict = current_dict[letter]
+            current_dict = current_dict.setdefault(letter, {})
+            # current_dict = current_dict[letter]
         current_dict[_end] = _end
     return root
 
 
-# trie = make_trie('foo', 'bar', 'baz', 'barz')
+trie = make_trie(('foo', 'bar', 'baz', 'barz',))
+print(trie)
 
-# print(trie)
+# print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'baz'))
+# print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'barz'))
+# print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'barzz'))
+# print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'bart'))
+# print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'ba'))
 
 
 def in_trie(trie, word):
@@ -46,8 +50,35 @@ def in_trie(trie, word):
     return _end in current_dict
 
 
-print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'baz'))
-print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'barz'))
-print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'barzz'))
-print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'bart'))
-print(in_trie(make_trie('foo', 'bar', 'baz', 'barz'), 'ba'))
+def suggestion(trie, prefix):
+    curr = trie
+    for letter in prefix:
+        if letter not in curr:
+            return ''
+        curr = curr[letter]
+    # print('final check for remaining leaf')
+    if _end in curr:
+        return ''
+    dfirst(curr, prefix)
+
+
+def dfirst(start, word):
+    if (_end in start):
+        # print(word)
+        return word
+    print(start.keys())
+    for key in start:
+        next = start[key]
+        prefix = word+key
+        w = dfirst(next, prefix)
+        if (w == None):
+            print(f"why,{prefix} : {key}")
+        else:
+            print(w)
+    return w
+
+
+root = make_trie("abc", "abcd", "aa", "abbbaba")
+print(root)
+print(f'store "abc", "abcd", "aa", "abbbaba" and find prefix "ab"')
+suggestion(root, "ab")

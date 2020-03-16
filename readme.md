@@ -1242,3 +1242,21 @@ d.items()
 [('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
 ```
 
+
+
+### 3.16
+
+结巴代码先放一边，把 trie 和 DAG 先搞清楚
+
+https://github.com/howl-anderson/MicroTokenizer
+
+
+
+#### recursive
+
+递归调用得到`none` 
+
+[Why does my recursive function return None?](https://stackoverflow.com/questions/17778372/why-does-my-recursive-function-return-none)
+
+[Python recursion with list returns None [duplicate]](https://stackoverflow.com/questions/2599149/python-recursion-with-list-returns-none)
+
