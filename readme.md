@@ -1270,11 +1270,42 @@ https://github.com/howl-anderson/MicroTokenizer
 
 ### 3.17 
 
+
+
+#### 引入类练习
+
 这个答案 3.16那两个更好结束为什么递归处理不当会得到None https://stackoverflow.com/questions/11356168/return-in-recursive-function
 
 
 
-同级目录引入用 relative import 反而报错，没空研究；同一目录下不用relative import,[Creating and Importing Modules in Python](https://stackabuse.com/creating-and-importing-modules-in-python/)
+同一目录下不用relative import,[Creating and Importing Modules in Python](https://stackabuse.com/creating-and-importing-modules-in-python/)
+
+同级目录引入用 relative import , 而且**直接运行**反而报错。 
+
+1. [ModuleNotFoundError: What does it mean __main__ is not a package?](https://stackoverflow.com/questions/41816973/modulenotfounderror-what-does-it-mean-main-is-not-a-package)
+2. [ModuleNotFoundError: No module named '__main__.xxxx'; '__main__' is not a package](https://stackoverflow.com/questions/45446418/modulenotfounderror-no-module-named-main-xxxx-main-is-not-a-packag)
+
+
+
+没空看  [The Definitive Guide to Python import Statements](https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html#absolute-vs-relative-import)
+
+ `dict.get(key) vs dict[key]`   [Return None if Dictionary key is not available](https://stackoverflow.com/questions/6130768/return-none-if-dictionary-key-is-not-available)
+
+#### 递归练习 
+
+[Recursive merge sort in python](https://codereview.stackexchange.com/questions/154135/recursive-merge-sort-in-python)
+
+[merge sort/recursion in python](https://stackoverflow.com/questions/47124512/merge-sort-recursion-in-python)
+
+
+
+#### 练习
+
+1. 完成 autocomplete 第一个练习。
+2. 再找时间做另外两个练习
+3. 先完成递归例子
+
+
 
 
 

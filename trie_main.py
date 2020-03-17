@@ -8,3 +8,7 @@ print(t2.in_trie('barzz'))
 t3 = Trie("abc", "abcd", "aa", "abbbaba", "abk", "abce")
 print(t3)
 t3.suggestion("abc")
+
+t4 = Trie("hello", "dog", "hell", "cat", "a",
+          "hel", "help", "helps", "helping")
+t4.suggestion('hel')
