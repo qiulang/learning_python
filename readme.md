@@ -1307,5 +1307,27 @@ https://github.com/howl-anderson/MicroTokenizer
 
 
 
+### 3.20
+
+#### divide & conquer
+
+1. merge sort
+2. binary search
+3. 如何坚持数组是否排序了
+4. quick sort
+
+
+
+#### list comprehension &  Generator Expressions
+
+[List Comprehensions in Python](https://www.pythonforbeginners.com/basics/list-comprehensions-in-python)
+
+`new_list = [expression for member in iterable]` 
+
+[Python List Comprehensions vs Generator Expressions](https://www.geeksforgeeks.org/python-list-comprehensions-vs-generator-expressions/)
+
+`all(l[i] <= l[i+1] for i in range(len(l)-1))` 
+
+长没看 https://realpython.com/list-comprehension-python/
 
 
