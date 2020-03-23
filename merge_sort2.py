@@ -86,19 +86,23 @@ def quick_sort(array):
     else:
         right = arr[pivot+1:]
     a2 = left + [arr[pivot]] + right
-    # print(a2)
+    print(a2)
     return a2
     # quick_sort(array[:pivot])
     # quick_sort(array[pivot+1:])
+    # https://stackoverflow.com/questions/18262306/quicksort-with-python
 
 
 array = [4, 2, 3, 8, 20, 34, 43, 6, 1, 0]
 # array = [4, 2, 1, 9, 3, 8, 5]
 # print('merge sort :', array)
-ar = merge_sort(array)
-print(ar, sorted(ar))
+# ar = merge_sort(array)
+# print(ar, sorted(ar))
 # index = binary_search(ar, 20, 0)
 # print(index, ":", ar[index])
 ar2 = [8, 34, 6, 0, 2, 8, 34, 6, 1]
 a3 = quick_sort(ar2)
+# 3 [4, 2, 3, 6, 8, 20, 34, 43]
+# 到这步对的
+# print(a3, array)
 print(a3)

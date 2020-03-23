@@ -1331,3 +1331,7 @@ https://github.com/howl-anderson/MicroTokenizer
 长没看 https://realpython.com/list-comprehension-python/
 
 
+
+### 3.22
+
+quick_sort 不成功
