@@ -1335,3 +1335,12 @@ https://github.com/howl-anderson/MicroTokenizer
 ### 3.22
 
 quick_sort 不成功
+
+
+
+### 3.24 
+
+vscode 大bug！！！
+
+debugger 没法启动！ https://github.com/microsoft/vscode-python/issues/10684
+
