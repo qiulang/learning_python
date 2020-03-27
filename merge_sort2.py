@@ -69,24 +69,25 @@ def partition(sub):
 
 
 def quick_sort(array):
-    print("quick sort", array)
+    print(f"quick sort {array}")
     tmp = len(array)
     if tmp <= 1:
         return array
     (pivot, arr) = partition(array)
-    print(pivot, arr)
-    if (tmp == 2):
+    print(f"partition {pivot}, {arr}")
+    if (tmp <= 3):
         return arr
-    if (pivot > 0):
+    # 三个以上元素
+    if (pivot >= 2):
         left = quick_sort(arr[:pivot])
     else:
-        left = arr
+        left = arr[:pivot]
     if (pivot < len(arr)-2):
         right = quick_sort(arr[pivot+1:])
     else:
         right = arr[pivot+1:]
     a2 = left + [arr[pivot]] + right
-    print(a2)
+    print(f"combine left: {left} & rigth:{right} => {a2}")
     return a2
     # quick_sort(array[:pivot])
     # quick_sort(array[pivot+1:])
@@ -100,7 +101,7 @@ array = [4, 2, 3, 8, 20, 34, 43, 6, 1, 0]
 # print(ar, sorted(ar))
 # index = binary_search(ar, 20, 0)
 # print(index, ":", ar[index])
-ar2 = [8, 34, 6, 0, 2, 8, 34, 6, 1]
+ar2 = [8, 34, 16, 0, 2, 21, 38, 6, 9]
 a3 = quick_sort(ar2)
 # 3 [4, 2, 3, 6, 8, 20, 34, 43]
 # 到这步对的

@@ -1344,3 +1344,42 @@ vscode 大bug！！！
 
 debugger 没法启动！ https://github.com/microsoft/vscode-python/issues/10684
 
+
+
+### 3.26
+
+vscode 没法启动python  debugger 居然是因为没有设置LANG环境变量！
+
+1. https://github.com/microsoft/vscode-python/issues/10684
+2. https://github.com/microsoft/debugpy/issues/87
+3. https://apple.stackexchange.com/questions/385240/where-does-zsh-get-the-values-of-lang-lc-ctype-if-it-is-not-in-zshrc
+
+
+
+### 3.27
+
+jupyter https://realpython.com/jupyter-notebook-introduction/ 了解下
+
+[Getting Started to Work With Jupyter Notebooks in Visual Studio Code](https://towardsdatascience.com/getting-started-with-jupyter-notebooks-in-visual-studio-code-5dcccb3f739b)
+
+https://code.visualstudio.com/docs/python/jupyter-support "[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**."
+
+https://www.quora.com/What-are-benefits-of-Jupyter-notebook-over-PyCharm-like-IDE
+
+
+
+想起我给brew开的feature request已经解决但到底怎么做到，查了下 [2.2.3](https://github.com/Homebrew/brew/packages/29947?version=2.2.3) 解决
+
+[brew 的术语](https://docs.brew.sh/Formula-Cookbook)
+
+https://docs.brew.sh/Manpage 这里提到改变源的几个变量
+
+`HOMEBREW_BOTTLE_DOMAIN` `HOMEBREW_BREW_GIT_REMOTE` ``HOMEBREW_CORE_GIT_REMOTE`
+
+
+
+
+
+
+
+
