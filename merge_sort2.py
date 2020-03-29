@@ -55,55 +55,10 @@ def sorted(l):
     return all(l[i] <= l[i+1] for i in range(len(l)-1))
 
 
-def partition(sub):
-    pivot = sub[-1]
-    sub2 = sub[:-1]
-    index = len(sub)-1
-    for i, val in enumerate(sub2):
-        if val > pivot:
-            # del sub() 算法不对，先用remove
-            sub.remove(val)
-            sub = sub+[val]
-            index -= 1
-    return (index, sub)
-
-
-def quick_sort(array):
-    print(f"quick sort {array}")
-    tmp = len(array)
-    if tmp <= 1:
-        return array
-    (pivot, arr) = partition(array)
-    print(f"partition {pivot}, {arr}")
-    if (tmp <= 3):
-        return arr
-    # 三个以上元素
-    if (pivot >= 2):
-        left = quick_sort(arr[:pivot])
-    else:
-        left = arr[:pivot]
-    if (pivot < len(arr)-2):
-        right = quick_sort(arr[pivot+1:])
-    else:
-        right = arr[pivot+1:]
-    a2 = left + [arr[pivot]] + right
-    print(f"combine left: {left} & rigth:{right} => {a2}")
-    return a2
-    # quick_sort(array[:pivot])
-    # quick_sort(array[pivot+1:])
-    # https://stackoverflow.com/questions/18262306/quicksort-with-python
-
-
 array = [4, 2, 3, 8, 20, 34, 43, 6, 1, 0]
-# array = [4, 2, 1, 9, 3, 8, 5]
-# print('merge sort :', array)
-# ar = merge_sort(array)
-# print(ar, sorted(ar))
-# index = binary_search(ar, 20, 0)
-# print(index, ":", ar[index])
-ar2 = [8, 34, 16, 0, 2, 21, 38, 6, 9]
-a3 = quick_sort(ar2)
-# 3 [4, 2, 3, 6, 8, 20, 34, 43]
-# 到这步对的
-# print(a3, array)
-print(a3)
+array = [4, 2, 1, 9, 3, 8, 5]
+print('merge sort :', array)
+ar = merge_sort(array)
+print(ar, sorted(ar))
+index = binary_search(ar, 20, 0)
+print(index, ":", ar[index])

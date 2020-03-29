@@ -1334,11 +1334,19 @@ https://github.com/howl-anderson/MicroTokenizer
 
 ### 3.22
 
-quick_sort 不成功
+#### quick_sort
+
+https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/overview-of-quicksort
+
+> The way that quicksort uses divide-and-conquer is a little different from how merge sort does. In merge sort, the divide step does hardly anything, and all the real work happens in the combine step. Quicksort is the opposite: all the real work happens in the divide step. In fact, the combine step in quicksort does absolutely nothing.
+
+第一次尝试 quick_sort 不成功，没找到 divide 这部要怎么做好。
 
 
 
 ### 3.24 
+
+quick_sort 进一步尝试，经过提示 divide 分出 partition方法，它返回pivot的index
 
 vscode 大bug！！！
 
@@ -1347,6 +1355,8 @@ debugger 没法启动！ https://github.com/microsoft/vscode-python/issues/10684
 
 
 ### 3.26
+
+####  vscode
 
 vscode 没法启动python  debugger 居然是因为没有设置LANG环境变量！
 
@@ -1358,6 +1368,8 @@ vscode 没法启动python  debugger 居然是因为没有设置LANG环境变量�
 
 ### 3.27
 
+#### jupyter
+
 jupyter https://realpython.com/jupyter-notebook-introduction/ 了解下
 
 [Getting Started to Work With Jupyter Notebooks in Visual Studio Code](https://towardsdatascience.com/getting-started-with-jupyter-notebooks-in-visual-studio-code-5dcccb3f739b)
@@ -1367,6 +1379,8 @@ https://code.visualstudio.com/docs/python/jupyter-support "[Jupyter](http://jupy
 https://www.quora.com/What-are-benefits-of-Jupyter-notebook-over-PyCharm-like-IDE
 
 
+
+#### brew
 
 想起我给brew开的feature request已经解决但到底怎么做到，查了下 [2.2.3](https://github.com/Homebrew/brew/packages/29947?version=2.2.3) 解决
 
@@ -1378,7 +1392,9 @@ https://docs.brew.sh/Manpage 这里提到改变源的几个变量
 
 
 
+#### quick_sort
 
+第一次尝试成功，接下来优化
 
 
 
