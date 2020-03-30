@@ -1398,4 +1398,15 @@ https://docs.brew.sh/Manpage 这里提到改变源的几个变量
 
 
 
+### 3.30
+
+判断list是不是空，不用len(), 直接 if list ,因为 empty sequences and collections 就是 false , https://docs.python.org/3/library/stdtypes.html#truth-value-testing  
+
+[In-place Quicksort, using the Hoare Partitioning scheme](https://stackoverflow.com/a/41211360/301513) In this scheme, the pivot's final location is not necessarily at the index that was returned, and the next two segments that the main algorithm recurs on are (lo..p) and (p+1..hi) as opposed to (lo..p-1) and (p+1..hi) as in Lomuto's scheme. However, the partitioning algorithm guarantees lo ≤ p < hi
+
+> Quicksort is not very practical in Python since our builtin [timsort](https://en.wikipedia.org/wiki/Timsort) algorithm is quite efficient, and we have recursion limits. We would expect to sort lists in-place with [`list.sort`](https://docs.python.org/3/library/stdtypes.html#list.sort) or create new sorted lists with [`sorted`](https://docs.python.org/library/functions.html#sorted) - both of which take a `key` and `reverse` argument.
+
+碰到问题改示例 pivot 为最末尾一个就报错
+
+
 
