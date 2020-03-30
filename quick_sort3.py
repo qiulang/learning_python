@@ -33,17 +33,19 @@ def quicksort(xs):
 
 
 def partition(a_list, low, high):
-    pivot = a_list[low]
+    pivot = a_list[high]
+    i = low
+    j = high
     while True:
-        while a_list[low] < pivot:
-            low += 1
-        while a_list[high] > pivot:
-            high -= 1
-        if low >= high:
-            return high
-        a_list[low], a_list[high] = a_list[high], a_list[low]
-        low += 1
-        high -= 1
+        while a_list[i] < pivot:
+            i += 1
+        while a_list[j] > pivot and j > low:
+            j -= 1
+        if i >= j:
+            return j
+        a_list[i], a_list[j] = a_list[j], a_list[i]
+        i += 1
+        j -= 1
 
 
 def quicksort2(a_list):

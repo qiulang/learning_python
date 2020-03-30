@@ -1408,5 +1408,13 @@ https://docs.brew.sh/Manpage 这里提到改变源的几个变量
 
 碰到问题改示例 pivot 为最末尾一个就报错
 
+[Quicksort using Hoare Partitioning, how I chose pivot affects my python implement](https://stackoverflow.com/questions/60925885/quicksort-using-hoare-partitioning-how-i-chose-pivot-affects-my-python-implemen)
+
+[Hoare partitioning falls into infinite loop](https://stackoverflow.com/questions/12520555/hoare-partitioning-falls-into-infinite-loop)
+
+[Hoare partitioning scheme in Quicksort](https://cs.stackexchange.com/questions/97727/hoare-partitioning-scheme-in-quicksort)  解释了原因，晚点再仔细看下。
+
+有就会再看 [A sort of quick guide to quicksort and Hoare’s partitioning scheme in Javascript](https://itnext.io/a-sort-of-quick-guide-to-quicksort-and-hoares-partitioning-scheme-in-javascript-7792112c6d1)
+
 
 
