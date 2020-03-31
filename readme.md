@@ -1418,3 +1418,7 @@ https://docs.brew.sh/Manpage 这里提到改变源的几个变量
 
 
 
+### 3.31
+
+[Quicksort using Hoare Partitioning, how I chose pivot affects my python implement](https://stackoverflow.com/questions/60925885/quicksort-using-hoare-partitioning-how-i-chose-pivot-affects-my-python-implemen) 解答很清晰！
+
