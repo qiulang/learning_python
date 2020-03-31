@@ -1422,3 +1422,14 @@ https://docs.brew.sh/Manpage 这里提到改变源的几个变量
 
 [Quicksort using Hoare Partitioning, how I chose pivot affects my python implement](https://stackoverflow.com/questions/60925885/quicksort-using-hoare-partitioning-how-i-chose-pivot-affects-my-python-implemen) 解答很清晰！
 
+https://www.geeksforgeeks.org/hoares-vs-lomuto-partition-scheme-quicksort/ 这里也说了 
+
+> If we change Hoare’s partition to pick last element as pivot, then the Hoare’s partition may cause QuickSort to go into in an infinite recursion. For example, {10, 5, 6, 20} and pivot is arr[high], then returned index will always be high and call to same QuickSort will be made.
+
+
+
+相反 Lomuto partition 选择`pivot=array[high]` 容易做，但是选择`pivot=array[low]`不知道该怎么做？！
+
+https://www.geeksforgeeks.org/quicksort-using-random-pivoting/ 这里方法是在 Partitioning 之前先把pivot值挪到high，然后还按 pivot=array[high]来进行。
+
+[Quicksort using Hoare Partitioning, how I chose pivot affects my python implement](https://stackoverflow.com/questions/60925885/quicksort-using-hoare-partitioning-how-i-chose-pivot-affects-my-python-implemen)  解答更新
