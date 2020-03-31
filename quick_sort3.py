@@ -1,3 +1,4 @@
+# hoare partitioning
 def sort(array):
     """Sort the array by using quicksort."""
 
@@ -23,17 +24,17 @@ def sort(array):
         return array
 
 
-def quicksort(xs):
+def sort2(xs):
     if xs:
-        return (quicksort([i for i in xs[1:] if i < xs[0]])
+        return (sort2([i for i in xs[1:] if i < xs[0]])
                 + [xs[0]]
-                + quicksort([i for i in xs[1:] if i >= xs[0]]))
+                + sort2([i for i in xs[1:] if i >= xs[0]]))
     else:
         return xs
 
 
 def partition(a_list, low, high):
-    tmp = (low+high)//2
+    tmp = (low+high)//2   # can be just low
     pivot = a_list[tmp]
     while True:
         while a_list[low] < pivot:
@@ -47,7 +48,7 @@ def partition(a_list, low, high):
         high -= 1
 
 
-def quicksort2(a_list):
+def quicksort(a_list):
     """Hoare partition scheme, see https://en.wikipedia.org/wiki/Quicksort"""
     def _quicksort(a_list, low, high):
         # must run partition on sections with 2 elements or more
@@ -61,7 +62,35 @@ def quicksort2(a_list):
     return a_list
 
 
-array = [12, 4, 5, 6, 7, 3, 1, 5]
+def partition2(a_list, low, high):
+    pivot = a_list[high]
+    while True:
+        while a_list[low] < pivot:
+            low += 1
+        while a_list[high] > pivot:
+            high -= 1
+        if low >= high:
+            return low
+        a_list[low], a_list[high] = a_list[high], a_list[low]
+        low += 1
+        high -= 1
+
+
+def quicksort2(a_list):
+    # https://stackoverflow.com/questions/60925885/quicksort-using-hoare-partitioning-how-i-chose-pivot-affects-my-python-implemen
+    def _quicksort(a_list, low, high):
+        # must run partition on sections with 2 elements or more
+        if low < high:
+            p = partition2(a_list, low, high)
+            _quicksort(a_list, low, p-1)
+            _quicksort(a_list, p, high)
+        # else:
+        #     print(f"will this happen ? {low} vs {high}")
+    _quicksort(a_list, 0, len(a_list)-1)
+    return a_list
+
+
+array = [12, 4, 5, 6, 7, 3, 1, 15]
 # print(sort(array))
 quicksort2(array)
 print(array)
