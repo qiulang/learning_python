@@ -1446,3 +1446,16 @@ https://www.geeksforgeeks.org/quicksort-using-random-pivoting/ 这里方法是�
 
 [Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/) 虚拟环境问题，做过几次，但是一直没有深入，确实也不紧急。
 
+
+
+https://guide.freecodecamp.org/git 回答为什么要 [checkout a commit](https://stackoverflow.com/questions/18054057/git-checkout-commit-id-is-changing-branch-to-no-branch)
+
+https://guide.freecodecamp.org/python
+
+
+
+穿插一下关于nodejs事件循环的讲解
+
+1.  [What you should know to really understand the Node.js Event Loop](https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c)
+2.   https://nodejs.org/uk/docs/guides/event-loop-timers-and-nexttick/
+3.  https://blog.risingstack.com/node-js-at-scale-understanding-node-js-event-loop/
