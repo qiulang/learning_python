@@ -1433,3 +1433,16 @@ https://www.geeksforgeeks.org/hoares-vs-lomuto-partition-scheme-quicksort/ 这�
 https://www.geeksforgeeks.org/quicksort-using-random-pivoting/ 这里方法是在 Partitioning 之前先把pivot值挪到high，然后还按 pivot=array[high]来进行。
 
 [Quicksort using Hoare Partitioning, how I chose pivot affects my python implement](https://stackoverflow.com/questions/60925885/quicksort-using-hoare-partitioning-how-i-chose-pivot-affects-my-python-implemen)  解答更新
+
+
+
+### 4.1
+
+3.20 设定任务， divide & conquer , quicksort学习完成，回到学习 trie 和 DAG上
+
+[Python Best Practices for More Pythonic Code](https://realpython.com/tutorials/best-practices/) 可以看看。
+
+简单看了 [Python Command Line Arguments](https://realpython.com/python-command-line-arguments/) 已经做过很多次，但是 文档提到的 The Anatomy of Python Command Line Arguments，三个标准 posix, gnu,docopt 之前没有明确的概念。
+
+[Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/) 虚拟环境问题，做过几次，但是一直没有深入，确实也不紧急。
+
