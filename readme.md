@@ -1346,6 +1346,8 @@ https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/o
 
 ### 3.24 
 
+#### vscode bug？
+
 quick_sort 进一步尝试，经过提示 divide 分出 partition方法，它返回pivot的index
 
 vscode 大bug！！！
@@ -1400,6 +1402,8 @@ https://docs.brew.sh/Manpage 这里提到改变源的几个变量
 
 ### 3.30
 
+#### quicksort 深入继续
+
 判断list是不是空，不用len(), 直接 if list ,因为 empty sequences and collections 就是 false , https://docs.python.org/3/library/stdtypes.html#truth-value-testing  
 
 [In-place Quicksort, using the Hoare Partitioning scheme](https://stackoverflow.com/a/41211360/301513) In this scheme, the pivot's final location is not necessarily at the index that was returned, and the next two segments that the main algorithm recurs on are (lo..p) and (p+1..hi) as opposed to (lo..p-1) and (p+1..hi) as in Lomuto's scheme. However, the partitioning algorithm guarantees lo ≤ p < hi
@@ -1420,6 +1424,8 @@ https://docs.brew.sh/Manpage 这里提到改变源的几个变量
 
 ### 3.31
 
+#### quicksort 继续
+
 [Quicksort using Hoare Partitioning, how I chose pivot affects my python implement](https://stackoverflow.com/questions/60925885/quicksort-using-hoare-partitioning-how-i-chose-pivot-affects-my-python-implemen) 解答很清晰！
 
 https://www.geeksforgeeks.org/hoares-vs-lomuto-partition-scheme-quicksort/ 这里也说了 
@@ -1437,6 +1443,8 @@ https://www.geeksforgeeks.org/quicksort-using-random-pivoting/ 这里方法是�
 
 
 ### 4.1
+
+#### 结束quicksort，继续原来学习
 
 3.20 设定任务， divide & conquer , quicksort学习完成，回到学习 trie 和 DAG上
 
@@ -1459,3 +1467,14 @@ https://guide.freecodecamp.org/python
 1.  [What you should know to really understand the Node.js Event Loop](https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c)
 2.   https://nodejs.org/uk/docs/guides/event-loop-timers-and-nexttick/
 3.  https://blog.risingstack.com/node-js-at-scale-understanding-node-js-event-loop/
+
+
+
+### 4.6 
+
+#### 一周年
+
+放假三天，一点没看。正好学了python 一整年！ 当然，从去年4.16开始就中断半年，一直到10月份才继续。现在要抽点自己时间来学习，有没有专门的任务真是太难了。
+
+换一个新的文件来记录，因为这个文件已经太长了！
+
