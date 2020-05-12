@@ -2,20 +2,6 @@
 
 学习已经一年，当然实际时间不到6个月，而且还是花在平时晚上或者周末一点零碎时间。
 
-决定先把我在SO的这个问题解决了：18年问的到现在还一直在增粉，即便问题被关闭 [“Client network socket disconnected before secure TLS connection was established”, node 10 [closed\]](https://stackoverflow.com/questions/53593182/client-network-socket-disconnected-before-secure-tls-connection-was-established)
-
-googleapis 也变了主页 https://github.com/googleapis/google-api-nodejs-client
-
-我开的问题也被关闭了  https://github.com/googleapis/google-api-nodejs-client/issues/1471
-
-nodejs 这个讨论也没人理 https://github.com/nodejs/node/issues/21088
-
-
-
-但我重新试了下，发现我现在的vpn服务在命令行下都ping不通那个 google url，所以暂时没法试了。
-
-
-
 ### 4.26
 
 一年又20天后，第一次写python
@@ -83,3 +69,14 @@ markdown number list 两种风格 tight & loose, 差别就是有没有多加一�
 3. [jieba分词源码解读一](https://blog.csdn.net/shenxiaoming77/article/details/51511289)
 
 4. [jieba分词流程及部分源码解读（一）](https://blog.csdn.net/Jameslvt/article/details/81118560)
+
+
+
+### 5.11
+
+```python
+while i<N and frag in self.FREQ: # FREQ 对词的前缀都存，但是前缀值是0
+		if self.FREQ[frag]:
+			templist.append(i)
+```
+
