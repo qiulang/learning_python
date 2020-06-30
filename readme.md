@@ -495,7 +495,7 @@ Required-by:
 
 ### 10.22 更新
 
-#### 学习 [virtualenv](https://virtualenv.pypa.io/en/stable/installation/) 和 [Pipenv](https://pipenv.kennethreitz.org/en/latest/install/#installing-pipenv)
+#### 学习 [virtualenv](https://virtualenv.pypa.io/en/latest/) 和 [Pipenv](https://pipenv.kennethreitz.org/en/latest/install/#installing-pipenv)
 
 [virtualenv 激活目的](https://virtualenv.pypa.io/en/stable/userguide/#activate-script)  <1> 改 path
 
