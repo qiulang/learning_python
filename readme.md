@@ -471,7 +471,7 @@ Requires: numpy, python-dateutil, pytz
 Required-by:
 ```
 
-关于 [python package]((https://hackernoon.com/pip-install-abra-cadabra-or-python-packages-for-beginners-33a989834975)) ， 暂时没时间看
+关于 [python package](https://hackernoon.com/pip-install-abra-cadabra-or-python-packages-for-beginners-33a989834975) ， 暂时没时间看
 
 关于 [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/) 暂时没时间看, **10.23练习！**
 

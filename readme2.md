@@ -172,14 +172,39 @@ max(nested_list, key=lambda x: x[1]) # 缺省比的是第一个
 [requirement.txt](https://zhuanlan.zhihu.com/p/69058584) 简单，但是pipfile要再花时间看下
 
 1. [Python HOW: Create requirements.txt Using pipenv](https://medium.com/@DrGabrielHarris/python-how-create-requirements-txt-using-pipenv-2c22bbb533af) 
+> `pipenv` is currently the recommended dependency manager for collaborative projects by Python. It uses `pip` and `virtualenv` under the hood.
 
 2. [Pipenv: A Guide to the New Python Packaging Tool](https://realpython.com/pipenv-guide/)
-
 3. [How are Pipfile and Pipfile.lock used?](https://stackoverflow.com/questions/46330327/how-are-pipfile-and-pipfile-lock-used)
-
 4. 还有pipenv https://pipenv-fork.readthedocs.io/en/latest/index.html
 
-   
+写和rabbitmq通信的简单例子
 
-   
+
+
+### 7.1
+
+#### pipreqs
+
+`pip3 freeze >requirements.txt` 就是把当前安装所有pip包都列出了，安装 pipreqs 然后执行 `pipreqs ./` 才能正确生成 `requirements.txt`
+
+
+
+### 7.9
+
+#### pyenv
+
+1. https://realpython.com/pipenv-guide/ 读完，需要做相应练习
+
+2. https://blog.windrunner.me/python/pip.html 中文简述  pip 与 Pipfile
+
+3. [python package](https://hackernoon.com/pip-install-abra-cadabra-or-python-packages-for-beginners-33a989834975) 又看了一遍，再次理解一下package和setup.py 但wheel到底是个什么概念没讲透
+
+4. [How to create a Pure-Python wheel](https://stackoverflow.com/questions/31573107/how-to-create-a-pure-python-wheel) 帮助理解 wheel
+
+
+
+### 7.10
+
+[bpython原来是有一个python shell](https://stackoverflow.com/questions/4232923/what-are-the-differences-between-ipython-and-bpython)，但是有了ipyhton就没必要再试它了
 
