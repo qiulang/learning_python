@@ -212,6 +212,10 @@ max(nested_list, key=lambda x: x[1]) # 缺省比的是第一个
 
 ### 9.7
 
+又断了两个月！
+
+
+
 ```python
 learning_python ➤ pip3 install pexpect                                           
 pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available.
@@ -230,4 +234,55 @@ pip is configured with locations that require TLS/SSL, however the ssl module in
 > 
 >
 > The bundled pip has its own default certificate store for verifying download connections.
+
+
+
+https://gist.github.com/grzhan/77222b1a737e1ad9cb00b28e025ec1e2
+
+跟我基本一样的代码，不知道哪里出了问题! 运行了 child.expect('Password:')  就控制台不出`Password`
+
+
+
+### 9.8
+
+对比 expect 才知道是 pexpect吃掉了匹配的字符串，但是有没有可能把那些字符串完全打出？
+
+[Is it possbile to achieve the expect script output ?](https://github.com/pexpect/pexpect/issues/658)
+
+
+
+### 9.10
+
+把 [Defining Main Functions in Python](https://realpython.com/python-main-function/#a-basic-python-main) 又复习了一遍；同时复现 [global variables in a function](https://stackoverflow.com/questions/423379/using-global-variables-in-a-function)
+
+```python
+def main():
+    data = read_data_from_web()
+    modified_data = process_data(data)
+    write_data_to_database(modified_data)
+
+if __name__ == "__main__":
+    main()
+```
+
+
+
+pexpect 吃掉匹配字符串的问题解决，但又碰到新问题 [Is it possbile to let pexpect output the texts it matches?](https://stackoverflow.com/questions/63825774/is-it-possbile-to-let-pexpect-output-the-texts-it-matches)
+
+
+
+### 9.11
+
+pexpect 吃掉匹配字符串的问题，因为加了 `interact` 后更复杂，放弃了，我就是需要一个简单ssh登录脚本，不想这么麻烦。
+
+[How to see the output in pexpect?](https://stackoverflow.com/questions/45989975/how-to-see-the-output-in-pexpect) 提到的 `logfile_read` 解决不了。
+
+但我自己终于把它解决！ https://stackoverflow.com/questions/63825774/is-it-possbile-to-let-pexpect-output-the-texts-it-matches
+
+注意两点:
+
+1. 不能调用 `child.expect(pexpect.EOF)` 没深究。
+2. `child.expect('Last login')` 不能调用，不然 `: Fri Sep 11 11:44:19 2020 from 10.0.0.132` 这串会重复答应。
+
+
 
