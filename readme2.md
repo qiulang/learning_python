@@ -208,3 +208,26 @@ max(nested_list, key=lambda x: x[1]) # 缺省比的是第一个
 
 [bpython原来是有一个python shell](https://stackoverflow.com/questions/4232923/what-are-the-differences-between-ipython-and-bpython)，但是有了ipyhton就没必要再试它了
 
+
+
+### 9.7
+
+```python
+learning_python ➤ pip3 install pexpect                                           
+pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available.
+```
+
+[pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available](https://stackoverflow.com/questions/45954528/pip-is-configured-with-locations-that-require-tls-ssl-however-the-ssl-module-in) 
+
+安装最新 3.8.5解决
+
+> **Certificate verification and OpenSSL**
+>
+> 
+>
+> This package includes its own private copy of OpenSSL 1.1.1.  The trust certificates in system and user keychains managed by the *Keychain Access* application and the *security* command line utility are not used as defaults by the Python ssl module. A sample command script is included in /Applications/Python 3.8 to install a curated bundle of default root certificates from the third-party certifi package (https://pypi.org/project/certifi/). Double-click on Install Certificates to run it.
+>
+> 
+>
+> The bundled pip has its own default certificate store for verifying download connections.
+
