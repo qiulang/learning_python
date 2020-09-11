@@ -282,7 +282,10 @@ pexpect 吃掉匹配字符串的问题，因为加了 `interact` 后更复杂，
 注意两点:
 
 1. 不能调用 `child.expect(pexpect.EOF)` 没深究。
-2. `child.expect('Last login')` 不能调用，不然 `: Fri Sep 11 11:44:19 2020 from 10.0.0.132` 这串会重复答应。
+2. `child.expect('Last login')` 不能调用，不然 `: Fri Sep 11 11:44:19 2020 from 10.0.0.132` 这串会重复打印。
+3. `child.expect('.*')` 完美解决
+
+
 
 
 
