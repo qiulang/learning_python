@@ -206,11 +206,15 @@ max(nested_list, key=lambda x: x[1]) # 缺省比的是第一个
 
 ### 7.10
 
+#### bpython
+
 [bpython原来是有一个python shell](https://stackoverflow.com/questions/4232923/what-are-the-differences-between-ipython-and-bpython)，但是有了ipyhton就没必要再试它了
 
 
 
 ### 9.7
+
+#### ssl module
 
 又断了两个月！
 
@@ -245,6 +249,8 @@ https://gist.github.com/grzhan/77222b1a737e1ad9cb00b28e025ec1e2
 
 ### 9.8
 
+#### pexpect
+
 对比 expect 才知道是 pexpect吃掉了匹配的字符串，但是有没有可能把那些字符串完全打出？
 
 [Is it possbile to achieve the expect script output ?](https://github.com/pexpect/pexpect/issues/658)
@@ -252,6 +258,8 @@ https://gist.github.com/grzhan/77222b1a737e1ad9cb00b28e025ec1e2
 
 
 ### 9.10
+
+#### main()
 
 把 [Defining Main Functions in Python](https://realpython.com/python-main-function/#a-basic-python-main) 又复习了一遍；同时复现 [global variables in a function](https://stackoverflow.com/questions/423379/using-global-variables-in-a-function)
 
@@ -273,6 +281,8 @@ pexpect 吃掉匹配字符串的问题解决，但又碰到新问题 [Is it poss
 
 ### 9.11
 
+#### pexpect cont.
+
 pexpect 吃掉匹配字符串的问题，因为加了 `interact` 后更复杂，放弃了，我就是需要一个简单ssh登录脚本，不想这么麻烦。
 
 [How to see the output in pexpect?](https://stackoverflow.com/questions/45989975/how-to-see-the-output-in-pexpect) 提到的 `logfile_read` 解决不了。
@@ -287,5 +297,31 @@ pexpect 吃掉匹配字符串的问题，因为加了 `interact` 后更复杂，
 
 
 
+#### Pathlib
 
+复习使用 Pathlib , 比如重载 `/ `运算符 需要仔细把这篇文档再读下 https://realpython.com/python-pathlib/   （还没有！）
+
+[How do I list all files of a directory?](https://stackoverflow.com/questions/3207219/how-do-i-list-all-files-of-a-directory)
+
+[How to get file creation & modification date/times in Python?](https://stackoverflow.com/questions/237079/how-to-get-file-creation-modification-date-times-in-python)
+
+[From stat().st_mtime to datetime?](https://stackoverflow.com/questions/39359245/from-stat-st-mtime-to-datetime)
+
+https://github.com/chris1610/pbpython/blob/master/extras/Pathlib-Cheatsheet.pdf
+
+
+
+### 9.14
+
+#### python2
+
+macOS 自带python2 的注意事项，mac自带 python 2.7.16 在 `/usr/bin/python` 但应该是不带pip ，只有 `easy_install` , 参见 https://ahmadawais.com/install-pip-macos-os-x-python/ 和 [How do I install pip on macOS or OS X?](https://stackoverflow.com/questions/17271319/how-do-i-install-pip-on-macos-or-os-x) 所以会经常看到大家推荐用brew安装python2
+
+但python2现在运行也有错误`ERROR:root:code for hash md5 was not found.` （和python3一样），直接卸了 brew uninstall python@2 不折腾了。
+
+[The right and wrong way to set Python 3 as default on a Mac](https://opensource.com/article/19/5/python-3-default-mac) 没空看
+
+
+
+#### datetime
 
