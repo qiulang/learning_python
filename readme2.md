@@ -325,3 +325,110 @@ macOS 自带python2 的注意事项，mac自带 python 2.7.16 在 `/usr/bin/pyth
 
 #### datetime
 
+1. datatime 可以减， 只用 days, seconds 记录差别， divmod 除以秒数取余
+
+2. [How do I find the time difference between two datetime objects in python?](https://stackoverflow.com/questions/1345827/how-do-i-find-the-time-difference-between-two-datetime-objects-in-python)
+
+
+
+### 9.16
+
+google  <u>improve python skill to the next level</u>
+
+https://stackabuse.com/the-best-python-books-for-all-skill-levels/
+
+
+
+### 9.17
+
+#### decorator
+
+[Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/) decorator 概念在每个语言中都会碰到； python 中的应用可以再深入学习下，这篇文章有点长。
+
+https://www.programiz.com/python-programming/decorator 这篇长度合适，看了
+
+[@property decorator](https://www.programiz.com/python-programming/property)
+
+[What are some common uses for Python decorators?](https://stackoverflow.com/questions/489720/what-are-some-common-uses-for-python-decorators)
+
+
+
+#### closure
+
+[Python closure vs javascript closure](https://stackoverflow.com/questions/18502095/python-closure-vs-javascript-closure)
+
+同时回顾 "Python assumes that all variables in a function are local. "
+
+
+
+#### slice notation
+
+https://stackoverflow.com/questions/509211/understanding-slice-notation
+
+```python
+a[start:stop]  # items start through stop-1
+a[start:]      # items start through the rest of the array
+a[:stop]       # items from the beginning through stop-1
+a[:]           # a copy of the whole array
+```
+
+
+
+### 9.21
+
+[Everything About Python — Beginner To Advanced](https://medium.com/fintechexplained/everything-about-python-from-beginner-to-advance-level-227d52ef32d2) 列举25点，以下三点稍微注意下
+
+1. package  `__init__.py`
+
+2. zip
+
+3. Decorators
+
+
+
+#### PyTorch ?
+
+
+#### yield
+[What does the “yield” keyword do?](https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do)
+
+
+
+### 9.27
+
+#### pexpect
+
+npm publish脚本 404原因知道了。跑了 expect脚本一样 404，在`npm logout` 提示 `Not logged in to` 所以没有调用`interact` 只是在那个子进程npm login，父进程没登录 npm publish 就提示404了
+
+
+
+### 10.9
+
+#### python 3.8
+
+[Cool New Features in Python 3.8](https://realpython.com/python38-new-features/)
+
+https://deepsource.io/blog/python-3-8-whats-new/ 发现这个更清晰 ,顺带熟悉了 unpack
+
+
+
+#### python 3.9
+
+https://realpython.com/python39-new-features/
+
+[Python 3.9](https://towardsdatascience.com/python-3-9-9c2ce1332eb4)
+
+
+
+#### type hint
+
+[What are type hints in Python 3.5?](https://stackoverflow.com/questions/32557920/what-are-type-hints-in-python-3-5)
+
+[Python Type Hinting](https://medium.com/depurr/python-type-hinting-a7afe4a5637e)
+
+
+
+#### logging
+
+[Logging in Python](https://realpython.com/python-logging/)
+
