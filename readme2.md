@@ -444,6 +444,14 @@ https://realpython.com/python39-new-features/
 
 
 
+碰到奇怪问题  https://stackoverflow.com/questions/64292033/why-set-logging-level-for-each-module-wont-work-here
+
+按说 https://stackoverflow.com/questions/48787538/how-to-set-logging-level-for-the-module-only-in-python 很简单就是这么做
+
+
+
+暂时没时间看
+
 #### python-dotenv
 
 https://pypi.org/project/python-dotenv/
@@ -452,7 +460,7 @@ https://pypi.org/project/python-dotenv/
 
 
 
-暂时没时间看
+复习这些基本概念
 
 https://docs.python-guide.org/writing/structure/#structure-of-code-is-key
 
