@@ -432,3 +432,29 @@ https://realpython.com/python39-new-features/
 
 [Logging in Python](https://realpython.com/python-logging/)
 
+
+
+### 10.10
+
+#### log & color log
+
+[Python之日志处理（logging模块）](https://www.cnblogs.com/yyds/p/6901864.html) 基本就是翻译 https://docs.python.org/3/howto/logging.html
+
+[How can I color Python logging output?](https://stackoverflow.com/questions/384076/how-can-i-color-python-logging-output)
+
+
+
+#### python-dotenv
+
+https://pypi.org/project/python-dotenv/
+
+[What is the use of python-dotenv?](https://stackoverflow.com/questions/41546883/what-is-the-use-of-python-dotenv)
+
+
+
+暂时没时间看
+
+https://docs.python-guide.org/writing/structure/#structure-of-code-is-key
+
+https://docs.python-guide.org/dev/virtualenvs/
+

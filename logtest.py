@@ -1,13 +1,20 @@
 import logging
-logging.warning('Watch out!')  # will print a message to the console
-logging.info('I told you so')  # will not print anything
+
+# logging.basicConfig(level=logging.DEBUG)
+# logging.warning('Watch out!')  # will print a message to the console
+# logging.info('I told you so')  # will not print anything
+
+import clog
+import nclog
+import nclog2
 
 
-def foo():
-    rest = (4, 5, 6)
-    t = 1, 2, 3, *rest
-    return t
+def main():
+    # logging.basicConfig(level=logging.DEBUG)
+    # clog.clog_test()
+    nclog.foo()
+    nclog2.foo2()
 
 
-test = foo()
-print(test)
+if __name__ == "__main__":
+    main()
