@@ -448,6 +448,12 @@ https://realpython.com/python39-new-features/
 
 按说 https://stackoverflow.com/questions/48787538/how-to-set-logging-level-for-the-module-only-in-python 很简单就是这么做
 
+SO很强大！马上得到答案，而且还解答另一个问题， `logging.basicConfig()` 创建一个handler, `coloredlogs` 也会创建handler，难怪看到两个打印。
+
+
+
+`coloredlogs.install` 加一个在root就可以。
+
 
 
 暂时没时间看
@@ -465,4 +471,26 @@ https://pypi.org/project/python-dotenv/
 https://docs.python-guide.org/writing/structure/#structure-of-code-is-key
 
 https://docs.python-guide.org/dev/virtualenvs/
+
+
+
+### 10.12
+
+[Why do /usr and /tmp directories for Linux miss vowels in their spellings?](https://unix.stackexchange.com/questions/8677/why-do-usr-and-tmp-directories-for-linux-miss-vowels-in-their-spellings) 就为了少打两个字母
+
+https://docs.python.org/3/library/subprocess.html#subprocess.run
+
+*args* should be a sequence of program arguments or else a single string or [path-like object](https://docs.python.org/3/glossary.html#term-path-like-object). By default, the program to execute is the first item in *args* if *args* is a sequence. If *args* is a string, the interpretation is platform-dependent and described below. See the *shell* and *executable* arguments for additional differences from the default behavior. Unless otherwise stated, it is recommended to pass *args* as a sequence.
+
+An example of passing some arguments to an external program as a sequence is:
+
+```
+Popen(["/usr/bin/git", "commit", "-m", "Fixes a bug."])
+```
+
+On POSIX, if *args* is a string, the string is interpreted as the name or path of the program to execute. However, this can only be done if not passing arguments to the program.
+
+
+
+[How can I color Python logging output?](https://stackoverflow.com/questions/384076/how-can-i-color-python-logging-output) 如何实现
 

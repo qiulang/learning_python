@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 # specific logger object to the install() function. In this case only log
 # messages originating from that logger will show up on the terminal.
 LOG_FORMAT = "%(asctime)s %(levelname)s %(name)s : %(message)s"
-coloredlogs.install(level='DEBUG', logger=logger, fmt=LOG_FORMAT)
+# coloredlogs.install(level='DEBUG', logger=logger, fmt=LOG_FORMAT)
 
 
 def clog_test():
