@@ -1,4 +1,4 @@
-### 4.9 
+### 4.9
 
 #### 一年整
 
@@ -476,6 +476,8 @@ https://docs.python-guide.org/dev/virtualenvs/
 
 ### 10.12
 
+#### subprocess.run
+
 [Why do /usr and /tmp directories for Linux miss vowels in their spellings?](https://unix.stackexchange.com/questions/8677/why-do-usr-and-tmp-directories-for-linux-miss-vowels-in-their-spellings) 就为了少打两个字母
 
 https://docs.python.org/3/library/subprocess.html#subprocess.run
@@ -493,4 +495,105 @@ On POSIX, if *args* is a string, the string is interpreted as the name or path o
 
 
 [How can I color Python logging output?](https://stackoverflow.com/questions/384076/how-can-i-color-python-logging-output) 如何实现
+
+
+
+### 11.19
+
+#### OOP
+
+python 学习中断了一段时间，但是相关概念学习和思考一再没断。首先是 OOP, 我现在写python 脚本根本不需要OO，[以前就思考过这个问题](./readme.md) 写nodejs脚本也不需要。昨天问了这个问题 [Disadvantages of OOP, “in the Kingdom of Nouns”](https://softwareengineering.stackexchange.com/questions/419122/disadvantages-of-oop-in-the-kingdom-of-nouns) 算是再次思考，虽然马上就被关闭，但是找到 SO 相同问题 [Disadvantage of OOP?](https://stackoverflow.com/questions/2853316/disadvantage-of-oop) 有一个回答，
+
+> **OOP works best with large-scale, multi-developer, multi-module projects.** For "*development in the small*" - such as scripting or transformative processing, it can require a good deal of overhead without necessarily adding value.
+>
+> ...
+>
+> certain kinds of problems also lend themselves to alternative programming styles. For example, transformative processing is quite ammendable to the [functional style of programming](http://en.wikipedia.org/wiki/Functional_programming) - in which a results is computed and passed to successive transformation steps to produce a final result.
+
+
+
+#### 维护不同 env
+
+为了比较nodejs 不同版本性能的提示，又重新上次 n 和 nodenv，n 的一个[大 bug](https://github.com/tj/n/issues/634)让我每次都要重装nodejs，真的是很无语。 执行curl还真的是要一个真实的vpn，我买的vpn服务都不行。对node12性能的提示我总结在 [Simple practical example to see faster async functions and promises from node 10 to node 12](https://stackoverflow.com/questions/64886560/simple-practical-example-to-see-faster-async-functions-and-promises-from-node-10) 有人回答自然好，没有就当是我工作小结。
+
+所以引发如何维护不同python环境！ 看记录我至少已经尝试过 pyenv, pipenv, venv, virtualenv 这次再捡起来，看那个实用，因为现在一个也不记得。 pipfile & requirement.txt 内容也要跟着再复习下， pipenv用。
+
+[What is the difference between venv, pyvenv, pyenv, virtualenv, virtualenvwrapper, pipenv, etc?](https://stackoverflow.com/questions/41573587/what-is-the-difference-between-venv-pyvenv-pyenv-virtualenv-virtualenvwrappe)  仔细看下
+
+两个问题要解决：
+
+1. 同一个机器如何安装不同python版本
+2. 不同项目，不同pip包如何管理。
+
+[How to manage multiple Python versions and virtual environments](https://www.freecodecamp.org/news/manage-multiple-python-versions-and-virtual-environments-venv-pyenv-pyvenv-a29fb00c296f/)
+
+
+
+> If you are using a **single version** of Python say version **3.3+**, and want to manage **different virtual environments,** then `venv` is all you need.
+>
+> If you want to use **multiple versions** of Python at **3.3+**, **with or without virtual environments**, then continue to read about `pyenv`.
+
+
+
+### 11.20
+
+#### 3.9
+
+pyenv 和 nodenv看着很像，碰到第一个问题，我已经把系统python3.8 升级到 3.9，重新开一个terminal 后 python3 变成 3.9 但是安装pip3包怎么办？因为他们安装在3.8的 site-packages 下 
+
+```shell
+JsSipWrap ➤ pyenv versions                                                             
+* system (set by /Users/qiulang/.pyenv/version)
+  3.4.0
+  3.5.3
+JsSipWrap ➤ which python3                                                           
+/Users/qiulang/.pyenv/shims/python3
+JsSipWrap ➤ pyenv which python3       
+/Library/Frameworks/Python.framework/Versions/3.8/bin/python3
+//升级打开新的terminal后
+~ ➤ pip3 list
+Package    Version
+---------- ---------
+certifi    2020.11.8
+pip        20.2.3
+setuptools 49.2.1
+~ ➤ pip3 -V
+pip 20.2.3 from /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/pip (python 3.9)
+//https://anil.io/blog/python/pyenv/using-pyenv-to-install-multiple-python-versions-tox/ 收到一点启发
+~ ➤ ls -al /usr/local/bin/python*
+lrwxr-xr-x  1 root     wheel  71 10 10 15:11 /usr/local/bin/python3.8 -> ../../../Library/Frameworks/Python.framework/Versions/3.8/bin/python3.8
+lrwxr-xr-x  1 root     wheel  78 10 10 15:11 /usr/local/bin/python3.8-config -> ../../../Library/Frameworks/Python.framework/Versions/3.8/bin/python3.8-config
+lrwxr-xr-x  1 root     wheel  71 11 20 11:18 /usr/local/bin/python3.9 -> ../../../Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9
+lrwxr-xr-x  1 root     wheel  78 11 20 11:18 /usr/local/bin/python3.9-config -> ../../../Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9-config
+把原来脚本改成指定3.8就可以运行
+#! /usr/local/bin/python3.8 
+```
+
+ [Switching python versions (mac) installed by python installer](https://stackoverflow.com/questions/64924054/switching-python-versions-mac-installed-by-python-installer) 一个答案提到  [pyenv-register](https://github.com/doloopwhile/pyenv-register) 可是我的出错 https://github.com/doloopwhile/pyenv-register/issues/8
+
+暂时无解
+
+[Installing Pythons with PyEnv](https://joachim8675309.medium.com/installing-pythons-with-pyenv-54cca2196cd3) 解释pyenv没有太多新意，但提到
+
+> [**Setuptools**](https://github.com/pypa/setuptools) uses the command line `easy_install` to install packages. There is no uninstall option. These packages can include Python bytecode, called egg packages, which makes packages not portable between operating systems.
+>
+> Pip can both install and uninstall, and only includes source code packages, which means only scripts, no byte-code, so they are usable across different Linux distributions and operating systems.
+
+https://docs.python.org/3/library/venv.html#module-venv
+
+>  A virtual environment is a directory tree which contains Python executable files and other files which indicate that it is a virtual environment.
+>
+> When a virtual environment is active (i.e., the virtual environment’s Python interpreter is running)
+
+### pyenv vs pipenv vs venv
+
+pipenv 管理包， venv呢？先重点学习下 venv 然后自己比较venv 和 pipenv
+
+[Why I think pipenv is better than venv! And how to get started with it](https://dev.to/arthtyagi/why-i-think-pipenv-is-better-than-venv-and-how-to-get-started-with-it-2hcd) & https://www.activestate.com/blog/why-pipenv-venv/
+
+读 https://realpython.com/python-virtual-environments-a-primer/
+
+
+
+
 
