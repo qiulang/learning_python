@@ -616,7 +616,7 @@ lrwxr-xr-x 1 root wheel 69 11 20 11:18 /usr/local/bin/python3 -> ../../../Librar
 
 
 
-### pyenv vs pipenv vs venv
+#### pyenv vs pipenv vs venv
 
 pipenv 管理包， venv呢？先重点学习下 venv 然后自己比较venv 和 pipenv
 
@@ -636,6 +636,8 @@ https://realpython.com/python-virtual-environments-a-primer/ 解释venv
 
 ### 11.23
 
+#### one-element tuple
+
 To generate a one-element tuple, a comma `,` is required at the end.
 
 
@@ -650,9 +652,41 @@ To generate a one-element tuple, a comma `,` is required at the end.
 
 [Virtualenv and venv: Python virtual environments explained](https://www.infoworld.com/article/3239675/virtualenv-and-venv-python-virtual-environments-explained.html#:~:text=Virtualenv%20is%20the%20tool%20of,the%20task%20in%20Python%203.)  比 https://realpython.com/python-virtual-environments-a-primer/ 简单。 pyenv 用来安装不同 python版本暂时也不需要，可以试试 pipenv管理pip 包
 
+查 pip安装目录
+
+```shell
+pip3 -V
+pip3 list -v
+python3 -m site
+```
+
+另 mac 原生的Python 没有pip 只有pip3
+
+```shell
+lang@localhost pyenv_test % which pip
+pip not found
+lang@localhost pyenv_test % which pip3
+/usr/bin/pip3
+lang@localhost pyenv_test % sudo pip3 install --upgrade pip
+...
+lang@localhost pyenv_test % which pip
+/usr/local/bin/pip
+lang@localhost pyenv_test % which pip3
+/usr/bin/pip3
+lang@localhost pyenv_test % pip3 -V
+WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.
+Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
+To avoid this problem you can invoke Python with '-m pip' instead of running pip directly.
+pip 20.2.4 from /Library/Python/3.8/site-packages/pip (python 3.8)
+lang@localhost pyenv_test % pip -V
+pip 20.2.4 from /Library/Python/3.8/site-packages/pip (python 3.8)
+```
+
 #### pipenv
 
 复读 11.20 的 Why I think pipenv is better than venv! And how to get started with it.
 
 复读 https://realpython.com/pipenv-guide/ 并做练习
+
+6.30 & 7.1 练习过，基本都忘了！
 
