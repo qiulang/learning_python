@@ -585,15 +585,74 @@ https://docs.python.org/3/library/venv.html#module-venv
 >
 > When a virtual environment is active (i.e., the virtual environment’s Python interpreter is running)
 
+
+
+brew 安装的python会被 python installer 覆盖
+
+```shell
+bin ➤ brew info python
+python@3.8: stable 3.8.6 (bottled)
+Interpreted, interactive, object-oriented programming language
+https://www.python.org/
+/usr/local/Cellar/python@3.8/3.8.6 (9,044 files, 131.8MB)
+  Built from source on 2020-10-13 at 15:20:19
+From: https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git/Formula/python@3.8.rb
+License: Python-2.0
+==> Dependencies
+Build: pkg-config ✔
+Required: gdbm ✔, openssl@1.1 ✔, readline ✔, sqlite ✔, xz ✔
+==> Caveats
+Python has been installed as
+  /usr/local/bin/python3
+  ...
+You can install Python packages with
+  pip3 install <package>
+They will install into the site-package directory
+  /usr/local/lib/python3.8/site-packages
+  
+bin ➤ ls -al /usr/local/bin/python3
+lrwxr-xr-x 1 root wheel 69 11 20 11:18 /usr/local/bin/python3 -> ../../../Library/Frameworks/Python.framework/Versions/3.9/bin/python3
+```
+
+
+
 ### pyenv vs pipenv vs venv
 
 pipenv 管理包， venv呢？先重点学习下 venv 然后自己比较venv 和 pipenv
 
-[Why I think pipenv is better than venv! And how to get started with it](https://dev.to/arthtyagi/why-i-think-pipenv-is-better-than-venv-and-how-to-get-started-with-it-2hcd) & https://www.activestate.com/blog/why-pipenv-venv/
+[Why I think pipenv is better than venv! And how to get started with it](https://dev.to/arthtyagi/why-i-think-pipenv-is-better-than-venv-and-how-to-get-started-with-it-2hcd) & https://www.activestate.com/blog/why-pipenv-venv/ 
 
-读 https://realpython.com/python-virtual-environments-a-primer/
+https://realpython.com/python-virtual-environments-a-primer/ 解释venv
+
+> There actually isn’t any difference between these two Python executables. It’s their directory locations that matter.
+
+解释 **virtualenvwrapper** 还要再查查资料
+
+复读 https://realpython.com/intro-to-pyenv/#why-not-use-system-python
+
+[13 Project Ideas for Intermediate Python Developers](https://realpython.com/intermediate-python-project-ideas/)
 
 
 
+### 11.23
 
+To generate a one-element tuple, a comma `,` is required at the end.
+
+
+
+### 11.24
+
+发现 https://www.infoworld.com/category/python/ 好像不错 有空再看
+
+**virtualenvwrapper** 有事一堆脚本https://virtualenvwrapper.readthedocs.io/en/latest/  没精力看，但看来作用是 "Organizes all of your virtual environments in one location".
+
+都说 python3 用 venv , python2 用 virtualenv 但为啥 https://github.com/doloopwhile/pyenv-register/issues/8 但问题单一直没人理，这个项目看来不靠谱。
+
+[Virtualenv and venv: Python virtual environments explained](https://www.infoworld.com/article/3239675/virtualenv-and-venv-python-virtual-environments-explained.html#:~:text=Virtualenv%20is%20the%20tool%20of,the%20task%20in%20Python%203.)  比 https://realpython.com/python-virtual-environments-a-primer/ 简单。 pyenv 用来安装不同 python版本暂时也不需要，可以试试 pipenv管理pip 包
+
+#### pipenv
+
+复读 11.20 的 Why I think pipenv is better than venv! And how to get started with it.
+
+复读 https://realpython.com/pipenv-guide/ 并做练习
 
