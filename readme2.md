@@ -690,3 +690,28 @@ pip 20.2.4 from /Library/Python/3.8/site-packages/pip (python 3.8)
 
 6.30 & 7.1 练习过，基本都忘了！
 
+
+
+### 11.25
+
+google "pipenv tutorial" 排名靠前的就是   https://realpython.com/pipenv-guide/  和 https://thoughtbot.com/blog/how-to-manage-your-python-projects-with-pipenv 所以不要再查了，练习就是。当然碰到问题可以再查官网 https://pipenv.pypa.io/en/latest/
+
+退出pipenv shell 可以 ctrl+d, exit, deactivate 或者直接关闭tab，ctrl+d最简单
+
+
+
+多装几个pip包
+
+1. [Top 10 Python libraries you must Know](https://medium.com/@technoserviceclub/top-10-python-libraries-you-must-know-cc28a849c1fc)
+2. [The 30 Best Python Libraries and Packages for Beginners](https://www.ubuntupit.com/best-python-libraries-and-packages-for-beginners/) 不少图像处理
+
+但我先装下 https://pypi.org/project/python-dotenv/
+
+vscode is aware of pipenv installed package, https://code.visualstudio.com/docs/python/environments
+
+> **Note**: Once the "select interpreter" flow is triggered, [pipenv](https://pipenv.readthedocs.io/) environments for the workspace folder will be searched for. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
+
+我重新选择了一下python的执行目录确实 vscode就不报错找不到包了。
+
+https://code.visualstudio.com/docs/python/environments 暂时没空看。
+
