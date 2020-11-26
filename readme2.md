@@ -694,6 +694,8 @@ pip 20.2.4 from /Library/Python/3.8/site-packages/pip (python 3.8)
 
 ### 11.25
 
+#### pipenv
+
 google "pipenv tutorial" 排名靠前的就是   https://realpython.com/pipenv-guide/  和 https://thoughtbot.com/blog/how-to-manage-your-python-projects-with-pipenv 所以不要再查了，练习就是。当然碰到问题可以再查官网 https://pipenv.pypa.io/en/latest/
 
 退出pipenv shell 可以 ctrl+d, exit, deactivate 或者直接关闭tab，ctrl+d最简单
@@ -707,11 +709,97 @@ google "pipenv tutorial" 排名靠前的就是   https://realpython.com/pipenv-g
 
 但我先装下 https://pypi.org/project/python-dotenv/
 
-vscode is aware of pipenv installed package, https://code.visualstudio.com/docs/python/environments
+**vscode is aware of pipenv installed package**, https://code.visualstudio.com/docs/python/environments
 
 > **Note**: Once the "select interpreter" flow is triggered, [pipenv](https://pipenv.readthedocs.io/) environments for the workspace folder will be searched for. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
 
 我重新选择了一下python的执行目录确实 vscode就不报错找不到包了。
 
 https://code.visualstudio.com/docs/python/environments 暂时没空看。
+
+
+
+### 11.26
+
+#### ssh
+
+家里 macbook 和单位 macbook pro都不能直接在sourcetree拉取推送代码到服务器。macbook pro可以在命令行推送，一直觉得是个小问题，就是那里配置不对。11.25干脆仔细操作下，其实应该就是 githua存的公钥不是我本机使用的
+
+```
+ssh -T git@github.com //没有提示登录
+```
+
+但是根据这里说要把公钥加了github配置 https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+生成 `~/.ssh/config` 知道github要的公钥，结果没想到造成今天登录 gitlab时候 sourcetree报错，暂时把 `~/.ssh/config` 去掉就可以了，发现github也能连。再查资料发现其实可以设置多个 IdentityFile,这样就好了。
+
+```shell
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/mbp2020_github
+  IdentityFile ~/.ssh/id_rsa
+
+```
+
+
+
+#### pipenv
+
+vscode又不认pipenv安装的包！
+
+pipreqs 生成 requirement.txt 和 `pipenv lock -r > requirements.txt` 不一样
+
+https://stackoverflow.com/questions/65018124/how-does-pipenv-decide-my-python-version 
+
+同时开了一个 问题单 https://github.com/pypa/pipenv/issues/4546
+
+其实还有一点不明白， 根据这里 https://kenreitz.org/essays/a-better-pip-workflow  requirement.txt 应该制定版本才对，这也是我的经验，但为什么 pipenv install 说
+
+```shell
+Warning: Your Pipfile now contains pinned versions, if your requirements.txt did.
+We recommend updating your Pipfile to specify the "*" version, instead.
+//难道是因为版本在lock里指定？
+```
+
+关于 `python_version = 3.8` 是因为我在3.8时候见了一个venv, https://github.com/pypa/pipenv#basic-concepts
+
+> - A virtualenv will automatically be created, when one doesn't exist.
+> - Otherwise, whatever virtualenv defaults to will be the default.
+
+关于列出 `ptyprocess==0.6.0` 是因为 https://github.com/pexpect/pexpect/blob/master/setup.py 没有指明版本， `install_requires=['ptyprocess>=0.5'],`  所以列出 0.6.0 确实合理。
+
+
+
+### 11.27
+
+#### toml
+
+https://github.com/toml-lang/toml 
+
+> TOML  allowing comments (unlike JSON) but preserving simplicity (unlike YAML).
+>
+> Because TOML is explicitly intended as a configuration file format, parsing it is easy,
+>
+> INI files are frequently compared to TOML for their similarities in syntax and use as configuration files. However, there is no standardized format for INI and they do not gracefully handle more than one or two levels of nesting.
+
+
+
+#### pipenv
+
+不是vscode 不认 pipenv 环境，是 pipenv直接把本项目venv环境搞错， vscode只认本项目的venvpipenv, 当 git clone 一个同名项目，改了venv， vscode有时候会把两个venv认成同一个，这时候重启下就好了.
+
+![vscode-error](img/vscode.png)
+
+
+
+另 pipenv 这个问题也很奇怪 https://github.com/pypa/pipenv/issues/4547
+
+pipenv 感觉确实会把不同虚拟环境搞混，我都删了重装就好了。
+
+再读 [Set up your Mac for Python and Jupyter using virtual environments](https://mattgosden.medium.com/set-up-your-mac-for-python-and-jupyter-using-virtual-environments-730bf2888e05) 能体会到 pipenv 比 virtualenv方便的地方。
+
+pipenv 没有办法 [List all Pipenv environments](https://stackoverflow.com/questions/51904300/list-all-pipenv-environments) 类似 workon 但作者说他不打算加 https://github.com/pypa/pipenv/issues/535 自己进目录看下就是。  https://github.com/pypa/pipenv/issues/1824  同样说不支持，但是有介绍一个新的工具 https://github.com/gtalarico/pipenv-pipes/
+
+虚拟环境的管理真的是一个头疼问题，目前别再调查学习了，用pipenv但同时知道它存在的问题就好。
 
