@@ -803,3 +803,54 @@ pipenv 没有办法 [List all Pipenv environments](https://stackoverflow.com/que
 
 虚拟环境的管理真的是一个头疼问题，目前别再调查学习了，用pipenv但同时知道它存在的问题就好。
 
+
+
+### 11.30
+
+1. The walrus operator is used as an assignment expression. It allows you to assign a value to a variable while also returning the value.
+2.  [ternary conditional operator?](https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator)
+
+```py
+a if condition else b
+```
+
+3.  [How to remove items from a list while iterating?](https://stackoverflow.com/questions/1207406/how-to-remove-items-from-a-list-while-iterating) 和所有其他语言一样，遍历list过程中不能修改，只能做一个新的，但python可以用 list comprehension  来做一个新的.
+
+```
+somelist = [x for x in somelist if not determine(x)]
+```
+
+4.  [6 things you’re missing out on by never using classes in your Python code](https://dbader.org/blog/6-things-youre-missing-out-on-by-never-using-classes-in-your-python-code) 没什么特别观点，就是 domain models
+
+5. [named tuples](https://stackoverflow.com/questions/2970608/what-are-named-tuples-in-python)
+
+   
+
+### 12.1
+
+小阅读
+
+https://stackoverflow.com/questions/2560310/heavy-usage-of-python-at-google
+
+https://realpython.com/world-class-companies-using-python/
+
+严肃阅读
+
+https://realpython.com/pytorch-vs-tensorflow/
+
+https://realpython.com/numpy-tensorflow-performance/
+
+"**Attention is All you Need**" 小捷今天教我的
+
+[详解Transformer （Attention Is All You Need）](https://zhuanlan.zhihu.com/p/48508221)
+
+https://leemeng.tw/shortest-path-to-the-nlp-world-a-gentle-guide-of-natural-language-processing-and-deep-learning-for-everyone.html
+
+https://leemeng.tw/attack_on_bert_transfer_learning_in_nlp.html
+
+https://www.freecodecamp.org/news/google-bert-nlp-machine-learning-tutorial/
+
+[Natural Language Understanding with Sequence to Sequence Models](https://towardsdatascience.com/natural-language-understanding-with-sequence-to-sequence-models-e87d41ad258b)
+
+[BERT for dummies — Step by Step Tutorial](https://towardsdatascience.com/bert-for-dummies-step-by-step-tutorial-fb90890ffe03) 
+
