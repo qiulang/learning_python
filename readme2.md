@@ -807,6 +807,8 @@ pipenv 没有办法 [List all Pipenv environments](https://stackoverflow.com/que
 
 ### 11.30
 
+#### 几个小知识点
+
 1. The walrus operator is used as an assignment expression. It allows you to assign a value to a variable while also returning the value.
 2.  [ternary conditional operator?](https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator)
 
@@ -827,6 +829,8 @@ somelist = [x for x in somelist if not determine(x)]
    
 
 ### 12.1
+
+#### next step ?
 
 小阅读
 
@@ -853,4 +857,51 @@ https://www.freecodecamp.org/news/google-bert-nlp-machine-learning-tutorial/
 [Natural Language Understanding with Sequence to Sequence Models](https://towardsdatascience.com/natural-language-understanding-with-sequence-to-sequence-models-e87d41ad258b)
 
 [BERT for dummies — Step by Step Tutorial](https://towardsdatascience.com/bert-for-dummies-step-by-step-tutorial-fb90890ffe03) 
+
+
+
+### 12.2
+
+#### pandas
+
+https://leemeng.tw/practical-pandas-tutorial-for-aspiring-data-scientists.html
+
+https://www.pypandas.cn/
+
+
+
+### 12.3
+
+#### Numpy
+
+[Numpy Essentials for Data Science](https://towardsdatascience.com/numpy-essentials-for-data-science-25dc39fae39)
+
+[Python Basics in Numpy for Machine Learning & Data Science](https://medium.com/dataseries/python-basics-in-numpy-for-machine-learning-data-science-6641c8c3892f)
+
+#### Python for Data Analysis
+
+下载 Python for Data Analysis 准备看看
+
+
+
+### 12.15
+
+#### slice notation
+
+[Understanding slice notation](https://stackoverflow.com/questions/509211/understanding-slice-notation)
+
+negative step 就是反向
+
+```
+a[::-1]    # all items in the array, reversed
+a[1::-1]   # the first two items, reversed
+a[:-3:-1]  # the last two items, reversed
+a[-3::-1]  # everything except the last two items, reversed
+```
+
+#### 同时在看三本书
+
+1. Python for Data Analysis 2017
+2. Deep Learning with Python-2017
+3. Grokking Deep Learning-2019
 
