@@ -905,3 +905,12 @@ a[-3::-1]  # everything except the last two items, reversed
 2. Deep Learning with Python-2017
 3. Grokking Deep Learning-2019
 
+
+
+### 12.18
+
+#### star operator
+
+1. [Difference between zip(list) and zip(*list)](https://stackoverflow.com/questions/29139350/difference-between-ziplist-and-ziplist)
+2. [What does the star operator mean, in a function call?](https://stackoverflow.com/questions/2921847/what-does-the-star-operator-mean-in-a-function-call)
+

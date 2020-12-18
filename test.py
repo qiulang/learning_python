@@ -5,6 +5,13 @@ print(test[1])
 t = test[:-3:-1]
 print(t)
 print(test[-3])
+
+
+pitchers = [('Nolan', 'Ryan'), ('Roger', 'Clemens'), ('Schilling', 'Curt')]
+first_names, last_names = zip(pitchers)
+print(first_names)
+
+
 exit(0)
 a = int(input("input your number: \n"))
 s = 1
