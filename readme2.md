@@ -502,7 +502,7 @@ On POSIX, if *args* is a string, the string is interpreted as the name or path o
 
 #### OOP
 
-python 学习中断了一段时间，但是相关概念学习和思考一再没断。首先是 OOP, 我现在写python 脚本根本不需要OO，[以前就思考过这个问题](./readme.md) 写nodejs脚本也不需要。昨天问了这个问题 [Disadvantages of OOP, “in the Kingdom of Nouns”](https://softwareengineering.stackexchange.com/questions/419122/disadvantages-of-oop-in-the-kingdom-of-nouns) 算是再次思考，虽然马上就被关闭，但是找到 SO 相同问题 [Disadvantage of OOP?](https://stackoverflow.com/questions/2853316/disadvantage-of-oop) 有一个回答，
+python 学习中断了一段时间，但是相关概念学习和思考一再没断。首先是 OOP, 我现在写python 脚本根本不需要OO，[以前就思考过这个问题](./readme.md#oo) 写nodejs脚本也不需要。昨天问了这个问题 [Disadvantages of OOP, “in the Kingdom of Nouns”](https://softwareengineering.stackexchange.com/questions/419122/disadvantages-of-oop-in-the-kingdom-of-nouns) 算是再次思考，虽然马上就被关闭，但是找到 SO 相同问题 [Disadvantage of OOP?](https://stackoverflow.com/questions/2853316/disadvantage-of-oop) 有一个回答，
 
 > **OOP works best with large-scale, multi-developer, multi-module projects.** For "*development in the small*" - such as scripting or transformative processing, it can require a good deal of overhead without necessarily adding value.
 >
@@ -913,4 +913,103 @@ a[-3::-1]  # everything except the last two items, reversed
 
 1. [Difference between zip(list) and zip(*list)](https://stackoverflow.com/questions/29139350/difference-between-ziplist-and-ziplist)
 2. [What does the star operator mean, in a function call?](https://stackoverflow.com/questions/2921847/what-does-the-star-operator-mean-in-a-function-call)
+
+
+
+str.split() 不给参数就是 whitespace分隔
+
+
+
+### 12.21
+
+感觉vscode 一个明显的bug，结果还被推皮球了
+
+1. https://github.com/microsoft/vscode-python/issues/15019
+2. https://github.com/microsoft/vscode/issues/113259
+
+
+
+### 12.25
+
+#### numpy
+
+##### Boolean Indexing
+
+boolean array can be passed when indexing the array. Selecting data from an array by boolean indexing *always* creates a copy of the data, even if the returned array is unchanged. The Python keywords and and or do not work with boolean arrays. Use & (and) and | (or) instead.
+
+```
+data[data < 0] = 0
+data[names == 'Bob', 2:]
+data[names == 'Bob', 3]
+cond = names == 'Bob'
+data[~cond]
+```
+
+
+
+##### Fancy Indexing
+
+To select out a subset of the rows in a particular order, you can simply pass a list or ndarray of integers specifying the desired order.
+
+Passing multiple index arrays does something slightly different; It selects a one-dimensional array of elements corresponding to each tuple of indices, the result of fancy indexing is always one-dimensional. fancy indexing, unlike slicing, always copies the data into a new array.
+
+```
+arr[[4, 3, 0, 6]]
+arr[[-3, -5, -7]]
+```
+
+
+
+##### Universal Functions: Fast Element-Wise Array Functions
+
+Ufuncs accept an optional out argument that allows them to operate in-place on arrays
+
+##### Array-Oriented Programming with Arrays
+
+The numpy.meshgrid function returns two 2-Dimensional arrays representing the X and Y coordinates of all the points.
+
+[Why is semicolon allowed in this python snippet?](https://stackoverflow.com/questions/8236380/why-is-semicolon-allowed-in-this-python-snippet)
+
+>  Semicolon in the interpreter
+
+
+
+##### Expressing Conditional Logic as Array Operations
+
+##### Mathematical and Statistical Methods
+
+##### Methods for Boolean Arrays
+
+##### Unique and Other Set Logic
+
+A commonly used one is np.unique, which returns the **sorted unique** values in an array
+
+`np.in1d`, tests membership of the values in one array in another, returning a boolean array
+
+```python
+np.where(arr > 0, 2, arr) # <=0 不变
+arr.sum(axis=0)
+arr.sum(axis=1)
+arr = np.random.randn(100)
+(arr > 0).sum() 
+bools = np.array([False, False, True, False])
+bools.any()
+bools.all()
+arr = np.random.randn(3, 3)
+s1 = np.sort(arr)
+s2 = np.sort(arr, 0)
+np.unique(names)
+```
+
+
+
+### 12.28
+
+event-driven
+
+事件驱动开发，如何有效记录文档
+
+1. [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
+3. [How event-driven architecture solves modern web app problems](https://stackoverflow.blog/2020/03/16/how-event-driven-architecture-solves-modern-web-app-problems/) 还没看
+4. [When should I use event-based programming?](https://softwareengineering.stackexchange.com/questions/267752/when-should-i-use-event-based-programming)
 

@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+import numpy as np
+arr2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+arr3d = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+# print(arr3d[0])
+# print(arr3d[1, 0])
+# print(arr2d[:2])
+l = [1, 2, 3]
+# print(l[:2])
+# print(arr2d[:2, :1])
+# print(arr2d[:2, 1:])
+# print(arr2d[1, :2])
+# print(arr2d[:2, 2])
+# print(arr2d[:, :1])
+names = np.array(['Bob', 'Joe', 'Will', 'Bob', 'Will', 'Joe', 'Joe'])
+data = np.random.randn(7, 4)
+bobs = (names == 'Bob')
+# print(bobs)
+print(data[names == 'Bob', 2:])
+arr = np.arange(32).reshape((8, 4))
+a2 = arr[[1, 5, 7, 2], [0, 3, 1, 2]]
+# print(a2)
+
+x = np.arange(-5, 5, 1)
+y = np.arange(0, 3, 1)
+xs, ys = np.meshgrid(x, y)
+print(xs)
+print(ys)
+print('using linspace')
+x = np.linspace(-5, 5, 11)
+y = np.linspace(0, 3, 4)
+xs, ys = np.meshgrid(x, y)
+print(xs)
+print(ys)
+
+xarr = np.array([1.1, 1.2, 1.3, 1.4, 1.5])
+yarr = np.array([2.1, 2.2, 2.3, 2.4, 2.5])
+cond = np.array([True, False, True, True, False])
+result = [(x if c else y) for x, y, c in zip(xarr, yarr, cond)]
+print(result)
+result = np.where(cond, xarr, yarr)
+print(result)
+
+
+arr = np.random.randn(3, 3)
+s1 = np.sort(arr)
+s2 = np.sort(arr, 0)
+print(arr)
+print('----')
+print(s1)
+print('----')
+print(s2)
