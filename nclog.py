@@ -12,6 +12,7 @@ def foo():
     rest = (4, 5, 6)
     t = 1, 2, 3, *rest
     logger.info(t)
+    logger.warning('why ??')
     return t
 
 

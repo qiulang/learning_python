@@ -922,6 +922,8 @@ str.split() 不给参数就是 whitespace分隔
 
 ### 12.21
 
+#### another vscode bug
+
 感觉vscode 一个明显的bug，结果还被推皮球了
 
 1. https://github.com/microsoft/vscode-python/issues/15019
@@ -1005,11 +1007,111 @@ np.unique(names)
 
 ### 12.28
 
-event-driven
+#### event-driven
 
 事件驱动开发，如何有效记录文档
 
 1. [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
 3. [How event-driven architecture solves modern web app problems](https://stackoverflow.blog/2020/03/16/how-event-driven-architecture-solves-modern-web-app-problems/) 还没看
 4. [When should I use event-based programming?](https://softwareengineering.stackexchange.com/questions/267752/when-should-i-use-event-based-programming)
+4. [How to record the sequence of events effectively when there is a logical flow runs over various event notifications?](https://softwareengineering.stackexchange.com/questions/420414/how-to-record-the-sequence-of-events-effectively-when-there-is-a-logical-flow-ru)
+
+
+
+### 1.1
+
+#### OO again
+
+1. [Some real practical example to teach object-oriented concepts and programming (in python)](https://cseducators.stackexchange.com/questions/6709/some-real-practical-example-to-teach-object-oriented-concepts-and-programming-i)
+2. [Object Oriented design example using inheritance in Python Standard Library, e.g. pathlib?](https://stackoverflow.com/questions/65527098/object-oriented-design-example-using-inheritance-in-python-standard-library-e-g)
+
+
+
+https://realpython.com/python-logging-source-code/ **找时间学习** ，还是看不下去
+
+https://www.toptal.com/python/in-depth-python-logging 没有太特别
+
+
+
+### 1.4
+
+#### async/await
+
+[Simplest async/await example possible in Python](https://stackoverflow.com/questions/50757497/simplest-async-await-example-possible-in-python)
+
+> If you need to get the **return value** of these async functions, then `gather` is useful. 
+
+[When to use and when not to use Python 3.5 `await` ?](https://stackoverflow.com/questions/33357233/when-to-use-and-when-not-to-use-python-3-5-await)
+
+> If `async` functions are involved there should be an "event loop" which orchestrates these `async` functions. The event loop keeps track of not-yet-finished coroutines and chooses the next one to continue running. `asyncio` module provides an implementation of event loop, but this is not the only possible implementation.
+
+
+
+https://realpython.com/async-io-python/ 长，没看
+
+[Difference between coroutine and future/task in Python 3.5?](https://stackoverflow.com/questions/34753401/difference-between-coroutine-and-future-task-in-python-3-5)
+
+[python3 -Get result from async method](https://stackoverflow.com/questions/44048536/python3-get-result-from-async-method)
+
+[Asyncio.gather vs asyncio.wait](https://stackoverflow.com/questions/42231161/asyncio-gather-vs-asyncio-wait)
+
+
+
+### 1.9
+
+#### logging again
+
+为了找个合适的OO例子，有人建议logging，所以重新复习了下
+
+1. https://www.machinelearningplus.com/python/python-logging-guide/ 基本使用
+2. https://www.loggly.com/ultimate-guide/python-logging-basics/ 生成formatter 子类的例子
+3. [logger logging without a handler](https://stackoverflow.com/questions/64570918/logger-logging-without-a-handler) "a `logging.lastResort` handler"
+4. [What is the point of setLevel in a python logging handler?](https://stackoverflow.com/questions/17668633/what-is-the-point-of-setlevel-in-a-python-logging-handler)
+
+
+
+[Dynamically changing log level without restarting the application](https://stackoverflow.com/questions/19617355/dynamically-changing-log-level-without-restarting-the-application)
+
+`fileConfig` is a mechanism to configure the log level for you based on a file; you can dynamically change it at any time in your program.
+
+
+
+https://coralogix.com/log-analytics-blog/python-logging-best-practices-tips/  这篇很全，没看完 log学习告一段落吧
+
+
+```python
+logging.Formatter`(fmt=None, datefmt=None, style='{'
+
+```
+
+
+
+### 1.21
+
+#### brew
+
+macOS 11.1 Big Sur 需要升级brew 到 最新 2.7.5，记得要设置brew的国内代理： https://brew.sh/2020/05/29/homebrew-2.3.0/ 这个改动是我的问题单 [Provide an easy way to change homebrew's origins](https://github.com/Homebrew/brew/issues/6640) 比如设置清华镜像 https://mirror.tuna.tsinghua.edu.cn/help/homebrew/ ,  阿里的镜像源在这里 https://developer.aliyun.com/mirror/homebrew 但是使用步骤用 2.3 的两个环境变量更好。 注意中文文章都没注意有这两个环境变量！
+
+homebrew 是由2个git仓库，分别是：Homebrew Core，Homebrew, 和一个文件服务器Homebrew Bottles 组成。”brew 安装软件由两步，首先从本地仓库查找依赖项目，然后安装软件包。我们需要从这两步来提速。替换本地索引库和安装包地址。索引库需要在安装的时候替换，安装包地址可以设置环境变量来替换。“ 
+
+```shell
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+```
+
+但是如果当前的brew 低于 2.3 就用这样设置镜像源:
+
+```shell
+git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+# 应用生效
+brew update
+# 替换homebrew-bottles:
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' 
+```
+
+
+
+brew update 有时候一点反应也没有，我的情况是brew要更新的包太多了，按照这里的建议 [brew update gets stuck](https://github.com/Homebrew/brew/issues/895) 执行 `brew update --debug --verbose` 打印出都在做什么。 这里说 https://learnku.com/articles/18908 第一次按ctrl +c 打印出 **^C**，就代表已经取消了 Updating Homebrew 操作，确实这样。
 

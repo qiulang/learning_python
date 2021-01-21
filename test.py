@@ -39,3 +39,8 @@ max, *t2 = (4,)
 print(t2)
 t2 = 'you '.split()
 print(t2)
+
+a = (3, 5, 7, 1, 4, 546, 43)
+s = sum(a)
+avg = s/len(a)
+print(f'sum:{s}, avg:{avg}')

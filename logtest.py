@@ -12,18 +12,21 @@ import nclog
 import nclog2
 
 logger = logging.getLogger(__name__)
+FORMAT = "[%(filename)s:%(lineno)s - %(funcName)s() ] %(message)s"
 
 
 def setup_root_logger():
-    coloredlogs.install(level='DEBUG')
-    # logging.basicConfig()
+    # coloredlogs.install(level='DEBUG')
+    # logging.basicConfig(level='INFO', format=FORMAT)
+    logging.basicConfig(level='DEBUG')
     info_handler = logging.FileHandler('file-log')
     info_handler.setLevel(logging.INFO)
     console = logging.StreamHandler()
     console.setLevel(logging.INFO)
 
     # Create formatters and add it to handlers
-    c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+    c_format = logging.Formatter(
+        '{name} - {funcName} - {lineno} - {message}', style="{")
     f_format = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     console.setFormatter(c_format)
@@ -37,6 +40,7 @@ def run_test():
     result = run(['npm', 'show', 'jssip-emicnet', 'version'],
                  stdout=PIPE, stderr=PIPE)
     output = result.stdout.decode('utf-8')
+    logger.info('npm show jssip-emicnet version')
     logger.info(f'{output}')
 
 
