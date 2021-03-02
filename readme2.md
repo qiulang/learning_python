@@ -200,7 +200,7 @@ max(nested_list, key=lambda x: x[1]) # 缺省比的是第一个
 
 3. [python package](https://hackernoon.com/pip-install-abra-cadabra-or-python-packages-for-beginners-33a989834975) 又看了一遍，再次理解一下package和setup.py 但wheel到底是个什么概念没讲透
 
-4. [How to create a Pure-Python wheel](https://stackoverflow.com/questions/31573107/how-to-create-a-pure-python-wheel) 帮助理解 wheel
+4. [How to create a Pure-Python wheel](https://stackoverflow.com/questions/31573107/how-to-create-a-pure-python-wheel) 帮助理解 **wheel**
 
 
 
@@ -933,6 +933,8 @@ str.split() 不给参数就是 whitespace分隔
 
 ### 12.25
 
+从 Python for Data Analysis 2017 学 numpy 和 panda
+
 #### numpy
 
 ##### Boolean Indexing
@@ -1098,6 +1100,10 @@ homebrew 是由2个git仓库，分别是：Homebrew Core，Homebrew, 和一个�
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+//阿里镜像源
+https://mirrors.aliyun.com/homebrew/brew.git
+https://mirrors.aliyun.com/homebrew/homebrew-core.git
+https://mirrors.aliyun.com/homebrew/homebrew-bottles/
 ```
 
 但是如果当前的brew 低于 2.3 就用这样设置镜像源:
@@ -1115,3 +1121,124 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bott
 
 brew update 有时候一点反应也没有，我的情况是brew要更新的包太多了，按照这里的建议 [brew update gets stuck](https://github.com/Homebrew/brew/issues/895) 执行 `brew update --debug --verbose` 打印出都在做什么。 这里说 https://learnku.com/articles/18908 第一次按ctrl +c 打印出 **^C**，就代表已经取消了 Updating Homebrew 操作，确实这样。
 
+
+
+#### macports
+
+brew 用着好好就是没想再试验 macports. 但是最近发现在macOS 10.13老版本用brew安装 php 7.4失败，在 [How to install latest php without brew or is it possbile?](https://apple.stackexchange.com/questions/411706/how-to-install-latest-php-without-brew-or-is-it-possbile) 发问有人说实时macports, 这里 [What is the difference/usage of homebrew, macports or other package installation tools? ](https://stackoverflow.com/questions/21374366/what-is-the-difference-usage-of-homebrew-macports-or-other-package-installation) 也提到需要安装最新php到老的macOS就用macports， 在10.13机器试了下果然可以！
+
+macports 和 brew 简单区别是 homebrew的理念是尽量使用系统现有的库，大大的减少编译时间；macport的理念是尽量减少对系统现有库的依赖，自己下载必须的库。macports安装所有的package到/opt/local下面；这样不会和系统现有的/usr/local有什么冲突。
+
+
+
+### 1.22
+
+https://tryolabs.com/blog/2020/12/21/top-10-python-libraries-of-2020/
+
+[PrettyError](https://github.com/onelivesleft/PrettyErrors) 可以试试
+
+
+
+### 1.28
+
+#### Named Tuple and Dataclass
+
+学习断了一个多月，再捡起来，先 **Named Tuple** and **Dataclass**
+
+https://www.geeksforgeeks.org/how-to-use-namedtuple-and-dataclass-in-python/
+
+
+
+### 2.4
+
+#### fun project
+
+上 https://cseducators.stackexchange.com/ 看看有什么好问题，发现这个还不错 [What are some fun projects for non-CS majors?](https://cseducators.stackexchange.com/questions/6777/what-are-some-fun-projects-for-non-cs-majors) 我以前读过 [13 Project Ideas for Intermediate Python Developers](https://realpython.com/intermediate-python-project-ideas/) 和 https://realpython.com/tutorials/projects/ 提到的 Pandas Project: Make a Gradebook With Python & Pandas 有机会可以试试，关于树莓的例子先收藏 https://realpython.com/python-raspberry-pi/
+
+
+
+
+
+### 2.9
+
+#### vscode vs pycharm
+
+1. [PyCharm vs VSCode](https://towardsdatascience.com/pycharm-vs-vscode-9ffbed46ac9e)
+2. https://tangenttechnologies.ca/blog/pycharm-vs-vscode/
+
+
+
+### 2.22
+
+#### try pcharm
+
+https://www.jetbrains.com/pycharm/learn/
+
+`pip3 list -v` 看包安装目录，pycharm 用 venv看来还得再复习下, 把 https://realpython.com/python-virtual-environments-a-primer 又看了一下，原来venv是同一个python版本下不同包虚拟环境，通过`activate`激活。
+
+但进一步使用发现这个提示 `Using legacy 'setup.py install' for termcolor, since package 'wheel' is not installed.` 
+
+wheel 和 pip到底什么关系？ 发现我在[2020 7月9号就碰到过这个问题](#7.9)
+
+https://realpython.com/python-wheels/ 和 https://blog.zengrong.net/post/python_packaging/
+
+[When does “pip install” build a wheel?](https://stackoverflow.com/questions/35169608/when-does-pip-install-build-a-wheel)
+
+
+
+### 2.23
+
+用pycharm自然想到一个问题，怎么把venv的东西放到git，常见做法 [Is it bad to have my virtualenv directory inside my git repository?](https://stackoverflow.com/questions/6590688/is-it-bad-to-have-my-virtualenv-directory-inside-my-git-repository) 和[The Easiest Way to Use a Python Virtual Environment with Git](https://medium.com/wealthy-bytes/the-easiest-way-to-use-a-python-virtual-environment-with-git-401e07c39cde) 都是说把env目录放到 `.gitignore` 然后 `pip freeze > requirements.txt` 但是这样做的问题我在 [2020 7.1 研究 pipreqs](#pipreqs) 就发现，它只是把所有包都列出，而不是真的用到的包。但是pipreqs的“问题”，我在[2020 11月6号研究 pipenv](#pipenv) 给开过一个问题单， pipenv会检索各个包的依赖关系，而不是像`pipreqs` scans py files and analyze import statements to generate requirements.
+
+但是最简单可能还是pip install安装包时候注意点，没用到包不安装最简单。
+
+
+
+### 3.1 
+
+查找替换文件中的字符串
+
+
+
+1.  [Replace string within file contents](https://stackoverflow.com/questions/4128144/replace-string-within-file-contents) 
+
+   > If you'd like to replace the strings in the same file, you probably have to read its contents into a local variable, close it, and re-open it for writing:
+
+   ```python
+   # 方案1
+   with open(FileName) as f:
+       newText=f.read().replace('A', 'Orange')
+   with open(FileName, "w") as f:
+       f.write(newText)
+       
+   # 方案2
+   with open("Stud.txt", "rt") as fin:
+       with open("out.txt", "wt") as fout:
+           for line in fin:
+               fout.write(line.replace('A', 'Orange'))
+   ```
+
+    
+
+2.  [Replace string within file contents](https://stackoverflow.com/questions/4128144/replace-string-within-file-contents) 用 `fileinput`
+
+```python
+with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
+    for line in file:
+        # 标准输出重定向到原文件
+        print(line.replace(text_to_search, replacement_text), end='')
+```
+
+
+
+### 3.2
+
+[Scoping in Python 'for' loops](https://stackoverflow.com/questions/3611760/scoping-in-python-for-loops)
+
+[python subprocess run works with single string but not list of strings](https://stackoverflow.com/questions/63582328/python-subprocess-run-works-with-single-string-but-not-list-of-strings)
+
+> Providing a sequence of arguments is generally preferred, as it allows the module to take care of any required escaping and quoting of arguments (e.g. to permit spaces in file names).
+
+https://www.dataquest.io/blog/regex-cheatsheet/
+
+lookbehind & lookahead
