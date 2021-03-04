@@ -1241,4 +1241,29 @@ with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
 
 https://www.dataquest.io/blog/regex-cheatsheet/
 
-lookbehind & lookahead
+
+
+### 3.3
+
+#### regex
+
+通过 lookbehind & lookahead 定位需要查找替换的字符串
+
+#### try pycharm
+
+[Shadows name xyz from outer scope](https://stackoverflow.com/questions/31575659/shadows-name-xyz-from-outer-scope)
+
+原因是 `if __name__ == "__main__": being in globals`  所以 `Put the main code into a main function.` 就可以解决。
+
+[Should a return statement have parentheses?](https://stackoverflow.com/questions/4978567/should-a-return-statement-have-parentheses)
+
+>  If you want to return a tuple, use `return your, values, here`
+>
+> There's no need for any parenthesis (tuples are created by the `,` "operator", not the `()`)
+
+[When are parentheses required around a tuple?](https://stackoverflow.com/questions/16017811/when-are-parentheses-required-around-a-tuple)
+
+> - The [`return` statement](http://docs.python.org/2/reference/simple_stmts.html#the-return-statement)
+> - [`yield` expressions](http://docs.python.org/2/reference/expressions.html#yield-expressions)
+> - [assignment](http://docs.python.org/2/reference/simple_stmts.html#assignment-statements) (including [augmented assignment](http://docs.python.org/2/reference/simple_stmts.html#augmented-assignment-statements))
+> - The [`for` statement](http://docs.python.org/2/reference/compound_stmts.html#the-for-statement).
