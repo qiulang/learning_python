@@ -1133,6 +1133,8 @@ macports 和 brew 简单区别是 homebrew的理念是尽量使用系统现有�
 
 ### 1.22
 
+#### python library
+
 https://tryolabs.com/blog/2020/12/21/top-10-python-libraries-of-2020/
 
 [PrettyError](https://github.com/onelivesleft/PrettyErrors) 可以试试
@@ -1196,9 +1198,7 @@ https://realpython.com/python-wheels/ 和 https://blog.zengrong.net/post/python_
 
 ### 3.1 
 
-查找替换文件中的字符串
-
-
+#### 查找替换文件中的字符串
 
 1.  [Replace string within file contents](https://stackoverflow.com/questions/4128144/replace-string-within-file-contents) 
 
@@ -1267,3 +1267,16 @@ https://www.dataquest.io/blog/regex-cheatsheet/
 > - [`yield` expressions](http://docs.python.org/2/reference/expressions.html#yield-expressions)
 > - [assignment](http://docs.python.org/2/reference/simple_stmts.html#assignment-statements) (including [augmented assignment](http://docs.python.org/2/reference/simple_stmts.html#augmented-assignment-statements))
 > - The [`for` statement](http://docs.python.org/2/reference/compound_stmts.html#the-for-statement).
+
+
+
+### 3.8
+
+re-write 2 scripts into a class as an exercise
+
+[Refactoring Python Applications for Simplicity](https://realpython.com/python-refactoring/#1-functions-that-should-be-objects)
+
+[The controller pattern is awful (and other OO heresy)](https://eev.ee/blog/2013/03/03/the-controller-pattern-is-awful-and-other-oo-heresy/) 长没看完
+
+[Initializing a dictionary in python with a key value and no corresponding values](https://stackoverflow.com/questions/20079681/initializing-a-dictionary-in-python-with-a-key-value-and-no-corresponding-values) 设置value 为`None` 
+
