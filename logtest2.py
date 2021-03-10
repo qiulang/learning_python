@@ -18,8 +18,13 @@ def main():
     # nclog2.foo2()
     # has = nclog2.logger.hasHandlers()
     # nclog2.logger.warning(has)
-    for x in range(1, 5):
-        sample_func()
+    # for x in range(1, 5):
+    #     sample_func()
+    a = ("wsclient", "ccfront", 'wsserver')
+    b = ("bv4", "cv4", "wv4")
+    d = dict(zip(a, b))
+    print(d)
+    return False, None
 
 
 def sample_func():
@@ -29,6 +34,7 @@ def sample_func():
 
 
 if __name__ == "__main__":
-    main()
-    for x in range(1, 5):
-        sample_func()
+    result, r2 = main()
+    # for x in range(1, 5):
+    #     sample_func()
+    print(r2)

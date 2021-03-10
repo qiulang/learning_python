@@ -1280,3 +1280,17 @@ re-write 2 scripts into a class as an exercise
 
 [Initializing a dictionary in python with a key value and no corresponding values](https://stackoverflow.com/questions/20079681/initializing-a-dictionary-in-python-with-a-key-value-and-no-corresponding-values) 设置value 为`None` 
 
+numpy 再复现 https://realpython.com/numpy-tutorial/
+
+
+
+### 3.10
+
+[Instance variables in methods outside the constructor (Python) — why and how?](https://stackoverflow.com/questions/38377276/instance-variables-in-methods-outside-the-constructor-python-why-and-how) 
+
+[How to return a value from __init__ in Python?](https://stackoverflow.com/questions/2491819/how-to-return-a-value-from-init-in-python) 没有返回值
+
+[What is the meaning of single and double underscore before an object name?](https://stackoverflow.com/questions/1301346/what-is-the-meaning-of-single-and-double-underscore-before-an-object-name)
+
+https://www.datacamp.com/community/tutorials/finance-python-trading  讲述 panda, Time Series Data, Jupyter notebook, 在股票上显示确实很匹配。 没时间看
+
