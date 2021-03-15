@@ -1274,9 +1274,9 @@ https://www.dataquest.io/blog/regex-cheatsheet/
 
 re-write 2 scripts into a class as an exercise
 
-[Refactoring Python Applications for Simplicity](https://realpython.com/python-refactoring/#1-functions-that-should-be-objects)
+[Refactoring Python Applications for Simplicity](https://realpython.com/python-refactoring/#1-functions-that-should-be-objects) 长
 
-[The controller pattern is awful (and other OO heresy)](https://eev.ee/blog/2013/03/03/the-controller-pattern-is-awful-and-other-oo-heresy/) 长没看完
+[The controller pattern is awful (and other OO heresy)](https://eev.ee/blog/2013/03/03/the-controller-pattern-is-awful-and-other-oo-heresy/) 长，看完了，倒也没有什么新观点。
 
 [Initializing a dictionary in python with a key value and no corresponding values](https://stackoverflow.com/questions/20079681/initializing-a-dictionary-in-python-with-a-key-value-and-no-corresponding-values) 设置value 为`None` 
 
@@ -1293,4 +1293,10 @@ numpy 再复现 https://realpython.com/numpy-tutorial/
 [What is the meaning of single and double underscore before an object name?](https://stackoverflow.com/questions/1301346/what-is-the-meaning-of-single-and-double-underscore-before-an-object-name)
 
 https://www.datacamp.com/community/tutorials/finance-python-trading  讲述 panda, Time Series Data, Jupyter notebook, 在股票上显示确实很匹配。 没时间看
+
+
+
+### 3.11
+
+[Using the Python zip() Function for Parallel Iteration](https://realpython.com/python-zip-function/)
 
