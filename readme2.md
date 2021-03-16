@@ -1272,6 +1272,8 @@ https://www.dataquest.io/blog/regex-cheatsheet/
 
 ### 3.8
 
+####  OO exercise
+
 re-write 2 scripts into a class as an exercise
 
 [Refactoring Python Applications for Simplicity](https://realpython.com/python-refactoring/#1-functions-that-should-be-objects) 长
@@ -1280,11 +1282,11 @@ re-write 2 scripts into a class as an exercise
 
 [Initializing a dictionary in python with a key value and no corresponding values](https://stackoverflow.com/questions/20079681/initializing-a-dictionary-in-python-with-a-key-value-and-no-corresponding-values) 设置value 为`None` 
 
-numpy 再复现 https://realpython.com/numpy-tutorial/
-
 
 
 ### 3.10
+
+#### OO exercise cont.
 
 [Instance variables in methods outside the constructor (Python) — why and how?](https://stackoverflow.com/questions/38377276/instance-variables-in-methods-outside-the-constructor-python-why-and-how) 
 
@@ -1299,4 +1301,16 @@ https://www.datacamp.com/community/tutorials/finance-python-trading  讲述 pand
 ### 3.11
 
 [Using the Python zip() Function for Parallel Iteration](https://realpython.com/python-zip-function/)
+
+大致扫了 [花了两天，终于把 Python 的 setup.py 给整明白了](https://zhuanlan.zhihu.com/p/276461821) 主要是了解了 `disutils`、 `distutils` 、`distutils2`、`setuptools`
+
+### 3.16
+
+[pipenv specify minimum version of python in pipfile?](https://stackoverflow.com/questions/51492423/pipenv-specify-minimum-version-of-python-in-pipfile) 没办法
+
+一个新名词 poetry 对应 pipenv 没看，一个优点是便于发布包？
+
+numpy 再复习 https://realpython.com/numpy-tutorial/
+
+
 
