@@ -3,6 +3,7 @@ import logging
 import nclog2
 import re
 from datetime import datetime
+import sys
 
 
 def reg_test():
@@ -37,4 +38,6 @@ if __name__ == "__main__":
     result, r2 = main()
     # for x in range(1, 5):
     #     sample_func()
+
     print(r2)
+    print(sys.version_info)

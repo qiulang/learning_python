@@ -333,6 +333,8 @@ macOS 自带python2 的注意事项，mac自带 python 2.7.16 在 `/usr/bin/pyth
 
 ### 9.16
 
+#### books
+
 google  <u>improve python skill to the next level</u>
 
 https://stackabuse.com/the-best-python-books-for-all-skill-levels/
@@ -1190,13 +1192,15 @@ https://realpython.com/python-wheels/ 和 https://blog.zengrong.net/post/python_
 
 ### 2.23
 
+#### venv
+
 用pycharm自然想到一个问题，怎么把venv的东西放到git，常见做法 [Is it bad to have my virtualenv directory inside my git repository?](https://stackoverflow.com/questions/6590688/is-it-bad-to-have-my-virtualenv-directory-inside-my-git-repository) 和[The Easiest Way to Use a Python Virtual Environment with Git](https://medium.com/wealthy-bytes/the-easiest-way-to-use-a-python-virtual-environment-with-git-401e07c39cde) 都是说把env目录放到 `.gitignore` 然后 `pip freeze > requirements.txt` 但是这样做的问题我在 [2020 7.1 研究 pipreqs](#pipreqs) 就发现，它只是把所有包都列出，而不是真的用到的包。但是pipreqs的“问题”，我在[2020 11月6号研究 pipenv](#pipenv) 给开过一个问题单， pipenv会检索各个包的依赖关系，而不是像`pipreqs` scans py files and analyze import statements to generate requirements.
 
 但是最简单可能还是pip install安装包时候注意点，没用到包不安装最简单。
 
 
 
-### 3.1 
+### 3.1
 
 #### 查找替换文件中的字符串
 
@@ -1232,6 +1236,8 @@ with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
 
 
 ### 3.2
+
+#### tips
 
 [Scoping in Python 'for' loops](https://stackoverflow.com/questions/3611760/scoping-in-python-for-loops)
 
@@ -1304,7 +1310,11 @@ https://www.datacamp.com/community/tutorials/finance-python-trading  讲述 pand
 
 大致扫了 [花了两天，终于把 Python 的 setup.py 给整明白了](https://zhuanlan.zhihu.com/p/276461821) 主要是了解了 `disutils`、 `distutils` 、`distutils2`、`setuptools`
 
+
+
 ### 3.16
+
+#### numpy again
 
 [pipenv specify minimum version of python in pipfile?](https://stackoverflow.com/questions/51492423/pipenv-specify-minimum-version-of-python-in-pipfile) 没办法
 
@@ -1313,4 +1323,77 @@ https://www.datacamp.com/community/tutorials/finance-python-trading  讲述 pand
 numpy 再复习 https://realpython.com/numpy-tutorial/
 
 
+
+### 3.17
+
+#### data science 学习系列
+
+https://realpython.com/numpy-tutorial/ 读完，用 `matplotlib` 操作图像的例子不错
+
+https://realpython.com/tutorials/data-science/ 学习系列
+
+https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html
+
+https://realpython.com/python-data-cleaning-numpy-pandas/ 
+
+
+
+#### 几个命令行工具
+
+[httpie](https://github.com/httpie/httpie) 比curl 友好
+
+[ack](http://conqueringthecommandline.com/book/ack_ag) 查源代码，比grep强  https://blog.newrelic.com/engineering/grep-ack-ag/
+
+[How it feels to learn JavaScript in 2016](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f) 又读了一遍，过了快5年还是一样 （见下面 3.25）
+
+
+
+### 3.23
+
+#### specify mininum python version
+
+[Is there a way to specify minimum python version requirement for my script since pipfile does not support this?](https://stackoverflow.com/questions/66742127/is-there-a-way-to-specify-minimum-python-version-requirement-for-my-script-since) 代码里自己判断
+
+pyenv 设置项目的python 版本，要在`.zshrc` 加`eval "$(pyenv init -)"`  如果没有 pyenv local 后python版本不会变
+
+[2019.12 就碰到这个问题](readme.md#pyenv) ，到底为啥我把它注释了？，估计也没特别的理由。用 `pyenv local` 进到一个目录是设定版本，退出是系统版本应该是很方便。
+
+
+
+### 3.25
+
+#### class script
+
+[Why you should use pyenv + Pipenv for your Python projects](https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c) 2018年文章又读了一遍
+
+这次经验是 先用 `pipreqs .` 生成 `requirement.txt` 然后用`pipenv install` 生成 `Pipfile & Pipfile.lock` ，编辑 `Pipfile` 不指定版本号再次运行 `pipenv install `更新`Pipfile.lock` 运行 `pipenv lock --requirements > requirements2.txt` 重新生成  `requirement.txt` 
+
+这次把 def 脚本改写成 class 脚本，比起打包脚本体现用 class 脚本好处，可以生成不同object，对不同的后台服务器做查询。
+
+https://github.com/python/cpython/blob/3.9/Lib/fileinput.py 这个文件有借鉴意义。
+
+
+
+### 3.26
+
+#### dataclass
+
+https://realpython.com/python-data-classes/  使用在哪？之前学的 `namedtuple` 还有用？
+
+[What are data classes and how are they different from common classes?](https://stackoverflow.com/questions/47955263/what-are-data-classes-and-how-are-they-different-from-common-classes)
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class XXX:
+```
+
+
+
+### 3.29
+
+#### conventional commit
+
+[约定式提交](https://www.larscheng.com/commit-log/) 感觉它[对merge 没要求](https://www.conventionalcommits.org/en/v1.0.0/#do-all-my-contributors-need-to-use-the-conventional-commits-specification), 但还是提了 [What to write in the merge message for conventional commits?](https://stackoverflow.com/questions/66848142/what-to-write-in-the-merge-message-for-conventional-commits)
 
