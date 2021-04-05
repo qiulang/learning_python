@@ -1306,6 +1306,8 @@ https://www.datacamp.com/community/tutorials/finance-python-trading  讲述 pand
 
 ### 3.11
 
+#### zip
+
 [Using the Python zip() Function for Parallel Iteration](https://realpython.com/python-zip-function/)
 
 大致扫了 [花了两天，终于把 Python 的 setup.py 给整明白了](https://zhuanlan.zhihu.com/p/276461821) 主要是了解了 `disutils`、 `distutils` 、`distutils2`、`setuptools`
@@ -1396,4 +1398,86 @@ class XXX:
 #### conventional commit
 
 [约定式提交](https://www.larscheng.com/commit-log/) 感觉它[对merge 没要求](https://www.conventionalcommits.org/en/v1.0.0/#do-all-my-contributors-need-to-use-the-conventional-commits-specification), 但还是提了 [What to write in the merge message for conventional commits?](https://stackoverflow.com/questions/66848142/what-to-write-in-the-merge-message-for-conventional-commits)
+
+jupyter https://realpython.com/jupyter-notebook-introduction/  [2020.3月份 读过！](readme.md#jupyter)
+
+从今天起开始deep learning吧 ？
+
+1. deep-learning-with-python 从头看起。这次还选它, 看的2020出了第二版，但是奇怪amazon显示2021.10才出
+2. Grokking Deep Learning 上次应该是看到第三章没看了
+
+
+
+#### mp3 ID3 
+
+[Accessing MP3 metadata with Python](https://stackoverflow.com/questions/8948/accessing-mp3-metadata-with-python) 很多回答，有些提到包已经不可用，比如非常古老的 `songdetails` 和 [ID3](http://id3-py.sourceforge.net/) ， 很多人提到 `eyed3` `mp3-tagger` 
+
+[mutagen](https://github.com/quodlibet/mutagen)  官宣替代 eyed3，https://github.com/tooxie/shiva-server/issues/14  可读写
+
+https://github.com/devsnd/tinytag 只读，很小, `disc_total` 只有它支持，别的都不支持。开了一个bug给 mutagen, [Is it possible to get ID3 meta "disc_total" ?](https://github.com/quodlibet/mutagen/issues/519)
+
+复习 https://treyhunner.com/2018/12/why-you-should-be-using-pathlib/  **pathlib.Path objects work nearly everywhere you’re already using path strings**.
+
+> I’m not a strong advocate of object-oriented programming. Classes add another layer of abstraction and abstractions can sometimes add more complexity than simplicity. But the `pathlib.Path` class is **a useful abstraction**. 
+
+> What’s missing from pathlib?
+>
+>While you can pass `Path` objects (and path-like objects) to the higher-level `shutil` functions for copying/deleting/moving files and directories, there’s no equivalent to these functions on `Path` objects.
+
+
+
+### 3.30
+
+#### poetry
+
+尝试poetry 因为可以指定python 最小版本, 但是为什么我用pyenv 指定 python 3.5.3， poetry还是安装了？
+
+[不要用 Pipenv](http://greyli.com/do-not-use-pipenv/) 2019吐槽，主要是问题多
+
+[相比 Pipenv，Poetry 是一个更好的选择](https://zhuanlan.zhihu.com/p/81025311)
+
+[Pipenv有什么问题](https://zhuanlan.zhihu.com/p/80695813)
+
+又搞了一个PDM ??!!
+
+
+
+### 3.31
+
+#### poetry cont.
+
+`pipenv --three --site-packages`  https://pipenv-fork.readthedocs.io/en/latest/advanced.html#working-with-platform-provided-python-components 使用全局安装包，但是全局包太多怎么办？找时间再试试
+
+https://github.com/python-poetry/poetry#what-about-pipenv  举一个例子说明他找子依赖包算法更有效,但也恰恰说明他的复杂性是我不需要的。
+
+
+
+### 4.2
+
+#### pipfile cont.
+
+[Why should version numbers not be pinned in a Pipfile?](https://stackoverflow.com/questions/46452162/why-should-version-numbers-not-be-pinned-in-a-pipfile)
+
+```python
+Warning: Your Pipfile now contains pinned versions, if your requirements.txt did.
+We recommend updating your Pipfile to specify the "*" version, instead.
+```
+
+但pipfile制定版本对于支持多python版本时候我觉得需要的，因为这时候  [`Pipefile.lock` 不入库](https://pipenv.pypa.io/en/latest/basics/#general-recommendations-version-control)
+
+[Support multiple python_version](https://github.com/pypa/pipenv/issues/1050)
+
+>  Just remove the `python_version` requirement from Pipfile if your intend is to support multiple Python versions.
+>
+> ...
+>
+> This is not planned as a feature, not a bug, etc. it is a conscious choice to not pursue it, not simply ‘because it is hard’, but because we chose not to pursue it.
+>
+> Beyond that we can actually close issues for a variety of reasons besides merging code that addresses them, but you can start your own project and handle issues on that project any way you choose.
+>
+> To put a finer point on it: we have thought about the implications of this decision. We have no plans to change it. Thanks for understanding.
+
+[Generating a `requirements.txt`](https://pipenv-fork.readthedocs.io/en/latest/advanced.html#generating-a-requirements-txt)
+
+Pipfile里不指定版本，然后`pipenv lock -r > requirements.txt` 
 
