@@ -922,6 +922,37 @@ str.split() 不给参数就是 whitespace分隔
 
 
 
+### 12.20
+
+#### 几个不常见的数据结构方法
+
+`defaultdict(list)`
+
+`zip(*list)`
+
+`dict(zip(keys,values))`
+
+`d[tuple([1, 2, 3])] = 5`
+
+nested list comprehensions, keep in mind that the order of the for expressions would be the same if you wrote a nested for loop instead of a list comprehension:
+
+```python
+flattened = []
+for tup in some_tuples: 
+    for x in tup:
+        flattened.append(x)
+# same as 
+flattened = [x for tup in some_tuples for x in tup]
+```
+
+`itertools.groupby`
+
+
+
+“Python for Data Analysis 2017” 看 NumPy Basics
+
+
+
 ### 12.21
 
 #### another vscode bug
@@ -1408,7 +1439,7 @@ jupyter https://realpython.com/jupyter-notebook-introduction/  [2020.3月份 读
 
 
 
-#### mp3 ID3 
+#### mp3 ID3
 
 [Accessing MP3 metadata with Python](https://stackoverflow.com/questions/8948/accessing-mp3-metadata-with-python) 很多回答，有些提到包已经不可用，比如非常古老的 `songdetails` 和 [ID3](http://id3-py.sourceforge.net/) ， 很多人提到 `eyed3` `mp3-tagger` 
 
@@ -1480,4 +1511,84 @@ We recommend updating your Pipfile to specify the "*" version, instead.
 [Generating a `requirements.txt`](https://pipenv-fork.readthedocs.io/en/latest/advanced.html#generating-a-requirements-txt)
 
 Pipfile里不指定版本，然后`pipenv lock -r > requirements.txt` 
+
+
+
+### 4.6
+
+#### mp3 ID3 cont.
+
+得到 [Is it possible to get ID3 meta "disc_total" ?](https://github.com/quodlibet/mutagen/issues/519) 答复，试验后确认如果没有 `TPOS` 帧 可以自己加上，没有 `TPOS` 帧那  tinytag也读不成。修改代码参考以下：
+
+1. https://www.programcreek.com/python/example/84797/mutagen.id3.ID3
+
+2. https://mutagen.readthedocs.io/en/latest/user/id3.html
+
+3. [Editing tag data for .aiff files with Mutagen with errors “TypeError: not a Frame instance” and “ID3NoHeaderError: doesn't start with an ID3 tag”](https://stackoverflow.com/questions/55632904/editing-tag-data-for-aiff-files-with-mutagen-with-errors-typeerror-not-a-fram)
+
+```python
+ from mutagen.id3 import ID3, Frames
+    ...
+        id3_data = ID3(p)
+        if 'TPOS' in id3_data:
+            pass
+            # tpos = id3_data['TPOS']
+            # disc = tpos.text[0].split('/')  # ['1', '1']
+        else:
+            print('no tpos frame, let us add it')
+            id3_data.add(Frames['TPOS'](encoding=3, text=f"{prefix}/3"))
+            id3_data.save()
+        tag = TinyTag.get(p)
+```
+
+
+
+#### deep learning
+
+目前就专心看 Deep Learning with Python-2017 从 2.1节开始
+
+[Epoch vs Iteration when training neural networks](https://stackoverflow.com/questions/4752626/epoch-vs-iteration-when-training-neural-networks)
+
+又碰到
+
+```shell
+git push                                                                                  git:main*
+fatal: unable to access 'https://github.com/qiulang/pipenv_test.git/': Failed to connect to github.com port 443: Operation timed out
+
+git push -v                                                                               git:main*
+Pushing to https://github.com/qiulang/pipenv_test.git
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 5.38 KiB | 5.38 MiB/s, done.
+Total 7 (delta 3), reused 0 (delta 0)
+POST git-receive-pack (5681 bytes)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/qiulang/pipenv_test.git
+   bb69c88..9719db4  main -> main
+updating local tracking ref 'refs/remotes/origin/main'
+```
+
+
+
+#### brew 安装的问题
+
+`brew install httpie` 结果把`python@3.9`也装了 https://github.com/httpie/httpie/issues/1051
+
+https://pipenv.pypa.io/en/latest/
+
+It’s possible to install Pipenv with Homebrew on MacOS, or with Linuxbrew on Linux systems. However, **this is now discouraged**, because updates to the brewed Python distribution will break Pipenv, and perhaps all virtual environments managed by it. You’ll then need to re-install Pipenv at least. 
+
+`pipenv -rm` 删除虚拟环境
+
+
+
+### 4.9
+
+#### lock 文件
+
+[What is usage of “conflict” in composer.json and what should I do with it?](https://stackoverflow.com/questions/66999537/what-is-usage-of-conflict-in-composer-json-and-what-should-i-do-with-it)
+
+子依赖包冲突问题，可以引申到poetry 说的 https://github.com/python-poetry/poetry#what-about-pipenv 
 
