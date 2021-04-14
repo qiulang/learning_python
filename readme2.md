@@ -1,3 +1,5 @@
+## 2020 学习经历
+
 ### 4.9
 
 #### 一年整
@@ -1591,4 +1593,20 @@ It’s possible to install Pipenv with Homebrew on MacOS, or with Linuxbrew on L
 [What is usage of “conflict” in composer.json and what should I do with it?](https://stackoverflow.com/questions/66999537/what-is-usage-of-conflict-in-composer-json-and-what-should-i-do-with-it)
 
 子依赖包冲突问题，可以引申到poetry 说的 https://github.com/python-poetry/poetry#what-about-pipenv 
+
+
+
+### 4.12
+
+#### 书
+
+1. 回家给林峻介绍 少儿编程的书，根据amazon的排名，介绍DK的 "coding projects in python" 
+2. "机器学习实战：基于Scikit-Learn、Keras和TensorFlow" 第二版 六百多页，不用看了，目前先把 "Deep Learning with Python" 看完就不错
+3. "automate the boring stuff with python" [第二版加了什么新内容](https://inventwithpython.com/blog/2019/10/07/whats-new-in-the-2nd-edition-of-automate-the-boring-stuff-with-python/)？毕竟我学习python看的第一本书
+
+https://realpython.com/python-enumerate/
+
+[split() vs. partition() in Python Strings](https://betterprogramming.pub/split-vs-partition-in-python-strings-9505d070af55#04ba) **partition()**
+
+> “Split the string at the first occurrence of *sep*, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator. If the separator is not found, return a 3-tuple containing the string itself, followed by two empty strings.”
 
