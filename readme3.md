@@ -86,3 +86,13 @@ brew 安装文档里没找到  `PATH="/usr/local/bin:$PATH"`  的说明，但说
 
 但是安装文档提到了我看到问题单，设置镜像源  https://docs.brew.sh/Installation#git-remote-mirroring 
 
+
+
+### 5.10
+
+Two-Factor Authentication code
+
+[Two factor Auth code sent to same device](https://apple.stackexchange.com/questions/285597/two-factor-auth-code-sent-to-same-device)  "something you know" vs  "something you have"
+
+[Does iCloud Two-factor authentication send a code to the same device as a log in request?](https://apple.stackexchange.com/questions/278839/does-icloud-two-factor-authentication-send-a-code-to-the-same-device-as-a-log-in) 发送到你信赖的设置，而且是通知，不是阻止。
+
