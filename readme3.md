@@ -74,3 +74,15 @@ http://neuralnetworksanddeeplearning.com/chap1.html
 
 8. https://redislabs.com/blog/caches-promises-locks/ 没时间再看了
 
+
+
+### 5.7
+
+`.zprofile`  & `PATH="/usr/local/bin:$PATH"`  
+
+[Install python3 from Homebrew vs the installer from https://www.python.org/?](https://apple.stackexchange.com/questions/403041/install-python3-from-homebrew-vs-the-installer-from-https-www-python-org) 补充下我以前问的这个问题
+
+brew 安装文档里没找到  `PATH="/usr/local/bin:$PATH"`  的说明，但说了 [Amending PATH so that /usr/local/bin is ahead of /usr/bin](https://apple.stackexchange.com/questions/49389/amending-path-so-that-usr-local-bin-is-ahead-of-usr-bin)  （`brew doctor`可以看到）
+
+但是安装文档提到了我看到问题单，设置镜像源  https://docs.brew.sh/Installation#git-remote-mirroring 
+
