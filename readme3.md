@@ -34,8 +34,6 @@ The Pragmatic Programmer: 20th Anniversary Edition， 第一版我当年应该�
 
    
 
-
-
 ### 5.6
 
 http://neuralnetworksanddeeplearning.com/chap1.html
@@ -90,9 +88,108 @@ brew 安装文档里没找到  `PATH="/usr/local/bin:$PATH"`  的说明，但说
 
 ### 5.10
 
-Two-Factor Authentication code
+#### Two-Factor Authentication code
 
 [Two factor Auth code sent to same device](https://apple.stackexchange.com/questions/285597/two-factor-auth-code-sent-to-same-device)  "something you know" vs  "something you have"
 
 [Does iCloud Two-factor authentication send a code to the same device as a log in request?](https://apple.stackexchange.com/questions/278839/does-icloud-two-factor-authentication-send-a-code-to-the-same-device-as-a-log-in) 发送到你信赖的设置，而且是通知，不是阻止。
+
+
+
+### 5.18
+
+#### nested list comprehensions
+
+去年 [12.20](./readme2.md) 接触过一次，”the order of for loop inside the list comprehension is based on the order in which they appear in traditional loop approach. Outer most loop comes first, and then the inner loops subsequently.“ 
+
+进一步理解两个常用使用场景，1. [把matrix 拉平](https://spapas.github.io/2016/04/27/python-nested-list-comprehensions/)
+
+```python
+non_flat = [ [1,2,3], [4,5,6], [7,8] ]
+[y for x in non_flat for y in x]
+[1, 2, 3, 4, 5, 6, 7, 8]
+
+# https://stackoverflow.com/questions/18551458/how-to-frame-two-for-loops-in-list-comprehension-python
+result = []
+
+for tag in tags:
+    for entry in entries:
+        if tag in entry:
+            result.extend(entry)
+# 改成            
+[entry for tag in tags for entry in entries if tag in entry]
+```
+
+
+
+2. 不是拉平，而是保持原来matrix shape, [List comprehension on a nested list?](https://stackoverflow.com/questions/18072759/list-comprehension-on-a-nested-list) 
+
+两个答案，但是还是保持loop的好记
+
+```python
+l = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', '20'], ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], ['100', '100', '100', '100']]
+newList = []
+for x in l:
+  for y in x:
+    newList.append(float(y))
+#两个做法    
+[[float(y) for y in x] for x in l]
+#或者 这样好记好理解
+[float(y) for x in l for y in x]
+```
+
+
+
+#### numpy和pandas中 axis(軸)的概念
+
+ [numpy axis概念整理筆記](http://changtw-blog.logdown.com/posts/895468-python-numpy-axis-concept-organize-notes)
+
+0是Y轴 ， 1 是 X轴 所以 以下例子, https://numpy.org/doc/stable/reference/generated/numpy.apply_along_axis.html
+
+```python
+def my_func(a):
+    """Average first and last element of a 1-D array"""
+    return (a[0] + a[-1]) * 0.5
+b = np.array([[1,2,3], [4,5,6], [7,8,9]])
+np.apply_along_axis(my_func, 0, b)
+array([4., 5., 6.])
+np.apply_along_axis(my_func, 1, b)
+array([2.,  5.,  8.])
+```
+
+
+
+### 5.19
+
+#### apline DNS problem
+
+[What is the difference between alpine docker image and busybox docker image?](https://stackoverflow.com/questions/67529042/what-is-the-difference-between-alpine-docker-image-and-busybox-docker-image)
+
+[musl-libc - Alpine's Greatest Weakness](https://www.linkedin.com/pulse/musl-libc-alpines-greatest-weakness-rogan-lynch/?trackingId=FsMR%2BhJfQqyOH9e1MIN0jw%3D%3D) 描述DNS失败问题
+
+[Solving DNS lookup failures in Kubernetes](https://tech.findmypast.com/k8s-dns-lookup/) 没细看
+
+https://github.com/gliderlabs/docker-alpine/blob/master/docs/caveats.md#dns 提到用 "it can help to run a local caching DNS server such as dnsmasq, that can be used for both caching and search path routing" 就是这次我们加的，但是 dnsmasq具体怎么用没细研究。
+
+[Does Alpine have known DNS issue within Kubernetes?](https://stackoverflow.com/questions/65181012/does-alpine-have-known-dns-issue-within-kubernetes)
+
+[I thought I understood Docker until I saw the BusyBox docker image](https://stackoverflow.com/questions/33291458/i-thought-i-understood-docker-until-i-saw-the-busybox-docker-image) 找一个回答者回答了我的问题
+
+
+
+### 5.20
+
+#### pandas for DB 
+
+2019.12 第一次写sql 相关脚本，但是当然没想到可以用pandas，这是当时学习文章 [Python Select from MySQL Table](https://pynative.com/python-mysql-select-query-to-fetch-data/)
+
+这次根据 [Working with SQLite Databases using Python and Pandas](https://www.dataquest.io/blog/python-pandas-databases/)
+
+- It doesn’t require us to create a `Cursor` object or call `fetchall` at the end.
+- It automatically reads in the names of the headers from the table.
+- It creates a DataFrame, so we can quickly explore the data.
+
+
+
+https://realpython.com/pandas-dataframe/ 有计划在看
 

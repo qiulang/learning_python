@@ -44,3 +44,16 @@ a = (3, 5, 7, 1, 4, 546, 43)
 s = sum(a)
 avg = s/len(a)
 print(f'sum:{s}, avg:{avg}')
+
+tt = """
+    qiu
+    lang
+"""
+
+tt2 = """qiu
+    lang
+"""
+print(tt, tt2)
+
+t3 = 'qq' 'ee' 'ttt' 'rteet'
+print(t3)
