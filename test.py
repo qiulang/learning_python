@@ -56,4 +56,6 @@ tt2 = """qiu
 print(tt, tt2)
 
 t3 = 'qq' 'ee' 'ttt' 'rteet'
+t4 = ['qq', 'ee']
 print(t3)
+print(t4)

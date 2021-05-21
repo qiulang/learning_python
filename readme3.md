@@ -189,7 +189,32 @@ https://github.com/gliderlabs/docker-alpine/blob/master/docs/caveats.md#dns 提�
 - It automatically reads in the names of the headers from the table.
 - It creates a DataFrame, so we can quickly explore the data.
 
+[What's the difference between lists enclosed by square brackets and parentheses in Python?](https://stackoverflow.com/questions/8900166/whats-the-difference-between-lists-enclosed-by-square-brackets-and-parentheses)
+
+[Python List vs. Array - when to use?](https://stackoverflow.com/questions/176011/python-list-vs-array-when-to-use)
 
 
-https://realpython.com/pandas-dataframe/ 有计划在看
+
+https://realpython.com/pandas-dataframe/ 在看
+
+Pandas uses the attribute `john.name`, which is the value `17`, to specify the label for the new row.
+
+```
+>>> john = pd.Series(data=['John', 'Boston', 34, 79],
+...                  index=df.columns, name=17)
+df = df.append(john)
+df = df.drop(labels=[17])
+```
+
+
+
+### 5.21
+
+[10 Amazing Applications of Pandas – Which Industry Segment is Using Python Pandas?](https://data-flair.training/blogs/applications-of-pandas/)
+
+https://realpython.com/pandas-dataframe/ 已看完 https://realpython.com/pandas-python-explore-dataset/ 周末看
+
+[What is the difference between using squared brackets or dot to access a column?](https://stackoverflow.com/questions/41130255/what-is-the-difference-between-using-squared-brackets-or-dot-to-access-a-column) 
+
+”There are several ways to index a Pandas DataFrame. One of the easiest ways to do this is by using square bracket notation.“
 
