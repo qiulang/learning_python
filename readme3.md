@@ -218,3 +218,15 @@ https://realpython.com/pandas-dataframe/ 已看完 https://realpython.com/pandas
 
 ”There are several ways to index a Pandas DataFrame. One of the easiest ways to do this is by using square bracket notation.“
 
+
+
+### 5.31
+
+#### SELECT ... FOR UPDATE NOWAIT
+
+[`SELECT ... FOR UPDATE`](https://dev.mysql.com/doc/refman/8.0/en/select.html) 8.0 引入 `NOWAIT` ， 5.7 没有，问了 [How do I Implement select … for update NOWAIT (sort of) for mysql 5.7 in python?](https://stackoverflow.com/questions/67770407/how-do-i-implement-select-for-update-nowait-sort-of-for-mysql-5-7-in-pytho)
+
+这个没细看 [mysql python concurrent access on same table column](https://stackoverflow.com/questions/15351074/mysql-python-concurrent-access-on-same-table-column) 从 [Bill Karwin](https://stackoverflow.com/users/20860/bill-karwin) 答复知道 `select .. for update`
+
+起因是 [Post-Upgrade Scripting for Containers in Kubernetes](https://stackoverflow.com/questions/46924181/post-upgrade-scripting-for-containers-in-kubernetes) 知道了[`PostStart`](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/)
+
