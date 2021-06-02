@@ -230,3 +230,37 @@ https://realpython.com/pandas-dataframe/ 已看完 https://realpython.com/pandas
 
 起因是 [Post-Upgrade Scripting for Containers in Kubernetes](https://stackoverflow.com/questions/46924181/post-upgrade-scripting-for-containers-in-kubernetes) 知道了[`PostStart`](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/)
 
+
+
+[WL#3597: Implement NOWAIT and SKIP LOCKED](https://dev.mysql.com/worklog/task/?id=3597)
+
+
+
+### 6.1 
+
+#### `nowait` cont.
+
+[How do I make sure a task run only once in a dockerized environment?](https://softwareengineering.stackexchange.com/questions/426902/how-do-i-make-sure-a-task-run-only-once-in-a-dockerized-environment)
+
+```sql
+UPDATE your_table
+SET running_update = 1
+WHERE running_update = 0
+
+// check the count of rows updated, 实际更新的返回1 ，没更新的返回0
+```
+
+
+
+### 6.2
+
+#### crash question
+
+一个相关问题 [When a thread/process crashes on acquired DB locks, how does DB detects that and releases the lock?](https://dba.stackexchange.com/questions/292592/when-a-thread-process-crashes-on-acquired-db-locks-how-does-db-detects-that-and)
+
+搜到两个相关问题，他们答复是说要等 `[wait_timeout](http://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_wait_timeout)` 确实8小时！
+
+[Setting a time limit for a transaction in MySQL/InnoDB](https://serverfault.com/questions/241823/setting-a-time-limit-for-a-transaction-in-mysql-innodb)
+
+[MySQL rollback on transaction with lost/disconnected connection](https://stackoverflow.com/questions/9936699/mysql-rollback-on-transaction-with-lost-disconnected-connection)
+
