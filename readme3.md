@@ -264,3 +264,22 @@ WHERE running_update = 0
 
 [MySQL rollback on transaction with lost/disconnected connection](https://stackoverflow.com/questions/9936699/mysql-rollback-on-transaction-with-lost-disconnected-connection)
 
+
+
+### 6.7
+
+#### MySQL driver
+
+https://pypi.org/project/mysql-connector-python/ 这是应该用的mysql驱动 ，这篇 https://pynative.com/python-mysql-database-connection/  （在2019时候也是看这篇） **Updated on: March 9, 2021**  也提到用这个启动，其他的驱动安装都是错的
+
+```python
+pip3 install mysql-connector
+pip3 install mysql
+pip3 install MySQL-python
+# 这才是正确的
+pip3 install mysql-connector-python
+```
+
+
+
+有 `for update` 就是串行，执行效果明显
