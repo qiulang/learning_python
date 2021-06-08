@@ -264,6 +264,12 @@ WHERE running_update = 0
 
 [MySQL rollback on transaction with lost/disconnected connection](https://stackoverflow.com/questions/9936699/mysql-rollback-on-transaction-with-lost-disconnected-connection)
 
+[effective innodb_lock_wait_timeout value check](https://stackoverflow.com/questions/16960261/effective-innodb-lock-wait-timeout-value-check)
+
+```
+show variables like 'innodb_lock_wait_timeout';
+```
+
 
 
 ### 6.7
@@ -283,3 +289,47 @@ pip3 install mysql-connector-python
 
 
 有 `for update` 就是串行，执行效果明显
+
+
+
+#### pipreqs vs pigar
+
+[mysql_connector_repackaged==0.3.1 is totally wrong](https://github.com/bndr/pipreqs/issues/261) 大bug，[pigar](https://github.com/Damnever/pigar) 是对的，pigar来源于 [Automatically create requirements.txt](https://stackoverflow.com/questions/31684375/automatically-create-requirements-txt)
+
+创建 mysql driver 名字错误可能原因 [What are the differences between mysql-connector-python, mysql-connector-python-rf and mysql-connector-repackaged?](https://stackoverflow.com/questions/34168651/what-are-the-differences-between-mysql-connector-python-mysql-connector-python)
+
+但是在单位安装 pigar总是报错，回家了就好了，又是网络问题。
+
+想要google pipreqs 和 pigar的比较 发现这个 https://pypi.org/project/rqmts/ 当然我不会用它，但他说的理由可以看看，但是反对pigar 理由莫名其妙
+
+  > Why re-invent the wheel
+  >
+  > - **pipreqs** fails on many occasions *(see - [pipreqs/issues](https://github.com/bndr/pipreqs/issues))*
+  > - **pigar** queries pypi servers, big no-no. Ideally, it should be local, on fallback? then maybe. Other than that, **pigar** recommends using Pipenv ([pipenv has serious issues](https://news.ycombinator.com/item?id=18612590))
+  > - **poetry** quotes "Be aware, however, that it will also install poetry's dependencies which might cause conflicts."
+  > - Sheer curiousity. *"can I create a project that has potential of collecting thosands of stars and most importantly, hundreds of contributors?"*
+
+
+
+#### python-dotenv
+
+https://github.com/theskumar/python-dotenv   注意  [Profile specific environment variable](https://github.com/theskumar/python-dotenv/issues/73) : `load_dotenv('.env.local')`
+
+#### class name
+
+[If the convention in Python is to capitalize classes, why then is list() not capitalized? Is it not a class?](https://stackoverflow.com/questions/14973963/if-the-convention-in-python-is-to-capitalize-classes-why-then-is-list-not-cap)
+
+
+
+### 6.8
+
+[MySQL Connector/Python: How to use the start_transaction() method?](https://stackoverflow.com/questions/52723251/mysql-connector-python-how-to-use-the-start-transaction-method)
+
+> autocommit is disabled by default and the first SQL statement will implicitly begin a transaction... must call [`connection.commit`](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-commit.html) to commit the transaction.
+
+
+
+https://github.com/qiulang/mysql  总结我发现问题，mysql总是能马上发现一个process 没有close connection 然后让另一个再等这个锁的进程获得锁, 到底是如果做到的？
+
+
+

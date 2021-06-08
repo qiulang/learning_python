@@ -4,14 +4,17 @@ import mysql.connector
 from mysql.connector import errorcode
 import os
 import time
-from threading import Timer
-# from subprocess import Popen, PIPE, CalledProcessError
+import argparse
 
 # instead of os.environ['DB_USER']
 user = os.environ.get('DB_USER', 'sql6417424')
 password = os.environ.get('DB_PASS', 'U8PpVbYjhp')
 host = os.environ.get('DB_HOST', 'sql6.freemysqlhosting.net')
 cnx = None  # otherwise cnx is undefined when failed to connect to DB
+parser = argparse.ArgumentParser()
+parser.add_argument("-c", "--crash", default=0, type=int,
+                    help="Whether to exit before finishing")
+args = parser.parse_args()
 try:
     cnx = mysql.connector.connect(user=user,
                                   password=password,
@@ -30,13 +33,18 @@ try:
     cursor.execute(sql_select_query)
     record = cursor.fetchone()
     print(record)
-    print('I am about to sleep in 30 seconds')
-    time.sleep(30)
-    # exit(1)
 
     # Update single record now
     sql_update_query = """Update users set username = 'qiulang' where user_id = 1"""
     cursor.execute(sql_update_query)
+    print('I am about to sleep in 30 seconds')
+    time.sleep(30)
+    if args.crash == 1:
+        print('OK let us crash')
+        # exit(1)
+        print(args.c)
+    else:
+        print('OK let us continue to run instead of crashing')
     cnx.commit()
     print("Record Updated successfully ")
     # Timer(30, lambda: print('.')).start()
@@ -86,6 +94,10 @@ except mysql.connector.Error as err:
         print(err)
     exit(1)
 finally:
+    print(f'here:{args.crash}')
+    if args.crash == 1:
+        exit(0)
     if cnx != None and cnx.is_connected():
+        print('Will I run?')
         cursor.close()
         cnx.close()
