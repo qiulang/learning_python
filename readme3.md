@@ -333,3 +333,36 @@ https://github.com/qiulang/mysql  总结我发现问题，mysql总是能马上�
 
 
 
+### 6.10
+
+https://pynative.com/python-database-connection-pooling-with-mysql/  这个网站 google mysql python 排名靠前，还有这个 https://overiq.com/mysql-connector-python-101/ 但没法解答我目前碰到的问题。而且基本步骤就是这7步
+
+
+
+1. Create connection
+2. Create cursor
+3. Create Query string
+4. Execute the query
+5. Commit to the query
+6. Close the cursor
+7. Close the connection
+
+
+
+[Pythonic way to create a long multi-line string](https://stackoverflow.com/questions/10660435/pythonic-way-to-create-a-long-multi-line-string) 以前解决过
+
+> triple quotes  ... anything between the starting and ending quotes becomes part of the string, so this example has a leading blank and newlines.
+>
+> This will **not** include any extra blanks or newlines
+
+```python
+ s = ("this is a very"
+      "long string too"
+      "for sure ..."
+     )
+```
+
+
+
+[When a process holds an exclusive row lock return without commit or close the connection, how does MySQL Connector/Python detect that?](https://stackoverflow.com/questions/67915122/when-a-process-holds-an-exclusive-row-lock-return-without-commit-or-close-the-co)
+
