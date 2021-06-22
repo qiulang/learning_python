@@ -296,6 +296,8 @@ pip3 install mysql-connector-python
 
 [mysql_connector_repackaged==0.3.1 is totally wrong](https://github.com/bndr/pipreqs/issues/261) 大bug，[pigar](https://github.com/Damnever/pigar) 是对的，pigar来源于 [Automatically create requirements.txt](https://stackoverflow.com/questions/31684375/automatically-create-requirements-txt)
 
+SO 问类似问题不少，比如 [List dependencies in Python](https://stackoverflow.com/questions/42237072/list-dependencies-in-python) "Scan your `import` statements."是正解，因为没想到pipreqs居然会搞错。
+
 创建 mysql driver 名字错误可能原因 [What are the differences between mysql-connector-python, mysql-connector-python-rf and mysql-connector-repackaged?](https://stackoverflow.com/questions/34168651/what-are-the-differences-between-mysql-connector-python-mysql-connector-python)
 
 但是在单位安装 pigar总是报错，回家了就好了，又是网络问题。
@@ -323,6 +325,8 @@ https://github.com/theskumar/python-dotenv   注意  [Profile specific environme
 
 ### 6.8
 
+#### mysql-connector
+
 [MySQL Connector/Python: How to use the start_transaction() method?](https://stackoverflow.com/questions/52723251/mysql-connector-python-how-to-use-the-start-transaction-method)
 
 > autocommit is disabled by default and the first SQL statement will implicitly begin a transaction... must call [`connection.commit`](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-commit.html) to commit the transaction.
@@ -334,6 +338,8 @@ https://github.com/qiulang/mysql  总结我发现问题，mysql总是能马上�
 
 
 ### 6.10
+
+#### mysql
 
 https://pynative.com/python-database-connection-pooling-with-mysql/  这个网站 google mysql python 排名靠前，还有这个 https://overiq.com/mysql-connector-python-101/ 但没法解答我目前碰到的问题。而且基本步骤就是这7步
 
@@ -365,4 +371,35 @@ https://pynative.com/python-database-connection-pooling-with-mysql/  这个网�
 
 
 [When a process holds an exclusive row lock return without commit or close the connection, how does MySQL Connector/Python detect that?](https://stackoverflow.com/questions/67915122/when-a-process-holds-an-exclusive-row-lock-return-without-commit-or-close-the-co)
+
+
+
+### 6.17
+
+#### pipreqs 问题
+
+[Pipreqs generate incorrect requiremnets for Hydra](https://stackoverflow.com/questions/67022499/pipreqs-generate-incorrect-requiremnets-for-hydra) pipreqs 还是错，pigar是对的
+
+[Pip freeze for only project requirements](https://stackoverflow.com/questions/32390291/pip-freeze-for-only-project-requirements) "I have tried both `pipreqs` and `pigar` and found `pigar` is better because it also generates information about where it is used, it also has more options."
+
+[Find which version of package is installed with pip](https://stackoverflow.com/questions/10214827/find-which-version-of-package-is-installed-with-pip) `pip show`  https://pip.pypa.io/en/stable/cli/pip_show/
+
+
+
+### 6.21
+
+deep learning 第二章最后几节看得有点囫囵吞枣，今天直接跳到 3.1.3 但是下单买了中文版，想看看跳过地方翻译是不是做得不错。
+
+`pip install tensorflow` 总是失败，即便连的是清华的源
+
+[Can pip.conf specify two index-url at the same time?](https://stackoverflow.com/questions/30889494/can-pip-conf-specify-two-index-url-at-the-same-time) 
+
+
+```shell
+缺省的源是  https://pypi.python.org/simple/
+我已经改成  pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+设置vpn 然后运行 pip install tensorflow -i https://pypi.python.org/simple/ 
+还是碰到 pip._vendor.urllib3.exceptions.ReadTimeoutError ，延长超时值终于成功
+pip install tensorflow -i https://pypi.python.org/simple/ --default-timeout=100
+```
 
