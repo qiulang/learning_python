@@ -403,3 +403,20 @@ deep learning 第二章最后几节看得有点囫囵吞枣，今天直接跳到
 pip install tensorflow -i https://pypi.python.org/simple/ --default-timeout=100
 ```
 
+
+
+### 6.23
+
+因为讨论php 的 mysql代码，把pyton的 mysql 流程又复习一遍 https://realpython.com/python-mysql/
+
+一个以前没注意的几点
+
+1. The **Python Database API** (DB-API) defines the standard interface with which all Python database drivers must comply. These details are documented in [PEP 249](https://www.python.org/dev/peps/pep-0249/). All Python database drivers, such as [sqlite3](https://docs.python.org/3/library/sqlite3.html) for SQLite, [psycopg](https://www.psycopg.org/docs/) for PostgreSQL, and [MySQL Connector/Python](https://github.com/mysql/mysql-connector-python) for MySQL, follow these implementation rules.
+2. Using `.executemany()`  ， A query that contains placeholders for the records that need to be inserted；A list that contains all records that you wish to insert
+3. **`.fetchmany()`**  以前只是简单用 `.fetchall()`  实际获取结果，对应 php 的 [生成器](https://www.php.net/manual/zh/language.generators.overview.php)
+4. sql 防止注入 the %s placeholders are no longer in string quotes.  cursor.execute() makes sure that the values in the tuple received as argument are of the required data type.  `cursor.execute(update_query, val_tuple, multi=True):` 
+5. other connector
+6. ORM like [SQLAlchemy](https://docs.sqlalchemy.org/en/13/index.html) 
+
+
+
