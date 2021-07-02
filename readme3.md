@@ -428,3 +428,35 @@ https://realpython.com/python-data-engineer/
 
 
 
+### 6.29
+
+k8s 基本概念
+
+1.  https://feisky.gitbooks.io/kubernetes/content/
+
+2. pod/server(clusterIP,NodePort)
+
+3. deployment/statefulset [K8s: Deployments vs StatefulSets vs DaemonSets](https://medium.com/stakater/k8s-deployments-vs-statefulsets-vs-daemonsets-60582f0c62d4) 
+4. pod 什么时候需要自己的yaml ？
+
+js the first 20 years
+
+1. 21.1.5 One JavaScript.
+
+2. the difference between expressions and statements.
+3. [Javascript: difference between a statement and an expression?](https://stackoverflow.com/questions/12703214/javascript-difference-between-a-statement-and-an-expression)
+
+[How do I detect what is changing file ownership on Linux?](https://serverfault.com/questions/619722/how-do-i-detect-what-is-changing-file-ownership-on-linux) & https://wiki.alpinelinux.org/wiki/Inotifyd
+
+
+
+### 6.30 
+
+https://pypi.org/project/watchdog/ 
+
+- Linux 2.6 (inotify)
+- Mac OS X (FSEvents, kqueue)
+- FreeBSD/BSD (kqueue)
+- Windows (ReadDirectoryChangesW with I/O completion ports; ReadDirectoryChangesW worker threads)
+- OS-independent (polling the disk for directory snapshots and comparing them periodically; slow and not recommended)
+
