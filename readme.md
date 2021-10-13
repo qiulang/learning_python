@@ -753,7 +753,7 @@ https://stackoverflow.com/questions/14413969/why-does-next-raise-a-stopiteration
 
 The event loop is at the heart of the Python async system. It runs all the code, including `main()`. When task code is executing, the CPU is busy doing work. When the `await` keyword is reached, a context switch occurs, and control passes back to the event loop. The event loop looks at all the tasks waiting for an event (in this case, an `asyncio.sleep(delay)` timeout) and passes control to a task with an event that’s ready.
 
-```
+```python
         "https://baidu.com",
         "https://www.taobao.com/",
         "https://www.apple.com",
@@ -763,5 +763,12 @@ The event loop is at the heart of the Python async system. It runs all the code,
         request能正确解析
         await response.text()都报错 UnicodeDecodeError: 'gb2312' codec can't decode byte
         await response.text(encoding='utf-8') 只剩下qq报错 UnicodeDecodeError: 'utf-8' codec can't decode byte
+        正想通过取出 Content-Type: text/html;charset=utf-8 的 charset来解析结果突然又不出错！
+
+按理说自动查编码格式是最基本的，不知道怎么第一次出了 If encoding is None content encoding is autocalculated using Content-Type HTTP header and chardet tool if the header is not provided by server.
 ```
+
+
+
+随手回答了 https://stackoverflow.com/questions/55499511/unable-to-get-webpage-using-aiohttp-clientsession
 
