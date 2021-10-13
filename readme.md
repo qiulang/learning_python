@@ -574,8 +574,6 @@ pip-autoremove somepackage -y
 
 https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/ 类似 utility class, 快速阅读
 
-
-
 https://frontstuff.io/in-defense-of-utility-first-css   太长，到25号才看完。
 
 https://css-tricks.com/growing-popularity-atomic-css/ 8.26看完
@@ -616,21 +614,21 @@ https://softwareengineering.stackexchange.com/questions/419122/does-oop-overemph
 
 证实vscode 1.5.9 cpp工具没法读取和输出到stdio https://github.com/microsoft/vscode-cpptools/issues/8075 承认是bug，而且修复了也只能用 `externalConsole`
 
-关于laravel queue 两篇文章 https://proxify.io/articles/laravel-redis 和 https://learnku.com/articles/3729/use-laravel-queue-to-understand-the-knowledge
-
-https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html
-
-https://tanzu.vmware.com/developer/blog/understanding-the-differences-between-rabbitmq-vs-kafka/
-
 [Native JSON support in MYSQL 5.7 : what are the pros and cons of JSON data type in MYSQL?](https://stackoverflow.com/questions/33660866/native-json-support-in-mysql-5-7-what-are-the-pros-and-cons-of-json-data-type)
 
-https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/
-
 [Testing in the Twenties](https://www.tbray.org/ongoing/When/202x/2021/05/15/Testing-in-2021)
+
+https://web.dev/off-main-thread/
+
+#### css utility library
+
+https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/
 
 https://blog.logrocket.com/css-utility-classes-library-extendable-styles/
 
 https://css-tricks.com/need-css-utility-library/ 和 logrocket文章类似，各种 utility-library的比较
+
+#### autoplay
 
 https://developer.chrome.com/blog/autoplay/
 
@@ -640,15 +638,28 @@ https://developer.chrome.com/blog/autoplay/
 
 https://stackoverflow.com/questions/57455849/chrome-autoplay-policy-chrome-76 还可以参见 https://github.com/Hugo22O/chrome-autoplay
 
+重刷页面处理还要再设计，可参考：
+
+1. [How to pop up an alert box when the browser's refresh button is clicked?](https://stackoverflow.com/questions/3221161/how-to-pop-up-an-alert-box-when-the-browsers-refresh-button-is-clicked)
+2. [Check if page gets reloaded or refreshed in JavaScript](https://stackoverflow.com/questions/5004978/check-if-page-gets-reloaded-or-refreshed-in-javascript)
+
+
+
 ### 9.1
 
-#### MQ vs Redis 实现queue
+#### RabbitMQ vs Redis 实现queue
 
 [Publish/Subscribe reliable messaging: Redis VS RabbitMQ](https://stackoverflow.com/questions/43777807/publish-subscribe-reliable-messaging-redis-vs-rabbitmq)
 
 https://blog.tuleap.org/how-we-replaced-rabbitmq-redis/
 
+关于laravel queue 两篇文章 https://proxify.io/articles/laravel-redis 和 https://learnku.com/articles/3729/use-laravel-queue-to-understand-the-knowledge
 
+#### RabbitMQ vs kafka
+
+https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html
+
+https://tanzu.vmware.com/developer/blog/understanding-the-differences-between-rabbitmq-vs-kafka/
 
 ### 9.2
 
@@ -659,4 +670,78 @@ https://blog.tuleap.org/how-we-replaced-rabbitmq-redis/
 https://lumen.laravel.com/ 了解
 
 
+
+### 9.3
+
+#### 爬虫
+
+通过爬虫看看别人怎么写一个简单规范的脚本，还没看
+
+1. https://www.zenrows.com/blog/mastering-web-scraping-in-python-crawling-from-scratch
+2. https://www.zenrows.com/blog/stealth-web-scraping-in-python-avoid-blocking-like-a-ninja
+
+
+
+### 9.10
+
+github action?
+
+
+
+### 9.17
+
+#### nologin
+
+`/sbin/nologin` 
+
+```
+su - www-data -c xxx
+This account is currently not available.
+```
+
+原因 [Would su, sudo or ssh honor /sbin/nologin?](https://manjusri.ucsc.edu/2017/09/15/su-sudo-ssh/)
+
+["This account is currently not available" error when trying to ssh](https://askubuntu.com/questions/486346/this-account-is-currently-not-available-error-when-trying-to-ssh) "it's a special user/group used by the web server, not intended for regular shell use."
+
+[How to run command as user who has /usr/sbin/nologin as Shell?](https://serverfault.com/questions/351046/how-to-run-command-as-user-who-has-usr-sbin-nologin-as-shell)
+
+
+
+### 9.29
+
+#### docstring vs comments
+
+[Docstrings vs Comments](https://stackoverflow.com/questions/19074745/docstrings-vs-comments) docstring for your user, comments for yourself 
+
+https://realpython.com/how-long-does-it-take-to-learn-python/
+
+
+
+### 10.8
+
+`su - usr` vs `su usr`
+
+[What's the difference between "su" with and without hyphen?](https://superuser.com/questions/453988/whats-the-difference-between-su-with-and-without-hyphen)  "The difference between "-" and "no hyphen" is that the latter *keeps* your existing environment (variables, etc); the former creates a new environment (with the settings of the actual user, not your own)."
+
+原来 `su - www-data -s /bin/sh -c "/usr/local/bin/php /var/www/html/artisan cm:upgrade"` 报错 "Server connection error: 403, message: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN." [应该就是最普通的用户名密码错](https://stackoverflow.com/questions/26811924/spring-amqp-rabbitmq-3-3-5-access-refused-login-was-refused-using-authentica)。
+
+改成 `su www-data -s /bin/sh -c "/usr/local/bin/php /var/www/html/artisan cm:upgrade"` 就可以
+
+
+
+[Any difference between su -www-data vs sudo -u www-data?](https://stackoverflow.com/questions/69493317/any-difference-between-su-www-data-vs-sudo-u-www-data) 不知道会不会被关，参考 [BASH Scripting, su to www-data for single command](https://serverfault.com/questions/388016/bash-scripting-su-to-www-data-for-single-command) 和 [Cannot run command as www-data using su](https://unix.stackexchange.com/questions/327436/cannot-run-command-as-www-data-using-su)
+
+
+
+### 10.12
+
+[A Python Data Scientist’s Guide to the Apple Silicon Transition](https://www.anaconda.com/blog/apple-silicon-transition) 2021 7.15 ”For general usage, the performance is excellent, but these systems are not aimed at the data science and scientific computing user yet. If you want an M1 for other reasons, and intend to do some light data science, they are perfectly adequate. For more intense usage, **you’ll want to stick with Intel Macs for now**, but keep an eye on both software development as compatibility improves and future ARM64 Mac hardware, which likely will remove some of the constraints we see today.“
+
+
+
+### 10.13
+
+#### Async
+
+https://realpython.com/python-async-features/
 
