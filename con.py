@@ -11,6 +11,7 @@ def task(name, queue):
             total += 1
             yield
         print(f"Task {name} total: {total}")
+    print(f"Task {name} done")
 
 
 def main():
@@ -21,11 +22,12 @@ def main():
     work_queue = queue.Queue()
 
     # Put some work in the queue
-    for work in [15, 10, 5, 2]:
+    for work in [15, 14, 5, 2]:
         work_queue.put(work)
 
     # Create some tasks
     tasks = [task("One", work_queue), task("Two", work_queue)]
+    #tasks = [(task, "One", work_queue), (task, "Two", work_queue)]
 
     # Run the tasks
     done = False

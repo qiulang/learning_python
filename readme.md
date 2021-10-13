@@ -745,3 +745,23 @@ https://realpython.com/how-long-does-it-take-to-learn-python/
 
 https://realpython.com/python-async-features/
 
+The reason why `Task Two` outputs its total first is that it’s only counting to 10, while `Task One` is counting to 15. `Task Two` simply arrives at its total first, so it gets to print its output to the console before `Task One`.
+
+https://stackoverflow.com/questions/14413969/why-does-next-raise-a-stopiteration-but-for-do-a-normal-return
+
+
+
+The event loop is at the heart of the Python async system. It runs all the code, including `main()`. When task code is executing, the CPU is busy doing work. When the `await` keyword is reached, a context switch occurs, and control passes back to the event loop. The event loop looks at all the tasks waiting for an event (in this case, an `asyncio.sleep(delay)` timeout) and passes control to a task with an event that’s ready.
+
+```
+        "https://baidu.com",
+        "https://www.taobao.com/",
+        "https://www.apple.com",
+        "https://www.microsoft.com",
+        "https://qq.com/"
+        
+        request能正确解析
+        await response.text()都报错 UnicodeDecodeError: 'gb2312' codec can't decode byte
+        await response.text(encoding='utf-8') 只剩下qq报错 UnicodeDecodeError: 'utf-8' codec can't decode byte
+```
+
