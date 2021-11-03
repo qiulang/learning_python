@@ -1057,7 +1057,7 @@ np.unique(names)
 
 ### 1.1
 
-#### OO again
+#### OO example
 
 1. [Some real practical example to teach object-oriented concepts and programming (in python)](https://cseducators.stackexchange.com/questions/6709/some-real-practical-example-to-teach-object-oriented-concepts-and-programming-i)
 2. [Object Oriented design example using inheritance in Python Standard Library, e.g. pathlib?](https://stackoverflow.com/questions/65527098/object-oriented-design-example-using-inheritance-in-python-standard-library-e-g)

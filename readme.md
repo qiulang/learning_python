@@ -447,7 +447,7 @@ https://realpython.com/python-data-engineer/
 3. deployment/statefulset [K8s: Deployments vs StatefulSets vs DaemonSets](https://medium.com/stakater/k8s-deployments-vs-statefulsets-vs-daemonsets-60582f0c62d4) 
 4. pod 什么时候需要自己的yaml ？
 
-### js the first 20 years
+####  js the first 20 years
 
 1. 21.1.5 One JavaScript.
 
@@ -719,6 +719,8 @@ https://realpython.com/how-long-does-it-take-to-learn-python/
 
 ### 10.8
 
+#### su -
+
 `su - usr` vs `su usr`
 
 [What's the difference between "su" with and without hyphen?](https://superuser.com/questions/453988/whats-the-difference-between-su-with-and-without-hyphen)  "The difference between "-" and "no hyphen" is that the latter *keeps* your existing environment (variables, etc); the former creates a new environment (with the settings of the actual user, not your own)."
@@ -734,6 +736,8 @@ https://realpython.com/how-long-does-it-take-to-learn-python/
 
 
 ### 10.12
+
+#### m1
 
 [A Python Data Scientist’s Guide to the Apple Silicon Transition](https://www.anaconda.com/blog/apple-silicon-transition) 2021 7.15 ”For general usage, the performance is excellent, but these systems are not aimed at the data science and scientific computing user yet. If you want an M1 for other reasons, and intend to do some light data science, they are perfectly adequate. For more intense usage, **you’ll want to stick with Intel Macs for now**, but keep an eye on both software development as compatibility improves and future ARM64 Mac hardware, which likely will remove some of the constraints we see today.“
 
@@ -771,4 +775,167 @@ The event loop is at the heart of the Python async system. It runs all the code,
 
 
 随手回答了 https://stackoverflow.com/questions/55499511/unable-to-get-webpage-using-aiohttp-clientsession
+
+
+
+### 10.14
+
+#### Aysnc cont.
+
+https://www.ruanyifeng.com/blog/2019/11/python-asyncio.html 阮一峰文章 主要是引出 https://realpython.com/async-io-python/
+
+长，有几点跳着看
+
+>  Python’s async model is built around concepts such as callbacks, events, transports, protocols, and futures... At the heart of async IO are coroutines. A coroutine is a specialized version of a Python generator function...
+>
+> It is less common (and only recently legal in Python) to use `yield` in an `async def` block. 
+>
+> Most programs will contain small, modular coroutines and one wrapper function that serves to chain each of the smaller coroutines together. [`main()`](https://realpython.com/python-main-function/) is then used to gather tasks (futures) by mapping the central coroutine across some iterable or pool.
+>
+> Python’s `requests` package isn’t compatible with async IO
+>
+> Use `aiohttp` for the requests, and `aiofiles` for the file-appends. These are two primary examples of IO that are well-suited for the async IO model.
+
+文章结尾有个简单列表  [aio-libs](https://github.com/aio-libs)
+
+几个注意点：
+
+1. `asyncio.create_task`
+2. If you need to get the **return value** of these async functions, then `gather` is useful. 
+
+[Simplest async/await example possible in Python](https://stackoverflow.com/questions/50757497/simplest-async-await-example-possible-in-python) 这里的问题和解答在看完两篇  https://realpython.com/ 就基本明白
+
+[Intro to Async Concurrency in Python vs. Node.js](https://medium.com/@interfacer/intro-to-async-concurrency-in-python-and-node-js-69315b1e3e36) 比较阅读，另 [Async patterns in Node.js: only 5+ different ways to do it!](https://codeburst.io/async-patterns-in-node-js-only-4-different-ways-to-do-it-70186ee83250) 我们都经历过
+
+> In practice you’ll likely have an `async def main(): …` that you’ll run at end of your code with `asyncio.run(main())`. Note that it’s **not** `**asyncio.run(main)**`**, but** `**asyncio.run(main())**` — we don’t pass the main function as a callback to `asyncio.run`, but the coroutine object returned by the called `main()`.
+>
+> If you were to call a function like `fetch_url` above (sometimes called a “**coroutine function**”) *directly*, what you’d get back will surprise you: it will not be the result of the function, but a **coroutine object**:
+>
+> 这就是下面generator提到的
+
+ `await asyncio.wait(tasks)`   [Asyncio.gather vs asyncio.wait](https://stackoverflow.com/questions/42231161/asyncio-gather-vs-asyncio-wait)
+
+python async 的一个问题接口和使用规范还在变化，不像nodejs已经很稳定.
+
+####  genarator
+
+http://www.dabeaz.com/generators/Generators.pdf 长，没都看
+
+>  Calling a generator function creates an generator object. However, it does not start running the function. A generator is a one-time operation. You can iterate over the generated data once, but if you want to do it again, you have to call the generator function again.
+
+文章里的例子有点像nodejs的stream
+
+> The generator solution was based on the concept of pipelining data between different components
+>
+> Generators decouple iteration from the code that uses the results of the iteration
+
+```python
+with open("access-log") as wwwlog:
+   bytecolumn = (line.rsplit(None,1)[1] for line in wwwlog)
+   bytes_sent = (int(x) for x in bytecolumn if x != '-')
+   print("Total", sum(bytes_sent))
+```
+
+https://www.geeksforgeeks.org/python-list-comprehensions-vs-generator-expressions/
+
+
+
+小知识点
+
+[Python try-else](https://stackoverflow.com/questions/855759/python-try-else) "The statements in the `else` block are executed if execution falls off the bottom of the `try` - if there was no exception. Honestly, I've never found a need."
+
+
+
+
+
+### 10.26
+
+#### python generator cont.
+
+https://realpython.com/introduction-to-python-generators/ 提供一个pipeline的例子实际动手试试，还有加深理解`generator expression` 或者叫 `generator comprehension` （对比 `list comprehensions`）
+
+[Javascript ES6 yield vs yield in python](https://stackoverflow.com/questions/33161964/javascript-es6-yield-vs-yield-in-python)
+
+
+
+### 11.1
+
+#### lua script
+
+https://www.lua.org/pil/contents.html
+
+> Tables are the main (in fact, the only) data structuring mechanism in Lua, and a powerful one. We use tables to represent ordinary arrays, symbol tables, sets, records, queues, and other data structures, in a simple, uniform, and efficient way. 
+
+#### lua in redis
+
+[A Speed Guide To Redis Lua Scripting](https://www.compose.com/articles/a-quick-guide-to-redis-lua-scripting/)
+
+> Run lua script using redis-cli
+> Now our script needs keys and arguments. The keys come first and redis-cli counts them for us; each command line argument is a key, right up to the comma. What comes after the comma are arguments.
+
+```lua
+eval 'for _,key in ipairs(redis.call("lrange", KEYS[1], 0,-1)) do redis.call("INCR",key) end' 1 region:one
+```
+
+The redis [documentation](http://redis.io/commands/eval#available-libraries) lists the ones that are loaded; [base](https://www.lua.org/manual/5.1/manual.html#5.1), [table](https://www.lua.org/manual/5.1/manual.html#5.5), [string](https://www.lua.org/manual/5.1/manual.html#5.4), [math](https://www.lua.org/manual/5.1/manual.html#5.6), [struct](http://www.inf.puc-rio.br/~roberto/struct/), [cjson](http://www.kyne.com.au/~mark/software/lua-cjson-manual.html), [cmsgpack](https://github.com/antirez/lua-cmsgpack), [bitop](http://bitop.luajit.org/), redis.sha1hex, ref
+
+https://developpaper.com/redis-how-to-use-lua-script-instance-tutorial/  讲解好像更清楚
+
+[A quick guide to Redis Lua scripting](https://www.freecodecamp.org/news/a-quick-guide-to-redis-lua-scripting/)
+
+[What is the difference of pairs() vs. ipairs() in Lua?](https://stackoverflow.com/questions/55108794/what-is-the-difference-of-pairs-vs-ipairs-in-lua)
+
+[What does # mean in Lua?](https://stackoverflow.com/questions/17974622/what-does-mean-in-lua) 所以 `eval "return #redis.pcall('keys', 'abc:*')" 0` 参见 https://stackoverflow.com/questions/20418529/how-to-count-the-number-of-keys-matching-a-pattern
+
+https://github.com/alexanderscott/redis-lua-samples
+
+
+
+### 11.2
+
+#### redis lua script cont.
+
+```
+redis> eval "return #redis.pcall('keys', 'cc-cm:recoding_finish:*')" 0
+654
+redis> eval "return #redis.pcall('keys', 'cc-cm:preview_task_customer:*')" 0
+367
+redis> eval "return #redis.call('keys','cc-cm:'..KEYS[1]..':*')" 1 preview_task_customer
+367
+redis> eval "return #redis.call('keys','cc-cm:'..KEYS[1]..':*')" 1 recoding_finish
+654
+
+redis> eval "for _,k in ipairs(redis.call('keys','cc-cm:'..KEYS[1]..':*')) do redis.call('del',k) end" 1 recoding_finish
+null --没有显式return 所以就返回null
+redis> eval "return #redis.call('keys','cc-cm:'..KEYS[1]..':*')" 1 recoding_finish
+0
+redis> eval "for _,k in ipairs(redis.call('keys','cc-cm:'..KEYS[1]..':*')) do redis.call('del',k) end" 1 preview_task_customer
+null
+redis> eval "return #redis.call('keys','cc-cm:'..KEYS[1]..':*')" 1 preview_task_customer
+0
+
+redis> eval "return #redis.call('hgetall','websocket:socket_user')" 0
+2044
+```
+
+
+
+### 11.3
+
+#### generator comprehension cont.
+
+https://realpython.com/introduction-to-python-generators/  提到两点，这里进一步阐述 Python Like You Mean It
+
+1. [Chaining comprehensions](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#Chaining-comprehensions)
+2. [Using generator comprehensions on the fly](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#Using-generator-comprehensions-on-the-fly)  "generator comprehensions can be fed *directly* into functions that operate on iterables. "
+
+[Generator expressions vs. list comprehensions](https://stackoverflow.com/questions/47789/generator-expressions-vs-list-comprehensions) 参考 我们代码用了 https://realpython.com/python-enumerate/ 但注意
+
+```
+TypeError: 'enumerate' object is not subscriptable
+```
+
+[Usage of Asterisks in Python](https://www.datacamp.com/community/tutorials/usage-asterisks-python) 又有点忘
+
+https://github.com/redis/redis-py##getting-started
 

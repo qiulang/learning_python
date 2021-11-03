@@ -9,6 +9,7 @@ def task(name, queue):
         print(f"Task {name} running")
         for x in range(count):
             total += 1
+            print(f"Task {name}:{total}")
             yield
         print(f"Task {name} total: {total}")
     print(f"Task {name} done")
@@ -31,8 +32,9 @@ def main():
 
     # Run the tasks
     done = False
-    print("start the while loop")
+    print("start while loop")
     while not done:
+        # print("Inside while loop, about to enter for loop")
         for t in tasks:
             try:
                 next(t)

@@ -836,7 +836,7 @@ system (set by /Users/qiulang/Dev/learning_python/re35/.python-version)
 
 ### 12.24 
 
-#### **
+#### * & **
 
 [What does ** (double star/asterisk) and * (star/asterisk) do for parameters?](https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters)
 
