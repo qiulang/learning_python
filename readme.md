@@ -937,5 +937,69 @@ TypeError: 'enumerate' object is not subscriptable
 
 [Usage of Asterisks in Python](https://www.datacamp.com/community/tutorials/usage-asterisks-python) 又有点忘
 
-https://github.com/redis/redis-py##getting-started
+https://github.com/redis/redis-py##getting-started 比如是 `delete` 而不是`del`
+
+https://realpython.com/python-redis/#using-redis-py-redis-in-python
+
+
+
+### 11.16
+
+#### 关于dict 一些复习
+
+the keys can be added or removed from a dictionary by converting the view returned by `.keys()` into a `list` object:
+
+```
+>>> prices = {'apple': 0.40, 'orange': 0.35, 'banana': 0.25}
+>>> for key in list(prices.keys()):  # Use a list instead of a view
+...     if key == 'orange':
+...         del prices[key]  # Delete a key from prices
+...
+>>> prices
+{'apple': 0.4, 'banana': 0.25}
+不能直接删 for key in prices.keys():
+```
+
+
+
+[Python is 'key in dict' different/faster than 'key in dict.keys()'](https://stackoverflow.com/questions/31738912/python-is-key-in-dict-different-faster-than-key-in-dict-keys)
+
+```
+>>> for key in a_dict:
+...     print(key, '->', a_dict[key])
+
+>>> for key in a_dict.keys():
+...     print(key)
+```
+
+[Why use dict.keys?](https://stackoverflow.com/questions/17634177/why-use-dict-keys) 历史原因，python3 可以做集合操作
+
+
+
+dictionary comprehension
+
+```
+>>> a_dict = {'one': 1, 'two': 2, 'thee': 3, 'four': 4}
+>>> new_dict = {value: key for key, value in a_dict.items()}
+>>> new_dict
+{1: 'one', 2: 'two', 3: 'thee', 4: 'four'}
+
+>>> a_dict = {'one': 1, 'two': 2, 'thee': 3, 'four': 4}
+>>> new_dict = {k: v for k, v in a_dict.items() if v <= 2}
+>>> new_dict
+{'one': 1, 'two': 2}
+
+>>> incomes = {'apple': 5600.00, 'orange': 3500.00, 'banana': 5000.00}
+>>> total_income = sum([value for value in incomes.values()])
+>>> total_income
+
+>>> total_income = sum(value for value in incomes.values())
+>>> total_income
+14100.0
+
+>>> total_income = sum(incomes.values())
+>>> total_income
+```
+
+[7 Handy Use Cases Of Dictionary Comprehensions In Python](https://towardsdatascience.com/7-handy-use-cases-of-dictionary-comprehensions-in-python-f7c37e462d92)
 
