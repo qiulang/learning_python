@@ -1003,3 +1003,35 @@ dictionary comprehension
 
 [7 Handy Use Cases Of Dictionary Comprehensions In Python](https://towardsdatascience.com/7-handy-use-cases-of-dictionary-comprehensions-in-python-f7c37e462d92)
 
+
+
+### 11.29
+
+#### regex: 2 catch groups  
+
+```python
+re.search('Successfully built (.*)|writing image sha256:(.*)', test).groups()
+image_id = image_ids[0] if image_ids[1] == None else image_ids[1]
+# 如果直接 group(1) 或者 group(2) 可能的None
+```
+
+[Python Regexes - findall, search, and match](https://howchoo.com/python/python-regexes-findall-search-and-match) match只从头开始找， search返回第一个，findall 所有
+
+
+
+### 11.30
+
+#### log on std.err by default
+
+我的脚本突然没法再获取`docker-compose build`的输出，还给他开了问题单 [Can't get docker-compose(mac version) build output with python Popen anymore](https://github.com/docker/compose/issues/8975) 然后突然意识到这是因为`docker-compose build`把它的输出改到 `std.err` 了
+
+想起debugjs也是输出到std.err,当初还困惑一下。所以为什么有的应用把输出log写到std.err，有的写到std.out ？ 觉得在SO问这种问题估计会被close，但查了一下 确实有这样问题，比如：
+
+1. [Should I log messages to stderr or stdout?](https://stackoverflow.com/questions/4919093/should-i-log-messages-to-stderr-or-stdout) 回复很好
+2. [Why Python logging writes to stderr by default?](https://stackoverflow.com/questions/58971197/why-python-logging-writes-to-stderr-by-default) “stderr is meant to be an output for all messages that are just some internal and/or debugging program information like logs and errors, rather than actual output, the result of the program.” ... “one for monitoring (logging and errors): stderr.” 
+3. https://github.com/log4js-node/log4js-node/issues/66 "It's more typical for console logs to go to stderr than stdout, to avoid interfering with "real" output from (for example) a command-line tool." 但也有人不同意 “ Node will output all `console.log` messages to `stdout`.”
+4. https://github.com/rs/zerolog/issues/96 “The default behaviour of the logger is to log to `stderr` rather than `stdout`. ”
+5. https://github.com/denoland/deno/issues/4256 “Request: Separate console functions from Standard Output, In the web browser, [console](https://developer.mozilla.org/en-US/docs/Web/API/Console) was always meant to be a developer's debugging tool, not a way to show output to the end user. " 但讨论里也有不同意的。
+6. https://github.com/pypa/pip/issues/6758 ”Log debug and informational messages to stderr only“
+7. https://www.postgresql.org/docs/9.1/runtime-config-logging.html ”PostgreSQL supports several methods for logging server messages, including stderr, csvlog and syslog.  The default is to log to stderr only. “
+

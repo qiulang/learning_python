@@ -1288,6 +1288,26 @@ https://www.dataquest.io/blog/regex-cheatsheet/
 
 通过 lookbehind & lookahead 定位需要查找替换的字符串
 
+```python
+\   Used to drop the special meaning of character
+    following it (discussed below)
+[]  Represent a character class
+^   Matches the beginning
+$   Matches the end
+.   Matches any character except newline
+?   Matches zero or one occurrence.
+|   Means OR (Matches with any of the characters separated by it.
+*   Any number of occurrences (including 0 occurrences)
++   One ore more occurrences
+{}  Indicate number of occurrences of a preceding RE 
+    to match.
+()  Enclose a group of REs
+```
+
+
+
+
+
 #### try pycharm
 
 [Shadows name xyz from outer scope](https://stackoverflow.com/questions/31575659/shadows-name-xyz-from-outer-scope)
