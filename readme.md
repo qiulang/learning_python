@@ -866,6 +866,10 @@ https://www.lua.org/pil/contents.html
 
 > Tables are the main (in fact, the only) data structuring mechanism in Lua, and a powerful one. We use tables to represent ordinary arrays, symbol tables, sets, records, queues, and other data structures, in a simple, uniform, and efficient way. 
 
+
+
+[Learn Lua in 15 Minutes](http://tylerneylon.com/a/learn-lua/)
+
 #### lua in redis
 
 [A Speed Guide To Redis Lua Scripting](https://www.compose.com/articles/a-quick-guide-to-redis-lua-scripting/)
@@ -886,6 +890,8 @@ https://developpaper.com/redis-how-to-use-lua-script-instance-tutorial/  讲解�
 [What is the difference of pairs() vs. ipairs() in Lua?](https://stackoverflow.com/questions/55108794/what-is-the-difference-of-pairs-vs-ipairs-in-lua)
 
 [What does # mean in Lua?](https://stackoverflow.com/questions/17974622/what-does-mean-in-lua) 所以 `eval "return #redis.pcall('keys', 'abc:*')" 0` 参见 https://stackoverflow.com/questions/20418529/how-to-count-the-number-of-keys-matching-a-pattern
+
+#### 实际例子
 
 https://github.com/alexanderscott/redis-lua-samples
 
@@ -1034,4 +1040,50 @@ image_id = image_ids[0] if image_ids[1] == None else image_ids[1]
 5. https://github.com/denoland/deno/issues/4256 “Request: Separate console functions from Standard Output, In the web browser, [console](https://developer.mozilla.org/en-US/docs/Web/API/Console) was always meant to be a developer's debugging tool, not a way to show output to the end user. " 但讨论里也有不同意的。
 6. https://github.com/pypa/pip/issues/6758 ”Log debug and informational messages to stderr only“
 7. https://www.postgresql.org/docs/9.1/runtime-config-logging.html ”PostgreSQL supports several methods for logging server messages, including stderr, csvlog and syslog.  The default is to log to stderr only. “
+
+
+
+### 12.6
+
+#### generator
+
+原来 [10.14](#10.14) 就看过，但这次完整看完。代码和文档都在 https://github.com/dabeaz/generators
+
+它的例子比 https://realpython.com/introduction-to-python-generators/ (在 [10.26](#10.26) 和 [11.3](#11.3)  分别读过) 更深入一些。
+
+同时又复习了一下 [What is the difference between declarative and imperative paradigm in programming?](https://stackoverflow.com/questions/1784664/what-is-the-difference-between-declarative-and-imperative-paradigm-in-programmin) 觉得declarative这种说法实在有点哗众取宠。比如你可以写一些helper 方法（比如私有方法）做how 就是具体实现， 然后把他们再串在一起，解决what.
+
+但是 [Python as a Declarative Programming Language](https://www.benfrederickson.com/python-as-a-declarative-programming-language/) 提到比较实际一点 “In practice this means avoiding expressions of control flow: **loops and conditional statements are removed** and replaced with higher level constructs..."
+
+[Chapter 1. (Avoiding) Flow Control](https://www.oreilly.com/library/view/functional-programming-in/9781492048633/ch01.html) 也提到 Eliminating Loops & Generators 作为 declarative 编程的一个表现
+
+
+
+### 12.9
+
+#### update case when
+
+```sql
+update `employee` set salary = (case when `manager_id` = 17 then salary+100 else salary end),
+tax = (case when `manager_id` = 18 then tax+100 else tax end) where emp_id > 12
+//或者两条sql语句
+update `employee` set salary = salary+100 where emp_id > 12 and `manager_id` = 17 
+update `employee` set taxt = tax+100 where emp_id > 12 and `manager_id` = 18 
+```
+
+ [MySQL: Update Query using If else](https://stackoverflow.com/questions/14580520/mysql-update-query-using-if-else)
+
+```sql
+UPDATE tablename
+SET col1=(CASE WHEN col1 LIKE 'A' THEN col1='IA' ELSE col1 END),
+col2=(CASE WHEN col1 LIKE 'A' THEN col2='XXX' ELSE col2 END),
+col3=(CASE WHEN col3 LIKE 'A' THEN col3='IA' ELSE col3 END),
+col3=(CASE WEHN col3 LIKE 'A' THEN col4='XXX' ELSE col4 END)
+WHERE
+(col1='A' AND col2='UNKNOWN') OR (col3='A' AND col4='UNKNOWN')
+```
+
+https://stackoverflow.com/questions/18449247/how-to-make-update-query-with-parameters-and-case-statement-in-laravel-4  laravel 的 `raw() ` 自己写case
+
+[SQL 'case when' vs 'where' efficiency](https://stackoverflow.com/questions/56689364/sql-case-when-vs-where-efficiency) case 比where低效，因为没有用到索引，但是在我们这个特定情况 `!=` 查一次，`=` 查一次就一样了 
 
