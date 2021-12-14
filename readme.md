@@ -1051,11 +1051,19 @@ image_id = image_ids[0] if image_ids[1] == None else image_ids[1]
 
 它的例子比 https://realpython.com/introduction-to-python-generators/ (在 [10.26](#10.26) 和 [11.3](#11.3)  分别读过) 更深入一些。
 
-同时又复习了一下 [What is the difference between declarative and imperative paradigm in programming?](https://stackoverflow.com/questions/1784664/what-is-the-difference-between-declarative-and-imperative-paradigm-in-programmin) 觉得declarative这种说法实在有点哗众取宠。比如你可以写一些helper 方法（比如私有方法）做how 就是具体实现， 然后把他们再串在一起，解决what.
+同时又复习了一下 [What is the difference between declarative and imperative paradigm in programming?](https://stackoverflow.com/questions/1784664/what-is-the-difference-between-declarative-and-imperative-paradigm-in-programmin) 觉得declarative这种说法实在有点哗众取宠  the whole "what to do" vs "how to do it" is too vague and really doesn't explain。比如你可以写一些helper 方法（比如私有方法）做how 就是具体实现， 然后把他们再串在一起，解决what.
+
+[The dream of declarative programming [closed\]](https://softwareengineering.stackexchange.com/questions/275680/the-dream-of-declarative-programming) 有几个回复跟我是一样观点：
+
+1. "in practice for general purpose computing **you still have to think about the 'how'** and write all kinds of tricks while keeping in mind how this will be implemented... For some limited domains you can write systems that almost always do well in figuring out a good implementation, for example, SQL. For general purpose computing that doesn't work particularly well - you can write systems in, say, Prolog but you have to visualize how exactly your declarations will be converted to an imperative execution order in the end, and that loses much of the expected declarative programming benefits."
+2. One could argue that most configuration files (.vimrc, .profile, .bashrc, .gitconfig) are using a domain-specific language that's largely declarative ... **Configuration files are declarative**, but certain configurations are hard to declare. 
+3. Mostly the problem is how you model the data; and declarative programming isn't helping here. In imperative languages you already have tons of libraries that does lots of stuff for you, so you **only need to know what to call**. In a particular way one might consider this declarative programming
 
 但是 [Python as a Declarative Programming Language](https://www.benfrederickson.com/python-as-a-declarative-programming-language/) 提到比较实际一点 “In practice this means avoiding expressions of control flow: **loops and conditional statements are removed** and replaced with higher level constructs..."
 
 [Chapter 1. (Avoiding) Flow Control](https://www.oreilly.com/library/view/functional-programming-in/9781492048633/ch01.html) 也提到 Eliminating Loops & Generators 作为 declarative 编程的一个表现
+
+declarative  vs imperative 讨论就此打住。
 
 
 
