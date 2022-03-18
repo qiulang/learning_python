@@ -56,3 +56,22 @@ http://conqueringthecommandline.com/book/frontmatter
 
 
 
+## 3.16
+
+### color term
+
+以前用 https://pypi.org/project/termcolor/  很多人推荐，但是这个项目好像不更新了。 https://github.com/matthewdeanmartin/termcolor 自称  This is the successor to `termcolor`  但目前只有一颗星。
+
+https://pypi.org/project/colorful/ 目前最多星，但是19年后来没更新 
+
+[How to print colored text to the terminal](https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal) 很多答复，选了其中的 https://github.com/bluenote10/yachalk 他提到基于npm的chalk是我选一个原因。
+
+另个看着太复杂，没时间研究 https://click.palletsprojects.com/en/8.0.x/
+
+今天用m1 macOS 12.2 自带 python 3.8 执行之前脚本一直没结果，从 https://www.python.org/ 下3.10 第一次执行也很久，才发现可能是网络问题导致  `git remote add` 需要很长时间，再次执行就好了。所以可能和 3.8也没关系。
+
+
+
+### Nullsafe operator
+
+Python 没有，php 8 也开始支持， nodejs 14开始支持 refer to https://wiki.php.net/rfc/nullsafe_operator
