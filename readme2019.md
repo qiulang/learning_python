@@ -706,7 +706,7 @@ redis nodejs 客户端我们用ioredis,  https://github.com/NodeRedis/node_redis
 
 #### argparse
 
-1. [argparse 比起自己写方法分享命令行输入方便多了](https://docs.python.org/2/howto/argparse.html)
+1. [argparse 比起自己写方法分析命令行输入方便多了](https://docs.python.org/2/howto/argparse.html)
 2. 如果添加多余一个 position paramter 还没细研究，[或许可以参考](https://docs.python.org/2/library/argparse.html) 
 3. https://mkaz.blog/code/python-argparse-cookbook/ 明天练习
 
@@ -925,7 +925,7 @@ OO ？ [A real life examples of object-oriented Python script? 这个问题始�
 2. 结巴的模型数据来源 https://github.com/fxsjy/jieba/issues/7
 
    
-  
+
 ### 1.9
 
 #### setup.py

@@ -628,7 +628,12 @@ pipenv 管理包， venv呢？先重点学习下 venv 然后自己比较venv 和
 
 https://realpython.com/python-virtual-environments-a-primer/ 解释venv
 
-> There actually isn’t any difference between these two Python executables. It’s their directory locations that matter.
+> This raises the following questions:
+>
+> - What’s the difference between these two executables anyway?
+> - How is the virtual environment’s Python executable able to use something other than the system’s site-packages?
+>
+> This can be explained by how Python starts up and where it is located on the system. There actually isn’t any difference between these two Python executables. **It’s their directory locations that matter.**
 
 解释 **virtualenvwrapper** 还要再查查资料
 
@@ -1449,6 +1454,17 @@ class XXX:
 ### 3.29
 
 #### conventional commit
+
+```
+upd：更新某功能（不是 feat, 不是 fix）
+feat：新功能（feature）
+fix：修补bug
+docs：文档（documentation）
+style： 格式（不影响代码运行的变动）
+refactor：重构（即不是新增功能，也不是修改bug的代码变动）
+test：增加测试
+chore：构建过程或辅助工具的变动
+```
 
 [约定式提交](https://www.larscheng.com/commit-log/) 感觉它[对merge 没要求](https://www.conventionalcommits.org/en/v1.0.0/#do-all-my-contributors-need-to-use-the-conventional-commits-specification), 但还是提了 [What to write in the merge message for conventional commits?](https://stackoverflow.com/questions/66848142/what-to-write-in-the-merge-message-for-conventional-commits)
 

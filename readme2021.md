@@ -440,12 +440,13 @@ https://realpython.com/python-data-engineer/
 
 #### k8s 基本概念
 
-1.  https://feisky.gitbooks.io/kubernetes/content/
+1. https://feisky.gitbooks.io/kubernetes/content/
 
 2. pod/server(clusterIP,NodePort)
 
 3. deployment/statefulset [K8s: Deployments vs StatefulSets vs DaemonSets](https://medium.com/stakater/k8s-deployments-vs-statefulsets-vs-daemonsets-60582f0c62d4) 
 4. pod 什么时候需要自己的yaml ？
+5. [container orchestration](https://www.redhat.com/en/topics/containers/what-is-container-orchestration)
 
 ####  js the first 20 years
 
@@ -1097,11 +1098,15 @@ https://stackoverflow.com/questions/18449247/how-to-make-update-query-with-param
 
 ### 12.16
 
+#### Grokking Deep Learning
+
 2020.3.29 记录了一次 Grokking Deep Learning 看到第三章，今天有开始看第三章，这次要多看一点，
 
 
 
 ### 12.24 
+
+#### bash
 
 [When are square brackets required in a Bash if statement?](https://stackoverflow.com/questions/8934012/when-are-square-brackets-required-in-a-bash-if-statement)
 
