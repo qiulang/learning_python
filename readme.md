@@ -1,5 +1,7 @@
 ## 2022.1.4
 
+### 三年简单小结
+
 从2019.4月开始，拿课余时间学习python已经三年
 
 [Python isn't just Java without the compile](https://bitworking.org/news/2006/08/python_isnt_java_without_the_compile/) 2006老文章，可以做个简单复习
@@ -489,10 +491,9 @@ https://www.runoob.com/python/att-string-center.html "字符串字符数为奇�
 
 ### pytorch chapter 3-5
 
-
 [Pip vs Conda: an in-depth comparison of Python’s two packaging systems](https://pythonspeed.com/articles/conda-vs-pip)
 
-Grokking Deep Learning-2019 chapter 4 -- chapter 6
+Grokking Deep Learning-2019 chapter 4 -- chapter 6 上一次看 [2021.12.16](readme2021.md#12.16)  😓
 
 OReilly.Hands-on.Machine.Learning.with.Scikit-Learn.Keras.and.TensorFlow.2nd.2019.9  **Gradient Descent**
 
@@ -507,4 +508,12 @@ OReilly.Hands-on.Machine.Learning.with.Scikit-Learn.Keras.and.TensorFlow.2nd.201
 
 *Backpropagation* 需要再学习
 
-翻看记录 [7.21](#7.21)都学习过，又过了三个月。这学习速度真的要提高
+翻看记录 [7.21](#7.21)都看过视频学习过，又过了三个月。再翻看 gradient descent 学习记录[2021.6.21](readme2021.md#6.21) 第一次学习，第一次读DP的三本书是在 [2020.12.15](readme2020.md#12.15) 太可悲了，都快两年了！😅
+
+小问题  [What is :: (double colon) in Python when subscripting sequences?](https://stackoverflow.com/questions/3453085/what-is-double-colon-in-python-when-subscripting-sequences)  `[::-1]`就是翻转
+
+
+
+## 10.12
+
+### Grokking Deep Learning
