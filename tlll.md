@@ -1,4 +1,0 @@
-- finally I found to a way to trigger tight list switch to loose list
-- first get to know what is tight list
-- second what is loose list
-- what is the difference
