@@ -357,7 +357,7 @@ https://pynative.com/python-database-connection-pooling-with-mysql/  这个网�
 6. Close the cursor
 7. Close the connection
 
-
+[MySQL Connector/Python: How to use the start_transaction() method?](https://stackoverflow.com/questions/52723251/mysql-connector-python-how-to-use-the-start-transaction-method) "Since MySQL Connector/Python is [Python DB API](https://www.python.org/dev/peps/pep-0249/)-compliant, autocommit is disabled by default and the first SQL statement will implicitly begin a transaction. You must call [`connection.commit`](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-commit.html) to commit the transaction."
 
 [Pythonic way to create a long multi-line string](https://stackoverflow.com/questions/10660435/pythonic-way-to-create-a-long-multi-line-string) 以前解决过
 

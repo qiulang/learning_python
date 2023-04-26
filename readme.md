@@ -79,6 +79,17 @@ $ grep pattern $(find . -name '*.pl' -or -name '*.pm' -or -name '*.pod' | grep -
 $ ack --perl pattern
 ```
 
+`find` 命令怎么用老是忘了，https://www.linode.com/docs/guides/find-files-in-linux-using-the-command-line/
+
+```
+find . -name testfile.txt	 //Find a file called testfile.txt in current and sub-directories.
+find /home -name *.jpg	//Find all .jpg files in the /home and sub-directories.
+find . -type f -empty	//Find an empty file within the current directory.
+find /home -user exampleuser -mtime -7 -iname ".db"	//Find all .db files (ignoring text case) modified in the last 7 days by a user named exampleuser.
+```
+
+
+
 
 
 ## 3.16
@@ -514,6 +525,437 @@ OReilly.Hands-on.Machine.Learning.with.Scikit-Learn.Keras.and.TensorFlow.2nd.201
 
 
 
-## 10.12
+## 10.12-26
 
 ### Grokking Deep Learning
+
+现在决定把grokking 这本看完， 10.25 看到 第八章，但是有些代码要自己敲，执行一下
+
+[Practical Deep Learning for Coders](https://course.fast.ai/) 这个网站还没看
+
+
+
+## 10.26
+
+### full text search
+
+https://www.mongodb.com/basics/full-text-search  "To perform a full-text search in a database, you must create an index. The index acts as a glossary of all the words in the indexed fields with reference to the specific documents. When a query is performed, the engine searches the index and finds all matching documents. In MySQL, this would be done with the FULLTEXT keyword... To use features such as fuzzy search, typo tolerance, or synonyms, you will need to add a core search engine such as Apache Lucene on top of your database."
+
+**Considerations before using full-text search** 读读 
+
+**Features**
+
+1. Rich Querying Capabilities ... geo points and dates
+2. Fuzzy Search
+3. Synonyms
+4. Custom Scoring
+5. Autocomplete
+6. Highlights
+
+但是居然没提 stop words的概念 https://www.postgresql.org/docs/current/textsearch-intro.html
+
+[Full-Text Searches in MySQL: The Good, the Bad and the Ugly](https://severalnines.com/blog/full-text-searches-mysql-good-bad-and-ugly)
+
+[MySQL full text search with partial words](https://stackoverflow.com/questions/2716748/mysql-full-text-search-with-partial-words) 只能前缀 prefixes 搜索
+
+
+
+### 前缀模糊匹配
+
+[Optimising LIKE expressions that start with wildcards](https://stackoverflow.com/questions/41879054/optimising-like-expressions-that-start-with-wildcards) 答复和 [Making Queries With Leading Wildcards Faster](http://blog.sqlgrease.com/making-queries-with-leading-wildcards-faster/)
+
+[SQL query with Like operator with Leading Wildcards](https://dba.stackexchange.com/questions/252315/sql-query-with-like-operator-with-leading-wildcards)
+
+Avoid `LIKE` expressions with leading wildcards https://use-the-index-luke.com/sql/where-clause/searching-for-ranges/like-performance-tuning
+
+2023.4.13又碰了一次 参见 [Improving performance of query using Like operator](https://stackoverflow.com/questions/50135597/improving-performance-of-query-using-like-operator) [Bill Karwin](https://stackoverflow.com/users/20860/bill-karwin)的回答 "There is no way to improve the performance of `LIKE` when you have a wildcard at the start of your pattern... Unless your pattern has no wildcard at the start, it's forced to do a table-scan. It can't use an index. " 
+
+## 10.27
+
+### sqlite3 FTS
+
+[Escape single quote character for use in an SQLite query](https://stackoverflow.com/questions/603572/escape-single-quote-character-for-use-in-an-sqlite-query) 不要用`\` 做 escape 字符，不然sqlite3 command shell 就是不结束
+
+创建fts5表需要 `Porter Tokenizer` 才能做 This allows search terms like "correction" to match similar words such as "corrected" or "correcting". 不过还好这个只适用于英语，对我们影响不大。
+
+但是 mysql 好像还没实现stemmeing [Stemming for full-text](https://dev.mysql.com/worklog/task/?id=2423) "we'll go with the  "Porter stemming algorithm" (also known as the "**Porter stemmer**") because it's popular."
+
+我自己之前（2017）参与过 [SQL full text search vs "LIKE"](https://stackoverflow.com/questions/478472/sql-full-text-search-vs-like)
+
+[What is Full Text Search vs LIKE](https://stackoverflow.com/questions/224714/what-is-full-text-search-vs-like) 今天测试10万条数据，发现中文fts性能居然比like差不多。添加到120万数据看到差别，但没有那么大，估计是测试数据短  "Adding wild card adds to the mess. It works great for small length strings, as you can imagine, but will fail miserably for longer sentences. And definitely not comparable when having a paragraph or a whole page of text etc."
+
+### mysql ngram_token_size
+
+[ngram Full-Text Parser](https://dev.mysql.com/doc/refman/5.7/en/fulltext-search-ngram.html)
+
+```
+mysqld --ngram_token_size=1 //不生效
+```
+
+
+
+https://www.mysqltutorial.org/mysql-ngram-full-text-parser/
+
+```
+show variables like '%token%';
+```
+
+
+
+[Can I use VARCHAR as the PRIMARY KEY?](https://stackoverflow.com/questions/19299874/can-i-use-varchar-as-the-primary-key) "your primary key should generally be some "meaningless" value, such as an auto-incremented number or a GUID.  in most situations, values that have a meaning outside your database system should *not* be chosen to be a primary key."
+
+[Fulltext Search with InnoDB](https://stackoverflow.com/questions/1381186/fulltext-search-with-innodb)
+
+
+
+[MySQL - How to search a single character with fulltext index](https://stackoverflow.com/questions/57231378/mysql-how-to-search-a-single-character-with-fulltext-index)
+
+
+
+## 10.28
+
+[Possible INDEX on a VARCHAR field in MySql](https://dba.stackexchange.com/questions/35821/possible-index-on-a-varchar-field-in-mysql) 
+
+[How to copy files from one machine to another using ssh](https://unix.stackexchange.com/questions/106480/how-to-copy-files-from-one-machine-to-another-using-ssh)
+
+
+
+## 11.2
+
+MySQL FTS 的问题不少，总结在组里文档
+
+
+
+## 11.10
+
+Grokking 6章最后的例子跑一遍，对照 https://github.com/iamtrask/Grokking-Deep-Learning
+
+为什么 numpy例子 matrix 需要 `.T` ? 一下想明白了，不把行转成列，相应矩阵运算就是错的！
+
+周末把第六章最后一个例子跑下
+
+
+
+## 12.4
+
+### Grokking chapter 6
+
+第六章最后一个例子一直没搞懂，发现也有别人提了同样的问题 [Chapter 6 - Array in array vs use vector](https://github.com/iamtrask/Grokking-Deep-Learning/issues/58)
+
+综合他的例子，我进一步体会是因为这个DP只有一个输出，所以现在这样做看着确实复杂，但如果是一个vector输出，估计就得这么做。明天开始接着看第八章。不过他的示例代码确实有启发，比书上示例好懂多了
+
+```
+weights_1 = np.array([ [ -0.16595599,  0.44064899, -0.99977125, -0.39533485 ],
+                       [ -0.70648822, -0.81532281, -0.62747958, -0.30887855 ],
+                       [ -0.20646505, 0.07763347, -0.16161097,  0.370439 ] ] )
+
+weights_2 = np.array([ -0.5910955, 0.75623487, -0.94522481, 0.34093502 ])
+
+street_lights = np.array( [ [ 1, 0, 1 ],
+                            [ 0, 1, 1 ],
+                            [ 0, 0, 1 ],
+                            [ 1, 1, 1 ]])
+
+walk_vs_stop = np.array([1, 1, 0, 0])
+
+for iteration in range(60):
+    sum_error = 0
+    for i in range(len(street_lights)):        
+        layer_0 = street_lights[i]        
+        layer_1 = relu(np.dot(layer_0, weights_1))
+        layer_2 = np.dot(layer_1, weights_2)
+        
+                     
+        sum_error += (layer_2 - walk_vs_stop[i]) ** 2        
+        
+        delta_2 = layer_2  - walk_vs_stop[i]
+        delta_1 = np.dot(delta_2, weights_2) * relu2deriv(layer_1)
+        
+        
+        weights_2 -= alpha * layer_1.dot(delta_2)        
+        weights_1 -= alpha * np.dot(np.array([layer_0]).T, np.array([delta_1]))
+       
+    print(sum_error)
+```
+
+
+
+## 2023.1.3
+
+该开始 Grokking chapter 8
+
+在这之前复习一下 `dataclass` 和 `namedtuple`, By design, a `namedtuple` is a regular tuple.
+
+[9 Reasons Why You Should Start Using Python Dataclasses](https://towardsdatascience.com/9-reasons-why-you-should-start-using-python-dataclasses-98271adadc66)
+
+1. Easy conversion to a tuple or a dictionary  `from dataclass import astuple, asdict`
+
+[How to remove items from a list while iterating?](https://stackoverflow.com/questions/1207406/how-to-remove-items-from-a-list-while-iterating)
+
+
+
+## 2023.1.4
+
+### mnist again
+
+重建 conda env , 几个命令打错了, 正确命令 `conda env create -f env.yaml`
+
+```
+qiulang@loaclhost conda-learn % conda create --file env.yaml
+usage: conda create [-h] [--clone ENV] (-n ENVIRONMENT | -p PATH) [-c CHANNEL] [--use-local] [--override-channels] [--repodata-fn REPODATA_FNS]
+                    [--strict-channel-priority] [--no-channel-priority] [--no-deps | --only-deps] [--no-pin] [--copy] [-C] [-k] [--offline] [-d] [--json] [-q]
+                    [-v] [-y] [--download-only] [--show-channel-urls] [--file FILE] [--no-default-packages]
+                    [--experimental-solver {classic,libmamba,libmamba-draft}] [--dev]
+                    [package_spec ...]
+conda create: error: one of the arguments -n/--name -p/--prefix is required
+qiulang@loaclhost conda-learn % conda create --file env.yaml -n tf-2023
+
+CondaValueError: could not parse 'name: tf-metal' in: env.yaml
+
+qiulang@loaclhost conda-learn % conda create -n tf-2023 --file env.yaml
+
+CondaValueError: could not parse 'name: tf-metal' in: env.yaml
+
+qiulang@loaclhost conda-learn % conda env create -f env.yaml
+```
+
+然后执行下面简单命令，但是因为网络原因会报错，所以要用vpn (所以原来env tf2是正确的，只是当时没开vpn)
+```
+import sys, numpy as np
+from keras.datasets import mnist
+
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+print(y_train.shape)
+# 输出
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
+11490434/11490434 [==============================] - 4s 0us/step
+(60000,)
+```
+
+关于  mnist.load_data 说明 https://www.tensorflow.org/api_docs/python/tf/keras/datasets/mnist/load_data
+
+```
+(x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
+assert x_train.shape == (60000, 28, 28)
+assert x_test.shape == (10000, 28, 28)
+assert y_train.shape == (60000,)
+assert y_test.shape == (10000,)
+```
+
+[Chapter 8 examples, why do they all turn label into one_hot_labels ](https://github.com/iamtrask/Grokking-Deep-Learning/issues/63) 有人回答。
+
+### mamba
+
+手欠安装一下mamba，果然除了问题
+
+```
+qiulang@qiulangdeMacBook-Air conda-learn % conda env list
+# conda environments:
+#
+base                     /Users/qiulang/mambaforge
+tf-metal                 /Users/qiulang/mambaforge/envs/tf-metal
+                         /Users/qiulang/opt/miniconda3
+                         /Users/qiulang/opt/miniconda3/envs/pexpect-test
+                         /Users/qiulang/opt/miniconda3/envs/pythonProject
+                         /Users/qiulang/opt/miniconda3/envs/snakes
+                         /Users/qiulang/opt/miniconda3/envs/snowflakes
+                         /Users/qiulang/opt/miniconda3/envs/tf-metal
+```
+
+果然有人一样碰到，解答没细看了  [conda environment has no name visible in conda env list - how do I activate it at the shell?](https://stackoverflow.com/questions/57527131/conda-environment-has-no-name-visible-in-conda-env-list-how-do-i-activate-it-a)
+
+
+
+### pip vs conda
+
+1. [Pip vs Conda](https://pythonspeed.com/articles/conda-vs-pip) 解释了 wheels
+2. https://www.anaconda.com/blog/understanding-conda-and-pip
+
+两篇都提到conda里使用pip的问题，这是我以前没注意的，比如 numpy 和panda就可以直接作为 dependencies 而不是在pip里
+
+
+
+## 2.1
+
+### chapter 8
+
+[Chapter 8 examples, why do they all turn label into one_hot_labels ](https://github.com/iamtrask/Grokking-Deep-Learning/issues/63) 有人回答是 "It converts an int into an array of 0's and one 1, so number "2" will be converted to [0,0,1,0,0,0,0,0,0,0]. The final prediction is of same type an array of size 10, so for each digit you get its own prediction." 这个其实我自己也想明白，因为 每张图的预测结果就是一个 (10,)的一维数组，这样才能把预测结果和实际结果算误差。但是它的实现其实和第六章我的疑问一样  [Chapter 6 - Array in array vs use vector](https://github.com/iamtrask/Grokking-Deep-Learning/issues/58) ，为什么要用二维数组?
+
+```
+for i in range(len(images)):
+    layer_0 = images[i:i+1] # why not change to layer_0 = images[i]
+    layer_1 = relu(np.dot(layer_0,weights_0_1))
+    layer_2 = np.dot(layer_1,weights_1_2)
+    error += np.sum((labels[i:i+1] - layer_2) ** 2)  # then we use labels[i]
+    ...
+```
+
+
+
+###  数据STUDIO 公号文章
+
+1. 为在 Python 中，空序列和集合的计算结果为 False。所以这可以应用于字符串、元组、列表、字典和集合 （和js一样）
+
+2. `any` 和 `all`:`has_positives = any(n > 0 for n in numbers)` 
+
+3. 使用`|`操作符来合并两个不同的字典
+
+4. `a, b, *c = [1,2,3,4,5]`
+
+5. https://note.nkmk.me/en/python-itertools-product/  3.9 才有
+
+   ```
+   t = ('one', 'two')
+   d = {'key1': 'value1', 'key2': 'value2'}
+   r = range(2)
+   
+   l_p = list(itertools.product(t, d, r))
+   
+   pprint.pprint(l_p)
+   # [('one', 'key1', 0),
+   #  ('one', 'key1', 1),
+   #  ('one', 'key2', 0),
+   #  ('one', 'key2', 1),
+   #  ('two', 'key1', 0),
+   #  ('two', 'key1', 1),
+   #  ('two', 'key2', 0),
+   #  ('two', 'key2', 1)]
+   ```
+
+   
+
+一个敏捷问题被**快速关闭**  [Agile vs Introverts, any study to show they may not work well?](https://softwareengineering.stackexchange.com/questions/443808/agile-vs-introverts-any-study-to-show-they-may-not-work-well) 不死心，再问 [How do I make agile process more comfortable for introverts?](https://workplace.stackexchange.com/questions/189958/how-do-i-make-agile-process-more-comfortable-for-introverts)
+
+
+
+### sql like with leading wildcard
+
+[Query to bring count from comma separated Value](https://stackoverflow.com/questions/13908379/query-to-bring-count-from-comma-separated-value)看 [Bill Karwin](https://stackoverflow.com/users/20860/bill-karwin) 的回答
+
+[MySQL querying relational tables](https://stackoverflow.com/questions/6862369/mysql-querying-relational-tables)  [Bill Karwin](https://stackoverflow.com/users/20860/bill-karwin) 的回答
+
+[SQL Wildcard Search - Efficiency?](https://stackoverflow.com/questions/11795770/sql-wildcard-search-efficiency)
+
+fts 看来是正解
+
+
+
+## 2.23
+
+### "Grokking DP"
+
+终于看完第8章，开始看第9章  activation functions
+
+第八章要记住名词 Regularization
+
+
+
+## 3.16
+
+### declarative vs imperative again
+
+读 [The evolution of Facebook’s iOS app architecture](https://engineering.fb.com/2023/02/06/ios/facebook-ios-app-architecture/) 提到 declarative 和 双向绑定。提到 react 触发 Declarative Programming — SwiftUI， 2021年 12 曾经记**The dream of declarative programming** 这次针对 SwiftUI 再复习一下
+
+[Declarative and Imperative Programming using SwiftUI and UIKit](https://medium.com/@rmeji1/declarative-and-imperative-programming-using-swiftui-and-uikit-c91f1f104252)
+
+>  A major advantage of learning and using SwiftUI is allowing for cross-platform development for the different operating systems within the Apple ecosystem. No more having to learn four different frameworks if you want to build an app that has components on Apple Watch, Apple TV, MacBook Pro, and finally your iPhone.
+
+文章比较了 UIKit  和  SwiftUI 的不同写法，提到 双向绑定
+
+[Is SwiftUI framework declarative or imperative or neither?](https://stackoverflow.com/questions/56914884/is-swiftui-framework-declarative-or-imperative-or-neither) 有一个回答 “when one adds a tap handler to a view element, one can subtly shift from the “what” of declarative programming to the “how” of imperative programming, as you outline a series of steps to be taken to achieve some task.”
+
+### ts 4.9 `satisfies` Operator 
+
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-9/
+
+```
+const palette = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    bleu: [0, 0, 255]
+//  ^^^^ sacrebleu - we've made a typo!
+};
+
+type Colors = "red" | "green" | "blue";
+
+type RGB = [red: number, green: number, blue: number];
+
+const palette: Record<Colors, string | RGB> = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    bleu: [0, 0, 255]
+//  ~~~~ The typo is now correctly detected
+};
+//但是 red 可以是 string
+
+type Colors = "red" | "green" | "blue";
+
+type RGB = [red: number, green: number, blue: number];
+
+const palette = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    bleu: [0, 0, 255]
+//  ~~~~ The typo is now caught!
+} satisfies Record<Colors, string | RGB>;
+
+type RGB = [red: number, green: number, blue: number];
+
+const palette = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0]
+    //    ~~~~~~ error!
+} satisfies Record<string, string | RGB>;
+```
+
+[new Typescript "satisfies" operator](https://stackoverflow.com/questions/73909490/new-typescript-satisfies-operator) "the information about what keys and values it contains is preserved "
+
+
+
+### 文章阅读
+
+[The JetBrains Fleet Blog](https://blog.jetbrains.com/zh-hans/fleet/) 六部分
+
+架构细读了 https://blog.jetbrains.com/zh-hans/fleet/2022/01/fleet-below-deck-part-i-architecture-overview/ 
+
+[Devpod: Improving Developer Productivity at Uber with Remote Development](https://www.uber.com/en-JP/blog/devpod-improving-developer-productivity-at-uber/) 只能是初步了解，知道他们用k8s 来构建他们的开发环境
+
+https://blog.pragmaticengineer.com/oncall-compensation/ 加班文化调查，专门提到Amazon, 过期痛苦回忆
+
+> Engineering managers – called SDMs (Software Development Managers) – at Amazon have been known to step in and try to ease the oncall load by offering days off. As a current Amazon engineer shares:
+>
+> “After rough oncalls in the Alexa Devices organization, several SDMs have been lenient with PTO to compensate (if up late, then come in late, if working the weekend, then take an extra day off, etc.) This was not an official policy and any change-ups in the manager (like a re-org which happened somewhat often) and any accumulated off-the-books PTO time would vanish.”
+>
+> However, I have heard several stories of staff suffering extreme burnout due to Amazon’s relentless oncall load, and this burnout persisting with them to their next position. A software engineer I talked with shared how they burnt out so badly because of Amazon’s oncall culture, that they struggled during the first several months of their next job at a startup, as they were recovering mentally and physically from the oppressive operations load at Amazon.
+
+
+
+## 4.14
+
+### Grokking DP Chapter 9
+
+第九章重新看起
+
+
+
+## 4.25
+
+### copilot
+
+使用 copilot两个问题，1. 关于注释  https://realpython.com/python-comments-guide/  2. https://realpython.com/python-doctest/  doctest 以前不知道，要学习一下。 https://docs.python.org/3/library/doctest.html  这两篇文章都长，单独再找个时间看
+
+
+
+单元测试代码个源代码是不是可以再同一个文件，比如 doctest ； 在同一个文件弊端 [Writing basic unit-tests inside the class file](https://softwareengineering.stackexchange.com/questions/357283/writing-basic-unit-tests-inside-the-class-file)  这个问题让我知道 doctest  [Is there a reason that tests aren't written inline with the code that they test?](https://softwareengineering.stackexchange.com/questions/188316/is-there-a-reason-that-tests-arent-written-inline-with-the-code-that-they-test) 有个回答 
+
+> It is worth observing that in the early days, Java programmers used to do this kind of thing; e.g. including a `main(...)` method in a class to facilitate testing. This idea has almost completely disappeared. It is industry practice to implement tests separately using a test framework of some kind.
+
+我自己的 ws_redis 也曾经把测试代码放在实际代码里，就是起了几秒之后停止，为了让测试脚本确认容器能正常启动。但后来我自己也放弃了。
+
+copilot 和 cursor.so 联合使用 
+
+### doctest
+
+
+
