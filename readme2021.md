@@ -477,7 +477,7 @@ https://pypi.org/project/watchdog/  跨平台，统一接口的python脚本确�
 
 #### numpy
 
-https://realpython.com/what-can-i-do-with-python/ 很详细总结，之前应该也有类似的
+https://realpython.com/what-can-i-do-with-python/ python使用场景很详细总结，之前应该也有类似的
 
 https://realpython.com/numpy-scipy-pandas-correlation-python/ 读读没特别有用。
 

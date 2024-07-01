@@ -1232,7 +1232,7 @@ https://realpython.com/python-wheels/ 和 https://blog.zengrong.net/post/python_
 
 #### venv
 
-用pycharm自然想到一个问题，怎么把venv的东西放到git，常见做法 [Is it bad to have my virtualenv directory inside my git repository?](https://stackoverflow.com/questions/6590688/is-it-bad-to-have-my-virtualenv-directory-inside-my-git-repository) 和[The Easiest Way to Use a Python Virtual Environment with Git](https://medium.com/wealthy-bytes/the-easiest-way-to-use-a-python-virtual-environment-with-git-401e07c39cde) 都是说把env目录放到 `.gitignore` 然后 `pip freeze > requirements.txt` 但是这样做的问题我在 [2020 7.1 研究 pipreqs](#pipreqs) 就发现，它只是把所有包都列出，而不是真的用到的包。但是pipreqs的“问题”，我在[2020 11月6号研究 pipenv](#pipenv) 给开过一个问题单， pipenv会检索各个包的依赖关系，而不是像`pipreqs` scans py files and analyze import statements to generate requirements.
+用pycharm自然想到一个问题，怎么把venv的东西放到git，常见做法 [Is it bad to have my virtualenv directory inside my git repository?](https://stackoverflow.com/questions/6590688/is-it-bad-to-have-my-virtualenv-directory-inside-my-git-repository) 和[The Easiest Way to Use a Python Virtual Environment with Git](https://medium.com/wealthy-bytes/the-easiest-way-to-use-a-python-virtual-environment-with-git-401e07c39cde) 都是说把env目录放到 `.gitignore` 然后 `pip freeze > requirements.txt` 但是这样做的问题我在 [2020 7.1 研究 pipreqs](#pipreqs) 就发现，它只是把所有包都列出，而不是真的用到的包。但是pipreqs的“问题”，我在[2020 11月6号研究 pipenv](#pipenv) 给开过一个[问题单](https://github.com/bndr/pipreqs/issues/261)， pipenv会检索各个包的依赖关系，而不是像`pipreqs` scans py files and analyze import statements to generate requirements.
 
 但是最简单可能还是pip install安装包时候注意点，没用到包不安装最简单。
 
@@ -1624,7 +1624,7 @@ It’s possible to install Pipenv with Homebrew on MacOS, or with Linuxbrew on L
 
 ### 4.9
 
-#### lock 文件
+#### lock文件
 
 [What is usage of “conflict” in composer.json and what should I do with it?](https://stackoverflow.com/questions/66999537/what-is-usage-of-conflict-in-composer-json-and-what-should-i-do-with-it)
 
