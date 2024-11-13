@@ -301,6 +301,8 @@ export https_proxy=http://127.0.0.1:2022 http_proxy=http://127.0.0.1:2022 all_pr
 
 ## 8.20
 
+### RAG & Transformers
+
 [A Practical Introduction to LLMs](https://towardsdatascience.com/a-practical-introduction-to-llms-65194dda1148)  Shaw Talebi 写了5篇文档都不错。
 
 [Cracking Open the Hugging Face Transformers Library](https://towardsdatascience.com/cracking-open-the-hugging-face-transformers-library-350aa0ef0161)
@@ -416,6 +418,8 @@ https://python.langchain.com/v0.2/docs/tutorials/llm_chain/  langchain暂时不�
 
 ## 8.27
 
+### RAG 多种尝试
+
 RAG效果不佳的总结
 
 
@@ -465,7 +469,7 @@ Once you have the processed text (summaries or keywords), you’ll need to conve
 - **Hugging Face Transformers**: You can leverage pre-trained language models like `bert-base-uncased` or `distilbert-base-uncased` to generate embeddings.
 - **OpenAI Embeddings**: OpenAI’s `text-embedding-ada-002` model is another option for generating embeddings.
 
-### Reranking
+#### Reranking
 
 https://sbert.net/examples/applications/retrieve_rerank/README.html 最基本解释
 
@@ -480,6 +484,8 @@ https://www.pinecone.io/learn/series/rag/rerankers/
 [一文详解几种常见本地大模型个人知识库工具部署、微调及对比选型](https://developer.aliyun.com/article/1533026?spm=a2c6h.14164896.0.0.62ad47c5qpDCFu&scm=20140722.S_community@@%E6%96%87%E7%AB%A0@@1533026._.ID_1533026-RL_openwebuirag-LOC_search~UND~community~UND~item-OR_ser-V_3-P0_11)
 
 
+
+#### MaxKB
 
 买了一个月阿里云机器 70块 root/ Qiulang76@bj 忘记阿里云登录密码，账号是 qiulang2000@hotmail.com 改用支付宝账号登录。
 
@@ -656,6 +662,8 @@ https://blog.openreplay.com/svelte-vs-bue--a-comparison/
 
 ## 9.24
 
+### open-webui 学习
+
 询问模型的最后训练数据和最后的更新是两个不同问题，会有不同答复，而且重复问，答案也有不同
 
 What is your last update ? 和 What is your last training data ?
@@ -667,6 +675,8 @@ what is the latest version of typescript ? 和 what is the latest version of pyt
 
 
 ## 9.25
+
+### 文本嵌入再研究
 
 自从发现 maxkb 用的 word embedding **maxkb-embedding** 其实是 https://github.com/shibing624/text2vec 然后再看它的文档，我之前疑问就又提出，为什么现在开源的 word embedding 都是基于 [sentence-transformers](https://github.com/UKPLab/sentence-transformers) (https://github.com/UKPLab/sentence-transformers) ？ 连这个 text2ve也提供基于 st的形式？
 
@@ -688,7 +698,7 @@ SO 上 4个词嵌入问题：
 
 https://huggingface.co/embedding-data/deberta-sentence-transformer 不用 sf 的例子和 https://github.com/shibing624/text2vec  和 一样，都用到 mean_pooling
 
-#### 文本向量表示模型 估计理解 句子迁入一个重点
+#### 文本向量表示模型 估计理解 句子嵌入一个重点
 
 
 
@@ -807,6 +817,8 @@ files in  ~/.ollama/models/blobs
 
 ## 10.8-10.9
 
+### RAG 学习文档
+
 https://osanseviero.github.io/hackerllama/blog/posts/sentence_embeddings2/ 读完 Reranker
 
 https://docs.cohere.com/page/basic-rag 代码示例实现 embedding, rerank, search, generate answer
@@ -819,7 +831,7 @@ https://www.ibm.com/topics/zero-shot-learning 解释得不好。
 
 [why we no longer use LangChain for building our AI agents](https://www.octomind.dev/blog/why-we-no-longer-use-langchain-for-building-our-ai-agents)
 
-https://www.anthropic.com/news/contextual-retrieval  提到用BM25在语义检索基础上增加关键词检索。open-webui的hybrid-search已经用了，但是我改成 BAAI/bge-reranker-v2-m3 了 https://huggingface.co/BAAI/bge-m3 说更好
+https://www.anthropic.com/news/contextual-retrieval  提到用BM25在语义检索基础上增加**关键词检索**。open-webui的hybrid-search已经用了，但是我改成 BAAI/bge-reranker-v2-m3 了 https://huggingface.co/BAAI/bge-m3 说更好
 
 这篇文章重点就是几种技术一起用 hybrid-retrieval + context retrieval + reranker 
 
@@ -878,12 +890,257 @@ In traditional computing and Unix systems, a daemon process is indeed a backgrou
 
 google sentence embedding 排名分别是
 
-1. https://cohere.com/llmu/sentence-word-embeddings 入门好，但更多是解释了基本概念 word embedding ， 没有介绍如何从 word embedding 到 sentence embedding，如何得到 sentence embedding , 最后介绍 cohere 自己的 Multilingual Sentence Embeddings， 但是我不看好它对中文的处理
+1. https://cohere.com/llmu/sentence-word-embeddings 入门好，但更多是解释了基本概念 word embedding ， 没有介绍如何从 word embedding 到 sentence embedding，如何得到 sentence embedding , 最后介绍 cohere 自己的 Multilingual Sentence Embeddings， 但是我不看好它对中文的处理。 可以再看看 [Multilingual Semantic Search with Cohere and Langchain](https://cohere.com/blog/search-cohere-langchain#example-2-search-based-question-answering) 看它给的一个实际应用。https://cohere.com/llmu 里的文章都比较通俗易懂.
 2. https://en.wikipedia.org/wiki/Sentence_embedding 没有太多有用信息
 3. [Sentence Embedding Methods— A Survey](https://medium.com/@busra.oguzoglu/sentence-embedding-methods-a-survey-7c62857f7b43) 2021文章，大致扫了几眼，没有 sbert，介绍了 **InferSent** 和 **Universal Sentence Encoder**
 4. https://osanseviero.github.io/hackerllama/blog/posts/sentence_embeddings/ 2024 读了，最全
 5. sbert
-6. https://www.reddit.com/ 论坛推荐 第四篇！
+6. https://www.reddit.com/ 论坛推荐 第四篇！今天（10.12）换了 [Top 4 Sentence Embedding Techniques using Python](https://www.analyticsvidhya.com/blog/2020/08/top-4-sentence-embedding-techniques-using-python/) 排在第六位
 7. [What are Sentence Embeddings and Their Applications?](https://www.taus.net/resources/blog/what-are-sentence-embeddings-and-their-applications) 2021 短，扫了
 8. https://johnbrandt.org/blog/sentence-similarity/ 应该也是较早，没有谈sbert，但谈了早期一些方法是如何演进
 9. [Sentence Embedding by BERT and Sentence Similarity](https://peaceful0907.medium.com/sentence-embedding-by-bert-and-sentence-similarity-759f7beccbf1) 大致看了，没什么特别
+10. https://airbyte.com/data-engineering-resources/sentence-word-embeddings 这篇在 （10.12）排名第7,作为简介还不错，可以读读
+
+
+
+### cohere llmu
+
+https://cohere.com/llmu/what-is-attention-in-language-models 读了
+
+https://cohere.com/llmu/what-are-transformer-models 要读
+
+https://osanseviero.github.io/hackerllama/blog/posts/random_transformer/ 要读
+
+
+
+## 10.16 
+
+### rerank
+
+[How to Use Re-Ranking for Better LLM RAG Retrieval](https://towardsdatascience.com/how-to-use-re-ranking-for-better-llm-rag-retrieval-243f89414266) 作者之前文章 hybrid search 讲了 Semantic Search + Keyword Search
+
+文章本身没有特别，但是它提到的两个top k是不是可以给 open webui开个问题单？还有注意 `documents can get “lost in the middle” of our context if we just stuff them in there. So, the best document matches should be at the very beginning of the context`
+
+https://www.pinecone.io/learn/series/rag/rerankers/ 也没细看
+
+https://www.databricks.com/blog/long-context-rag-performance-llms 探索长context 对 RAG效果的影响 ，我自己测试 2048肯定不行，4096可以，6144没看出有再提高
+
+Open WebUI RAG 最新进展 10.6 版本  v0.3.32 [(latest)](https://github.com/open-webui/open-webui/releases/tag/v0.3.32) 三处设置：
+
+1. 根据作者在 [3868](https://github.com/open-webui/open-webui/discussions/3868) 的讨论，把  Context length 从缺省的 2048改到 4096 可以检索出一个专利，**2048 一个专利也检索不出**。但是奇怪的是我在最早使用对时候肯定没改过这个值，但是也是能碰到检索出两个专利的情况。
+2. 要把第二个专业也检索出就要设置**top k** 的值为8 而不是 6, 这个不知道为啥 [Why does the top_k value significantly affect the retrieve results in RAG ? ](https://github.com/open-webui/open-webui/discussions/6210)
+3. Chunk size + overlap size的组合多少合适，我现在用 1024 + 256 回答专利问题比512+128 效果好 , [Bug: the default sbert model was trained on tweets and shouldn't be used for RAG](https://github.com/open-webui/open-webui/discussions/5333)
+
+
+
+## 10.17
+
+[Advanced RAG Implementation using Hybrid Search and Reranking](https://medium.com/@nadikapoudel16/advanced-rag-implementation-using-hybrid-search-reranking-with-zephyr-alpha-llm-4340b55fef22) **Hybrid Search** 的代码示例 但是这个概念 “**Contextual Compression**" 没讲透。其他都是已知. [Efficient RAG with Compression and Filtering](https://medium.com/etoai/enhance-rag-integrate-contextual-compression-and-filtering-for-precision-a29d4a810301) 先不看
+
+[Optimizing RAG with Hybrid Search & Reranking](https://superlinked.com/vectorhub/articles/optimizing-rag-with-hybrid-search-reranking)  
+
+ContextualCompression 代码有 https://python.langchain.com/docs/how_to/contextual_compression/  所以要看下
+
+
+
+## 10.18
+
+### maxkb 调试
+
+**锁定 maxkb**
+
+```
+[1Panel Log]: =================感谢您的耐心等待，安装已经完成================== 
+[1Panel Log]:  
+[1Panel Log]: 请用浏览器访问面板: 
+[1Panel Log]: 外网地址: http://82.157.101.165:35366/d753268052 
+[1Panel Log]: 内网地址: http://192.168.13.3:35366/d753268052 
+[1Panel Log]: 面板用户: 9a6de486a9 
+[1Panel Log]: 面板密码: sinicnet123 
+[1Panel Log]:  
+[1Panel Log]: 项目官网: https://1panel.cn 
+[1Panel Log]: 项目文档: https://1panel.cn/docs 
+[1Panel Log]: 代码仓库: https://github.com/1Panel-dev/1Panel 
+[1Panel Log]:  
+[1Panel Log]: 如果使用的是云服务器，请至安全组开放 35366 端口 
+[1Panel Log]:  
+[1Panel Log]: 为了您的服务器安全，在您离开此界面后您将无法再看到您的密码，请务必牢记您的密码。 
+[1Panel Log]:  
+[1Panel Log]: ================================================================
+
+这台腾讯云机器的用户名密码   ubuntu/Sinicnet123
+ssh ubuntu@82.157.101.165
+
+MaxKB
+
+username：admin
+password：Sinicnet123
+
+8 core 32 GB 内存，qwen2.5 回复基本要两分钟，没法用
+16 core 64GB 一分钟 
+24核 48GB 不花钱，50秒
+32核 64GB 30~40秒 （7B参数）
+再换
+24核 98GB 贵 157 降配退钱吗？
+48核 98G
+//11.05 再次升级
+48核 128GB
+docker-compose -f docker-compose.yml  -f docker-compose-pgsql.yml  up -d
+```
+
+
+
+发现MaxKB chunk size 4096 top 5 我把open webui 改成这样top 6也还是不行，怀疑代码是不是有bug，周末看下
+
+http://82.157.101.165:11434
+
+http://192.168.13.3:11434
+
+
+
+两个知识库 12篇公众号和21篇公众号，问题都能命中文章。MaxKB 用qwen2.5 7b ，回答不准确，百炼可以。尝试 qwen2.5 14b, 答案居然没有改进！回答时间增加一倍，在90秒左右; **用qwen2.5 3b 15秒，难的20秒， 用qwen2.5 1.5 10秒，难到问题15秒**
+
+意外发现 top_K 取值3或5 **居然对百炼的回答也有影响**！ 设置 5 正确回答专利号和内容，设置 3 不能确切回答，比如漏了一个专利号，甚至幻觉回答。
+
+另外一个新问题，如何 https://huggingface.co/docs/hub/en/models-downloading  比如智源模型，以前我都是 pip install, 到底要怎么下载呢？
+
+
+
+## 10.23
+
+### 如何现在 huggingface 的model
+
+因为要改MaxKB 的嵌入模型，引申出的问题，如何下载 huggingface 的model, model的页面没有下载按钮，而之前下载都是通过pip install 看官方文档 https://huggingface.co/docs/hub/en/models-downloading  第一次读反而有点晕，同样的问题 [How to download a model from huggingface?](https://stackoverflow.com/questions/67595500/how-to-download-a-model-from-huggingface) 
+
+几个办法：
+
+1. git clone 但是要注意，需要安装 git-lfs 不然git clone不会下载大文件
+2. 使用 `huggingface-cli` 下载
+3. 使用加速工具下载 `pip install huggingface_hub[hf_transfer]` 这条pip 命令不熟悉，它不是简单的两个都装 The `[hf_transfer]` part in square brackets is specifying an optional extra dependency or feature.
+4. [What do square brackets mean in pip install?](https://stackoverflow.com/questions/46775346/what-do-square-brackets-mean-in-pip-install)
+
+```
+(base) langqiu@langs-MacBook-Air bge-large-zh-v1.5 % HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli download "BAAI/bge-large-zh-v1.5"
+/Users/langqiu/.cache/huggingface/hub/models--BAAI--bge-large-zh-v1.5/snapshots/79e7739b6ab944e86d6171e44d24c997fc1e0116
+
+HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli download "BAAI/bge-reranker-v2-m3"
+/Users/langqiu/.cache/huggingface/hub/models--BAAI--bge-reranker-v2-m3/snapshots/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e
+```
+
+
+
+腾讯云的机器因为我扩容了，之前用pip 安装的 BAAI 模型就没了，这次干脆用 git lfs 装一遍,  git 安装缺点是clone没有 进度条，不知道要多久。但是。。。 git clone 和 huggingface-cli 都 报错访问不了 ，本机访问不了 huggingface.co。
+
+再看我给腾讯云开过的工单 `pip install -U FlagEmbedding` 也是失败，看来只能本地上传了
+
+```
+sudo apt-get install git-lfs
+git lfs install
+git clone https://huggingface.co/BAAI/bge-large-zh-v1.5
+
+fatal: unable to access 'https://huggingface.co/BAAI/bge-large-zh-v1.5/': Failed to connect to huggingface.co port 443 after 131062 ms: Connection timed out
+
+转第二个方案 huggingface-cli
+pip install -U "huggingface_hub[cli]"
+huggingface-cli download "BAAI/bge-large-zh-v1.5"
+还是报错  
+
+requests.exceptions.ConnectionError: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /api/models/BAAI/bge-large-zh-v1.5/revision/main (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fc3f545a2c0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))"), '(Request ID: d45f2ede-3163-47f2-8434-07f9a4b889ad)')
+```
+
+只能本地上传了 sftp 或者 scp， [What's the difference between SCP and SFTP?](https://superuser.com/questions/134901/whats-the-difference-between-scp-and-sftp) 用 sftp 更友好一点 而且 BBEdit 带了sftp
+
+试了 两个 sftp 客户端 command one (已经在用) 但是过了试用期，sftp 不可用； Termius 必须从它的网站下，不能从 app store下, 因为是 sandbox 沙盒模式。
+
+Terminus 倒是挺好用
+
+
+
+## 10.24 
+
+ContextualCompression ~~文章要读~~ **读了**
+
+
+
+**还有  这个context length 到底是哪个参数，在maxkb里对应哪个？**
+
+> Ollama model not having enough context length (default: 2048) for the retrieval context. There isn't a good fix for this other than you modifying the context length from Workspace > Models > Edit Model > Advanced Params > Context length. 
+
+
+
+## 10.29
+
+### qwen 几处文档
+
+1. [音频理解 qwen2-audio-instruct](https://help.aliyun.com/zh/model-studio/user-guide/audio-language-model)
+1. [文本嵌入](https://help.aliyun.com/zh/model-studio/user-guide/embedding) 需要找时间对比一下阿里文本嵌入和BAAI.
+1. [文本生产](https://help.aliyun.com/zh/model-studio/user-guide/text-generation) 阿里各个大模型介绍，包括百炼各个版本价格差异。
+1. 百炼也可以创建RAG  https://bailian.console.aliyun.com/#/app-center/ , 先在数据中心倒入文档 https://bailian.console.aliyun.com/#/data-center ，建立的知识库 https://bailian.console.aliyun.com/#/knowledge-base 然后创建应用，但是怎么发布是个问题。
+1. https://help.aliyun.com/zh/model-studio/developer-reference/text-rerank-quick-start gte-rerank模型
+
+
+
+根据对我们公众号21篇文章测试，rerank 确实很有效果，没有重排不能回答几个问题，重排都可以。但是重拍的最大引用字数也是个影响结果的参数
+
+
+
+## 11.04
+
+因为 “双塔模型” dual-encoder这个字样，我做了些搜索，[Advanced RAG for LLMs/SLMs](https://medium.com/@bijit211987/advanced-rag-for-llms-slms-5bcc6fbba411) 没什么内容。
+
+
+
+**换了网络**，需要验证ollama 实际连接
+
+```
+curl 192.168.13.3:11434
+Ollama is running
+```
+
+[Evaluating the Optimal Document Chunk Size for a RAG Application](https://harshadsuryawanshi.medium.com/evaluating-the-optimal-document-chunk-size-for-a-rag-application-9cb482365bbf) 已知
+
+[Chunking for RAG: best practices](https://unstructured.io/blog/chunking-for-rag-best-practices)
+
+https://www.llamaindex.ai/blog/evaluating-the-ideal-chunk-size-for-a-rag-system-using-llamaindex-6207e5d3fec5
+
+
+
+## 11.08
+
+### 重读 Advanced RAG Techniques: an Illustrated Overview
+
+Hypothetical Questions and HyDE 是个有趣的概念，不知道能不能实际做到
+
+Parent-child chunks retrieval 也是不错概念，解决chunk size 不容易设置问题，不过不知道能不能实际做到
+
+Query transformations 在maxb试过问题优化，效果不明显
+
+
+
+https://cohere.com/blog/rerank-3  强调的是 "Tabular data like relational databases, CSVs, Excel plays a crucial role for many enterprises. Retrieval models have previously struggled to search on this type of data which limits enterprises from connecting to their most valuable data sources for RAG. "
+
+10.24 号两个问题，还有一个 context length
+
+https://github.com/infiniflow/ragflow 有机会试试， RAG 和 ES结合好处在哪？
+
+## 11.12
+
+搜索 多路召回 查到 https://53ai.com/news/RAG/2024072969407.html
+
+把 多路召回（我们现在是两路召回，文章里提到三路召回，稀疏矩阵） 和 ES 结合 , ragflow 都提了！
+
+bge-m3 https://huggingface.co/BAAI/bge-m3 BM25增强版？
+
+和ES结合是因为利用 ES的 FTS （https://www.mongodb.com/resources/basics/full-text-search） 进行多路召回？
+
+[一文详解几种常见本地大模型个人知识库工具部署、微调及对比选型](https://developer.aliyun.com/article/1533026?spm=a2c6h.14164896.0.0.62ad47c5qpDCFu&scm=20140722.S_community@@%E6%96%87%E7%AB%A0@@1533026._.ID_1533026-RL_openwebuirag-LOC_search~UND~community~UND~item-OR_ser-V_3-P0_11) 仍然有参考意义
+
+[一文详谈RAG优化方案与实践](https://developer.aliyun.com/article/1597056?spm=a2c6h.14164896.0.0.5d9147c5pyRPKy&scm=20140722.S_community@@%E6%96%87%E7%AB%A0@@1597056._.ID_1597056-RL_%E4%B8%80%E6%96%87%E8%AF%A6%E8%A7%A3%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E5%B7%A5%E5%85%B7%E9%83%A8%E7%BD%B2%E5%BE%AE%E8%B0%83%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%80%89%E5%9E%8B-LOC_search~UND~community~UND~item-OR_ser-V_4-P0_15) 这篇和 "Advanced RAG Techniques: an Illustrated Overview" 以及复旦最近的论文都基本类似
+
+终于把 [Leveraging Llamaindex, Ollama, and Weaviate for RAG Applications in Controlled Environments](https://www.tyrell.co/2023/12/weaving-path-to-relevance-leveraging.html) 也看了，没啥新意，不知道为什么会搜到它，可能基于llamaindex . 还有他今年写的 [Navigating the Grand Gen AI Dilemma: RAG vs. Fine-Tuning](https://www.tyrell.co/2024/01/navigating-grand-gen-ai-dilemma-rag-vs.html)
+
+
+
+## 11.13
+
+RAG 还能怎么往下走
