@@ -1008,7 +1008,7 @@ http://192.168.13.3:11434
 
 ## 10.23
 
-### 如何现在 huggingface 的model
+### 如何下载 huggingface 的model
 
 因为要改MaxKB 的嵌入模型，引申出的问题，如何下载 huggingface 的model, model的页面没有下载按钮，而之前下载都是通过pip install 看官方文档 https://huggingface.co/docs/hub/en/models-downloading  第一次读反而有点晕，同样的问题 [How to download a model from huggingface?](https://stackoverflow.com/questions/67595500/how-to-download-a-model-from-huggingface) 
 
@@ -1133,14 +1133,293 @@ bge-m3 https://huggingface.co/BAAI/bge-m3 BM25增强版？
 
 和ES结合是因为利用 ES的 FTS （https://www.mongodb.com/resources/basics/full-text-search） 进行多路召回？
 
+[基于Agent的金融问答系统：RAG的检索增强之ElasticSearch](https://www.53ai.com/news/RAG/2024103117250.html) 给的例子确实是增强检索结果。
+
 [一文详解几种常见本地大模型个人知识库工具部署、微调及对比选型](https://developer.aliyun.com/article/1533026?spm=a2c6h.14164896.0.0.62ad47c5qpDCFu&scm=20140722.S_community@@%E6%96%87%E7%AB%A0@@1533026._.ID_1533026-RL_openwebuirag-LOC_search~UND~community~UND~item-OR_ser-V_3-P0_11) 仍然有参考意义
 
 [一文详谈RAG优化方案与实践](https://developer.aliyun.com/article/1597056?spm=a2c6h.14164896.0.0.5d9147c5pyRPKy&scm=20140722.S_community@@%E6%96%87%E7%AB%A0@@1597056._.ID_1597056-RL_%E4%B8%80%E6%96%87%E8%AF%A6%E8%A7%A3%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E5%B7%A5%E5%85%B7%E9%83%A8%E7%BD%B2%E5%BE%AE%E8%B0%83%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%80%89%E5%9E%8B-LOC_search~UND~community~UND~item-OR_ser-V_4-P0_15) 这篇和 "Advanced RAG Techniques: an Illustrated Overview" 以及复旦最近的论文都基本类似
 
 终于把 [Leveraging Llamaindex, Ollama, and Weaviate for RAG Applications in Controlled Environments](https://www.tyrell.co/2023/12/weaving-path-to-relevance-leveraging.html) 也看了，没啥新意，不知道为什么会搜到它，可能基于llamaindex . 还有他今年写的 [Navigating the Grand Gen AI Dilemma: RAG vs. Fine-Tuning](https://www.tyrell.co/2024/01/navigating-grand-gen-ai-dilemma-rag-vs.html)
 
+复旦 RAG文章解读 https://53ai.com/news/RAG/2024070786014.html 但其实没啥新意，它选的重排模型也很奇怪. 居然有两篇解读 https://53ai.com/news/RAG/2024111238592.html  通篇其实有一点值得试验，但还不知道怎么试验，就是摘要
+
 
 
 ## 11.13
 
 RAG 还能怎么往下走
+
+[使用繁體中文評測 RAG 的 Chunking 切塊策略](https://ihower.tw/blog/archives/12373)
+
+不可能看，太长 [Evaluating Chunking Strategies for Retrieval](https://research.trychroma.com/evaluating-chunking) 留档
+
+[RAG框架，都在这了!](https://53ai.com/news/RAG/2024062056319.html) 和 [AI流程编排产品调研&实践](https://www.53ai.com/news/langchain/2024083003864.html)
+
+https://www.53ai.com/news/langchain/2024083003864.html
+
+[揭秘大模型提升秘诀：RAG系统中的文本分块策略](https://www.53ai.com/news/RAG/2024102494706.html) 说来简单，怎么具体实施
+
+
+
+## 11.15
+
+### tkinter 
+
+偏题一下， 桐桐和曾老师都提了这个问题
+
+[Understanding Tkinter’s Layout Management System](https://medium.com/@glennlenormand/understanding-tkinters-layout-management-system-0176d9712d50)
+
+[What are some examples of the best GUIs that can be done with tkinter?](https://www.reddit.com/r/Python/comments/js5iq7/what_are_some_examples_of_the_best_guis_that_can/) ”Not sure at what level of Tkinter you are. I always considered it more of a tool to get things done than aesthetics tool, in fact I've never used Python in anything **aesthetics** related.“
+
+提到两个库 https://github.com/rdbende/Sun-Valley-ttk-theme 两行代码，设置主题 https://github.com/rdbende/Sun-Valley-ttk-theme/wiki/Usage-with-Python
+
+https://github.com/TomSchimansky/CustomTkinter 逐个替换
+
+
+
+https://github.com/gruns/icecream   Never use print() to debug again.
+
+
+
+https://www.elastic.co/cn/what-is/retrieval-augmented-generation 读 https://www.elastic.co/what-is/retrieval-augmented-generation/
+
+
+
+## 11.25
+
+https://keepachangelog.com/en/1.1.0/
+
+### GPU for docker
+
+https://docs.docker.com/engine/containers/resource_constraints/#gpu
+
+
+
+### Vector Stores comparion 
+
+[FAISS vs Chroma: The Battle of Vector Storage Solutions](https://myscale.com/blog/faiss-vs-chroma-vector-storage-battle/)
+
+[Comparing RAG Part 2: Vector Stores; FAISS vs Chroma](https://medium.com/@stepkurniawan/comparing-faiss-with-chroma-vector-stores-0953e1e619eb)
+
+
+
+### 提示词工程
+
+https://www.promptingguide.ai/zh
+
+https://aws.amazon.com/cn/blogs/china/sixteen-ways-of-prompt-engineering/
+
+[Setting Top-K, Top-P and Temperature in LLMs](https://rumn.medium.com/setting-top-k-top-p-and-temperature-in-llms-3da3a8f74832)
+
+https://www.linkedin.com/pulse/exploring-mechanics-temperature-top-k-top-p-sampling-mba-ms-phd-uwloc/
+
+优化问题，让问题统一 **不可能**
+
+**话术优化？**
+
+[Prompt Engineering — Role Prompting](https://tonylixu.medium.com/prompt-engineering-role-prompting-7f757180011b)
+
+
+
+### instruction tuning
+
+https://www.ibm.com/topics/instruction-tuning
+
+
+
+## 11.28
+
+https://github.com/HqWu-HITCS/Awesome-Chinese-LLM
+
+### citation
+
+https://www.zdnet.com/article/how-to-make-chatgpt-provide-sources-and-citations/
+
+https://www.pcguide.com/apps/can-chatgpt-give-references/
+
+如何显示 citation ? 只有它有吗？
+
+
+
+### 智能体
+
+agent 进一步了解。宪章说的 想要 agent  域名注册可能吗？ 大模型能把输出结果指向某个 agent 吗？感觉不行。
+
+
+
+### dify
+
+[基于 Cloudflare Workers 和 cloudflare-docker-proxy 搭建镜像加速服务](https://www.lixueduan.com/posts/docker/12-docker-mirror/) 2024 年 9 月 8 日开始，docker 已经解封了, 但是镜像没有恢复。
+
+```
+registry-mirrors": ["https://docker-proxy.741001.xyz/","https://docker.1panelproxy.com"]
+}
+```
+
+
+
+
+
+## 12.03
+
+### hugging face speech to speech
+
+https://github.com/huggingface/speech-to-speech
+
+
+
+### 管理不用的python版本
+
+我现在用conda, 用 `environment.yml ` 管理环境 但缺少 lockfiles 机制
+
+之前用过 pyenv ，配合 Poetry 管理 [Proper Python setup with pyenv & Poetry](https://douwevandermeij.medium.com/proper-python-setup-with-pyenv-poetry-4d8baea329a8) (poetry 比更早的 Pipenv 新)
+
+claude 的回答
+
+> No, Conda does not use pyenv - they are completely separate tools that happen to solve similar problems. Let me explain the key differences:
+>
+> Conda:
+>
+> - Has its own implementation for managing Python versions
+> - Downloads and installs its own Python binaries from Anaconda's repositories
+> - Manages both Python versions and packages in one system
+> - Creates environments using its own directory structure, typically under the Anaconda installation directory
+>
+> Pyenv:
+>
+> - Downloads and builds Python from source code
+> - Manages only Python versions (not packages)
+> - Works by manipulating the PATH and shims to point to different Python installations
+> - Can work alongside package managers like pip or poetry
+>
+> While both tools can manage multiple Python versions, they use different approaches
+
+现在又来了一个 https://docs.astral.sh/uv/ 
+
+> pipx is different from all the tools we discussed - it's designed specifically for installing Python applications (CLI tools) in isolated environments, not for managing project dependencies.
+>
+> So if you want to follow best practices:
+>
+> - Use pipx for installing Python-based tools
+> - Use Poetry/Pipenv for managing project dependencies
+> - Use pyenv if you need different Python versions
+> - Use conda if you prefer its all-in-one approach
+>
+> PDM is another modern Python package manager, similar to Poetry but with some unique features. It's actually newer than Poetry and also uses pyproject.toml for configuration.
+
+httpie [Base URL feature](https://github.com/httpie/cli/pull/217) 给 desktop 开了一个问题单 https://github.com/httpie/desktop/issues/201
+
+
+
+## 12.10
+
+### 实现候选问题建议的功能
+
+读 [Six steps to improve your RAG application’s data foundation](https://community.databricks.com/t5/technical-blog/six-steps-to-improve-your-rag-application-s-data-foundation/ba-p/97700) 除了讲indexing 没什么特别，但是indexing也讲没什么，搜索 RAG application "Did you mean..." feature 这些关键字，不知道Google怎么就把他排前面。
+
+重读 Advanced RAG Techniques: an Illustrated Overview 里的 Hypothetical Questions and HyDE 和  Query transformations
+
+理解 HyDE
+
+[Advanced Query Transformations to Improve RAG](https://towardsdatascience.com/advanced-query-transformations-to-improve-rag-11adca9b19d1) 
+
+偏题一下 https://www.joshwcomeau.com/css/custom-css-reset/ 这个一直想了解，找时间看下。
+
+RAG 里 向量化，哪个OCR方案号好？
+
+RAGFlow 跑不起来，跑起来，原来是不支持arm
+
+
+
+### ollama context window size 2048 调查
+
+https://github.com/open-webui/open-webui/discussions/3868 从这里讨论来，但是一直没时间深究
+
+1. https://github.com/ollama/ollama/blob/main/docs/faq.md “By default, Ollama uses a context window size of 2048 tokens.”
+2. [Questions about context size](https://github.com/ollama/ollama/issues/2204) 有个回答显然不正确 “However for large amounts of data, folks often use a workflow called RAG to store data outside of the context window and bring in chunks where required. ”
+3. 问 claude才知道 问题的 prompt（包括检索到内容）和回答都算在 context window 里， 如果有历史对话，则历史对话中的问题和回答，问题不包含检索到的内容，算在context window 里。
+
+
+
+### 如何通俗的解释为什么 rerank 有作用？
+
+之前文章：
+
+1. https://www.pinecone.io/learn/series/rag/rerankers/
+2. https://osanseviero.github.io/hackerllama/blog/posts/sentence_embeddings2/
+3. https://www.pinecone.io/learn/refine-with-rerank/ 之前没看，这次看下
+
+通过和 claude 的讨论，总结三点
+
+搜索 微信里的文章  [使用重排序（Re-Ranking）来改善LLM RAG检索](https://mp.weixin.qq.com/s/4M9zJEUiQhsX0IzajVX5ig) 算是解释得还不错，但是有代码，不适合非技术人员
+
+[大模型RAG中二次重排序的重要性：为什么需要rerank](https://mp.weixin.qq.com/s/K0SNYxZjC6LK7psLOtqfsg) 也不错，忽略代码或许可以给非技术人员用。
+
+[Rerank——RAG中百尺竿头更进一步的神器，从原理到解决方案](https://luxiangdong.com/2023/11/06/rerank/) 以es为例，大致看了一下，说2023年10月开始重排话题才热起来，不知道是否属实。
+
+https://www.53ai.com/news/qianyanjishu/183.html 
+
+但是上述两篇 提到 MRR，用来评估rerank效果的，只适合做第一返回结果的评估评估一个rerank好不好，要多种方法。
+
+
+
+So the main advantages of reranking remain:
+
+1. Addressing information loss from embeddings
+2. Solving the independent encoding problem
+3. Using multiple relevance criteria instead of a fixed similarity metric
+
+
+
+Where does `BAAI/bge-small-en-v1.5` located in my mac ?  `/Users/langqiu/.cache/huggingface/hub/`
+
+
+
+IEITYuan/Yuan-embedding-1.0 真扯淡，一跑就报错 `OSError: IEIYuan/Yuan-embedding-1.0 is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'`
+
+
+
+## 12.20
+
+
+
+### 市面上其他RAG 工具
+
+1. Ragflow 号称对 ocr 和 Excel 解析好，需要验证
+2. 网易的 QAnything，嵌入、重排，LLM都是网易自家，知识库检索不到不回答。 LLM 不能用别家是个大问题。
+3. Dify 功能太多，没空看
+4. Open-webui 最新 0.48再调查，但是 RAG 不像它的主动功能，不方便生成RAG应用
+5. 本地运行的 AnythingLLM
+6. vllm  看来和 ollama 有竞争关系， 通过和 claude.ai的问答有个初步了解。需要再学习一下，比如它的卖点到底在哪？是 ”够有效地利用多核CPU和GPU资源，显著提升LLM的推理速度“ 吗？如果是那暂时不需要看
+7. Omniparser 想通过它来分享整理 excel 文档和ocr，但是它自己的演示版没看到效果；自己搭建又说访问不了 huggingface，所以没有仔细研究。
+
+
+
+### Ragflow 安装过程和收获
+
+1. 通过 它的bug单 https://github.com/infiniflow/ragflow/issues/3989 才知道 原来他们只支持x-86 所以苹果m系列机器跑不起起来（我重新编译docker 镜像也不行）
+2. 在腾讯云安装的搜索
+
+Github 国内镜像 最新的是  https://github.xiaohei.me  来自 https://developer.aliyun.com/article/1178146
+
+[目前国内可用Docker镜像源汇总（截至2024年12月）](https://www.coderjia.cn/archives/dba3f94c-a021-468a-8ac6-e840f85867ea)
+
+```
+sudo vi /etc/docker/daemon.json
+"registry-mirrors": [
+    	"https://docker.unsee.tech",
+        "https://dockerpull.org",
+        "https://docker.1panel.live",
+        "https://dockerhub.icu"
+    ]
+//修改为重启
+
+sudo systemctl daemon-reload && sudo systemctl restart docker
+```
+
+3. 刚开始使用中，还没发现好在哪，但他们公众号的几篇文章值得读读：
+   1. 目前多路召回其实就是两路，语义搜索和 BM25， 但是 它引入额外两路 **稀疏向量** Sparse Vector 和 **张量** Tensor 没仔细研究 ，InfiniFlow 公众号文章需要梳理一下
+   2. "写在RAGFlow开源2万星标之际" 评述的它认为ES的不足和它的替代
+   3. GraphRAG 还没时间研究 
+   4. 它的第一篇文章 ”从企业搜索到 RAG“ 找时间再看看。
+
