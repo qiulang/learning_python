@@ -265,6 +265,9 @@ print(i)  # (变量i仍然存在)
 for _ in range(n):
     print("执行操作")
 
+# 遍历字符串
+for char in "hello":
+  
 # 遍历列表
 names = ['Alice', 'Bob', 'Charlie']
 for name in names:
@@ -273,6 +276,9 @@ for name in names:
 # 需要索引时
 for i, name in enumerate(names):
     print(f"{i}: {name}")
+    
+# 遍历文件
+for line in open("file.txt"): # 文件
     
 # 参见 19. zip 同时遍历n个列表
 ```
@@ -658,7 +664,9 @@ print(a == b)  # True - 值相等
 print(a is b)  # False - 不是同一个对象
 ```
 
-**None的判断用is而非==**
+**None的判断用is而非==**  
+
+函数没有明确写 return 就是 `return None`
 
 | **语言**   | **空值关键字**                                | **推荐判断方式**                  |
 | ---------- | --------------------------------------------- | --------------------------------- |
@@ -1586,6 +1594,8 @@ print(v3)     # 调用 __str__: "Vector(4, 6)"
 ---
 
 ### 27. 类型提示（Type Hints，Python 3.5+）
+
+type hint 是开发大型项目建议的方法，但对于写简单脚本不是必须；简单的脚步 python 更倾向于用 **Duck Typing**  方式, Duck Typing 其实最简单的解释就是**函数参数**不检查(指定)类型，直接调用它的方法（可以类比 ts 和 js ）duck typing这个概念也不需要专门了解，因为已经实际天天在用。
 
 ```python
 from typing import List, Dict, Optional

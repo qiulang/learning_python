@@ -98,6 +98,8 @@ https://cseducators.stackexchange.com/questions/5023/why-do-we-count-starting-fr
 
 ## 2026.2.3
 
+### 总结 python 学习手册
+
 从 2019年4月份开始，学习python居然已经6年了！借助claude写了一份python手册（改了4版）。同时把每年记录的学习内容又会看了一遍。发现从一开我就对python虚拟环境的管理花了很多时间. 
 
 手册里对 空list和 *args和**kwargs详解 我自己其实也没深入。
@@ -117,3 +119,34 @@ https://www.nicholashairs.com/posts/major-changes-between-python-versions/
 https://blog.jetbrains.com/pycharm/2025/08/the-state-of-python-2025/
 
 https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/
+
+
+
+## 2026.2.10
+
+### 学习材料
+
+[The Car That Would Not Stop](https://levelup.gitconnected.com/the-car-that-would-not-stop-f9eea9d35ae0)
+
+https://datawhalechina.github.io/hello-agents/
+
+https://blog.algomaster.io/p/scaling-a-system-from-0-to-10-million-users
+
+
+
+## 2026.2.27
+
+### 学习材料
+
+1. 如果要学 css https://frontendmasters.com/blog/what-you-need-to-know-about-modern-css-2025-edition/
+2. https://allenpike.com/2026/a-broken-heart/
+3. https://www.clientserver.dev/p/war-story-the-hardest-bug-i-ever 绝对值的实现 bug
+4. https://claude.com/blog/using-claude-md-files
+5. https://www.newyorker.com/culture/rabbit-holes/the-uncanny-failures-of-ai-generated-hands
+6. https://nodesource.com/blog/worker-threads-nodejs-multithreading-in-javascript
+
+
+
+学习智能体
+
+https://datawhalechina.github.io/

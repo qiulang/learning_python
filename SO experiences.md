@@ -1,4 +1,4 @@
-在SO 上一次不愉快的经历
+### 2020 在SO 上一次不愉快的经历
 
 [When a moderator is suspended, can the question closed by him/her be considered reopened again?](https://meta.stackoverflow.com/questions/420767/when-a-moderator-is-suspended-can-the-question-closed-by-him-her-be-considered)
 
@@ -49,3 +49,12 @@ And now there is even more meta commentary completely irrelevant to the actions 
 
 – [VLAZ](https://meta.stackoverflow.com/users/3689450/vlaz)
 
+### 2026 又一次不愉快
+1. https://stackoverflow.com/questions/79867460/ci-cd-problem-in-the-voip-rtc-development  被删除
+
+
+My team develops VoIP/ Real-Time Communication system (WebRTC/SIP/custom protocol). The core feature is to make the phone call and the actual call quality. I am not aware of any automation tool can validate the actual user experience of a phone call. Without an effective automation test tool I feel CI/CD pipeline is less useful here. I think the entire premise of CI/CD is: "Automate quality verification → gain confidence → deploy frequently and safely", but in my case it may end up with "continuous deployment of unknown quality" - which is arguably worse than careful manual releases. (But merge frequently is always good)
+
+So how can CI/CD help in my case ? And a specific question , what kind of unit test code that is worth developing in my case ?
+
+2. 对这个问题分析 https://meta.stackexchange.com/questions/416815/with-a-massive-drop-in-questions-what-happens-if-we-maintain-the-status-quo/416857#416857
